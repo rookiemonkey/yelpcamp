@@ -1,0 +1,129 @@
+<%- include("partials/header") %> 
+
+<section id="campgroundParentContainer"> 
+
+    <% if (success.length > 0) { %> 
+        <div class="ui positive message" style="margin: 2% 5%;">
+            <div class="header"><%= success %></div>
+        </div>
+    <% } %> 
+
+    <div id="campgroundContainer" class="ui relaxed grid">
+        <!-- sticky sidebar -->
+        <article id="sidebar" class="six wide column>">
+            <div id="sidebarNavigation" class="ui vertical pointing menu">
+                <a class="item">Home</a>
+                <a class="item">Messages</a>
+                <a class="item">Friends</a>
+            </div>
+        </article>
+
+        <!-- main campground card -->
+        <article id="campgroundCard" class="ten wide column>">
+            <div class="ui card">
+                <div class="image">
+                    <img lass="ui fluid image" src="<%= campground.image %>" alt="<%= campground.campname %>">
+                </div>
+                <div class="content">
+                    <span class="header"><%= campground.campname %></span>
+                    <div id="priceContainer" class="ui tag labels">
+                        <span id="pricetag" class="ui green label">$ 9 / night</span>
+                    </div>
+                    <div class="meta">
+                        <div class="date"><em>Submitted by:  &nbsp<strong><%= campground.uploader.name %></em></strong></div>
+                        <span class="date"><%= campground.location %></span>
+                    </div>
+                    <div class="description">
+                        <%= campground.description %>
+                    </div>
+                </div>
+                <div class="ui celled list">
+
+                <!-- delete campground -->
+                <% if(user !== undefined) {%>
+                    <% if(user.id == campground.uploader.id) {%>
+                        <form class="ui form deleteCampground" action="/campgrounds/<%= campground._id %>/delete?_method=DELETE" method="POST">
+                            <div class="inline fields">
+                                <div class="one wide field">
+                                    <a id="editButton" class="ui orange basic button" href="/campgrounds/<%= campground.id %>/edit">Edit</a>
+                                    <button id="deleteButton" class="ui negative basic button">Delete</button>
+                                </div>
+                            </div>
+                        </form>
+                    <% }; %>
+                <% }; %>
+
+                <!-- add comment section -->
+                <% if(user !== undefined) {%>
+                <form class="ui form" action="/campgrounds/<%= campground._id %>/comment" method="POST">
+                    <div class="inline fields">
+                        <div class="fifteen wide field">
+                            <input type="text" name="comment" placeholder="Comment" autocomplete="off" required>
+                        </div>
+                        <button class="positive ui button">Review</button>
+                    </div>
+                </form>
+                <% }; %>
+
+                <!-- comments section -->
+                <% if(campground.comments.length > 0) { %>
+                    <% campground.comments.forEach(com => { %>
+                        <div class="item"> 
+                            <div class="content">
+
+                                <!-- author / date of the comment -->
+                                <div class="header">
+                                    <%= com.author.name %><span id="date"><%= com.date.toDateString() %></span>
+                                </div>
+
+                                <!-- edit / delete comment -->
+                                <% if(user !== undefined) {%>
+                                    <% if(user.username == com.author.name) {%>
+                                        <div class="editCommentContainer">
+                                            <span id="date">
+                                                <a id="editComment" class="ui mini orange basic button">Edit</a>
+                                            </span>
+                                        </div>
+
+                                        <form class="ui form deleteCommentBtn" action="/campgrounds/<%= campground._id %>/comment/<%= com._id %>/delete?_method=DELETE" method="POST">
+                                            <div class="inline fields">
+                                                <div class="one wide field">
+                                                    <button class="ui mini negative basic button">Delete</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    <% }; %>
+                                <% }; %>
+
+                                <!-- the comment -->
+                                <div class="description">
+                                    <span><em>"<%= com.comment %>"</em></span>
+                                </div>
+
+                                <!-- update comment box visible upon click of edit -->
+                                <% if(user !== undefined) {%>
+                                    <% if(user.username == com.author.name) {%>
+                                        <form id="updateCommentBox"  class="ui form hidden updateCommentBox" action="/campgrounds/<%= campground._id %>/comment/<%= com._id %>/update?_method=PUT" method="POST">
+                                            <div class="inline fields">
+                                                <div class="fifteen wide field">
+                                                    <input type="text" name="comment" placeholder="Comment" autocomplete="off" value="<%= com.comment %>" required>
+                                                </div>
+                                                <button class="positive ui button" id="commentUpdate">Update</button>
+                                                <button class="positive ui button" id="commentCancel">Cancel</button>
+                                            </div>
+                                        </form>
+                                    <% }; %>
+                                <% }; %>
+
+                            </div>
+                        </div>
+                    <%  }); %>
+                <% }; %>
+
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<%- include("partials/footer") %> 

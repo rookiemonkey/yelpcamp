@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <script src="https://kit.fontawesome.com/f5d315bff2.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <title>Yelp Camp</title>
+</head>
+<body>
+<header id="headline">
+    <nav class="ui borderless main menu" style="background-color: transparent; border: none; box-shadow: none; border-radius: 0px;">
+        <div class="ui text container">
+          <div class="header item">
+            <i class="bandcamp icon"></i>
+            Yelp Camp
+          </div>
+          <% if (user === undefined) { %> 
+            <a href="/campgrounds" class="item">Home</a>
+            <a href="/campgrounds/login" class="item">Login</a>
+            <a href="/campgrounds/signup" class="item">Sign Up</a>
+          <% } else { %> 
+            <a href="#" class="item">Good day, <%= user.username %> </a>
+            <a href="/campgrounds" class="item">Home</a>
+            <a href="/campgrounds/new" class="item">Add</a> 
+            <a href="/campgrounds/logout" class="item">Logout</a>
+          <% } %> 
+        </div>
+      </nav>
+    <div id="headlineContainer">
+        <i class="fas fa-campground"></i>
+        <h1>Yelp Camp</h1>
+        <hr>
+        <span><em>“Sleep under a blanket of stars, and your heart will forever be kept warm by your love of life.”</em></span>
+        <button class="ui button"><a href="#campgrounds">Start Now</a></button>
+    </div>
+</header>

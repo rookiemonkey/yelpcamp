@@ -1,0 +1,41 @@
+<%- include("partials/campgroundHeader") %>
+
+    <!-- message for successfully adding a camp -->
+    <% if (success.length > 0) { %> 
+        <div class="ui positive message" style="margin: 2% 5%;">
+            <div class="header"><%= success %></div>
+        </div>
+    <% } %> 
+
+        <!-- message for successfully deleting a camp -->
+    <% if (info.length > 0) { %> 
+        <div class="ui positive message" style="margin: 2% 5%;">
+            <div class="header"><%= info %></div>
+        </div>
+    <% } %> 
+
+<article id="campgrounds" class="ui four stackable cards">
+
+    <% campgrounds.forEach(camp => { %> 
+        <section class="card">
+            <div class="image">
+                <img src="<%= camp.image %>" alt="<%= camp.campname %>">
+            </div>
+            <div class="content">
+                <div class="meta">
+                    <h2><%= camp.campname %></h2>
+                    <span class="date"><%= camp.location %></span>
+                </div>
+                <div class="description">
+                    <span><%= camp.description.substring(0, 70) %>..</span>
+                </div>
+            </br>
+                <div id="buttonContainer">
+                    <a href="/campgrounds/<%= camp.id %>"><button class="ui right labeled icon button"><i class="right arrow icon"></i>See More</button></a>
+                </div>
+            </div>
+        </section>
+    <% }) %> 
+</article>
+
+<%- include("partials/footer") %> 

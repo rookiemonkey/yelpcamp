@@ -1,0 +1,28 @@
+<%- include("partials/header") %> 
+
+<section id="loginFormContainerParent">
+    <div id="formContainer">
+        
+        <!-- error message -->
+        <% if (error.length > 0) { %> 
+            <div class="ui negative message">
+                <div class="header"><%= error %></div>
+            </div>
+        <% } %> 
+
+        <h1>Login</h1>
+        <form class="ui form" action="/campgrounds/login" method="POST">
+            <div class="field">
+                <label for="Username">Username</label>
+                <input type="text" id="Username" name="username" placeholder="Username" autocomplete="off" maxlength="50" required>
+            </div>
+            <div class="field">
+                <label for="Password">Password</label>
+                <input type="password" id="Password" name="password" placeholder="Password"  autocomplete="off" maxlength="50" required>
+            </div>
+            <button class="ui button" type="submit">Login</button>
+        </form>
+    </div>
+</section>
+
+<%- include("partials/footer") %> 

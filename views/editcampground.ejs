@@ -1,0 +1,29 @@
+<%- include("partials/header") %> 
+
+<section>
+    <div id="formContainer">
+        <h1>Editing Campground "<strong><%= campground.campname %></strong>"</h1>
+        <form class="ui form" action="/campgrounds/<%= campground._id %>/update?_method=PUT" method="POST">
+            <div class="field">
+                <label for="Camp Name">Camp Name</label>
+                <input type="text" id="Camp Name" value="<%= campground.campname %>" name="updates[campname]" autocomplete="off" required>
+            </div>
+            <div class="field">
+                <label for="Image URL">Image URL</label>
+                <input type="text" id="Image URL" value="<%= campground.image %>" name="updates[image]" autocomplete="off" required>
+            </div>
+            <div class="field">
+                <label for="location">Location</label>
+                <input type="text" id="location" value="<%= campground.location %>" name="updates[location]" autocomplete="off" required>
+            </div>
+            <div class="field">
+                <label for="description">Description</label>
+                <textarea name="updates[description]" required style="font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;"><%= campground.description %></textarea>
+            </div>
+            <button class="ui button" type="submit">Update</button>
+        </form>
+    </div>
+</section>
+
+<%- include("partials/footer") %> 
+

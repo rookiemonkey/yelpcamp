@@ -1,0 +1,29 @@
+<%- include("partials/header") %> 
+
+<section>
+    <div id="formContainer">
+        <h1>New Campground Form</h1>
+        <form class="ui form" action="/campgrounds/new" method="POST">
+            <div class="field">
+                <label for="Camp Name">Camp Name</label>
+                <input type="text" id="Camp Name" name="name" placeholder="Wonder woods" autocomplete="off" required>
+            </div>
+            <div class="field">
+                <label for="Image URL">Image URL</label>
+                <input type="text" id="Image URL" placeholder="http://www.image.com/image.jpg" name="image" autocomplete="off" required>
+            </div>
+            <div class="field">
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="Arizona, USA" name="location" autocomplete="off" required>
+            </div>
+            <div class="field">
+                <label for="description">Description</label>
+                <textarea name="description" placeholder="Description" required style="font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;"></textarea>
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+<%- include("partials/footer") %> 
+
