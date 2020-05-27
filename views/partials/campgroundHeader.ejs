@@ -10,6 +10,7 @@
     <title>Yelp Camp</title>
 </head>
 <body>
+
 <header id="headline">
     <nav class="ui borderless main menu" style="background-color: transparent; border: none; box-shadow: none; border-radius: 0px;">
         <div class="ui text container">
@@ -22,7 +23,7 @@
             <a href="/campgrounds/login" class="item">Login</a>
             <a href="/campgrounds/signup" class="item">Sign Up</a>
           <% } else { %> 
-            <a href="#" class="item">Good day, <%= user.username %> </a>
+            <a class="item">Good day, <%= user.username %> </a>
             <a href="/campgrounds" class="item">Home</a>
             <a href="/campgrounds/new" class="item">Add</a> 
             <a href="/campgrounds/logout" class="item">Logout</a>
@@ -30,6 +31,21 @@
         </div>
       </nav>
     <div id="headlineContainer">
+
+      <!-- message for successfully adding a camp -->
+      <% if (success.length > 0) { %> 
+          <div class="ui positive message" style="margin: 0 0 5% 0">
+              <div class="header" style="text-align: center;"><%= success %></div>
+          </div>
+      <% } %> 
+
+      <!-- message for successfully deleting a camp -->
+      <% if (info.length > 0) { %> 
+          <div class="ui positive message" style="margin: 0 0 5% 0">
+              <div class="header" style="text-align: center;"><%= info %></div>
+          </div>
+      <% } %> 
+
         <i class="fas fa-campground"></i>
         <h1>Yelp Camp</h1>
         <hr>

@@ -1,19 +1,5 @@
 <%- include("partials/campgroundHeader") %>
 
-    <!-- message for successfully adding a camp -->
-    <% if (success.length > 0) { %> 
-        <div class="ui positive message" style="margin: 2% 5%;">
-            <div class="header"><%= success %></div>
-        </div>
-    <% } %> 
-
-        <!-- message for successfully deleting a camp -->
-    <% if (info.length > 0) { %> 
-        <div class="ui positive message" style="margin: 2% 5%;">
-            <div class="header"><%= info %></div>
-        </div>
-    <% } %> 
-
 <article id="campgrounds" class="ui four stackable cards">
 
     <% campgrounds.forEach(camp => { %> 
