@@ -13,18 +13,21 @@
   <nav class="ui borderless main menu">
     <div class="ui text container">
       <div class="header item">
-        <i class="bandcamp icon"></i>
-        Yelp Camp
+        <span><i class="bandcamp icon"></i>Yelp Camp</span>
+        <% if (user !== undefined) { %> 
+          <a href="/campgrounds" class="item">Home</a>
+          <a href="/campgrounds/new" class="item">Add</a> 
+          <a href="/campgrounds/logout" class="item">Logout</a>
+        <% } %>
       </div>
-      <% if (user === undefined) { %> 
-        <a href="/campgrounds" class="item">Home</a>
-        <a href="/campgrounds/login" class="item">Login</a>
-        <a href="/campgrounds/signup" class="item">Sign Up</a>
-      <% } else { %> 
-        <a href="#" class="item">Good day, &nbsp <%= user.username %> </a>
-        <a href="/campgrounds" class="item">Home</a>
-        <a href="/campgrounds/new" class="item">Add</a> 
-        <a href="/campgrounds/logout" class="item">Logout</a>
-      <% } %> 
+      <div class="nav options">
+        <% if (user === undefined) { %> 
+          <a href="/campgrounds" class="item">Home</a>
+          <a href="/campgrounds/login" class="item">Login</a>
+          <a href="/campgrounds/signup" class="item">Sign Up</a>
+        <% } else { %> 
+          <span class="item">Good day, &nbsp <strong><%= user.username %></strong></span>
+        <% } %> 
+      </div>
     </div>
   </nav>
