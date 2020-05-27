@@ -33,6 +33,7 @@ const Comment = require("./public/schemas/commentSchema");
 const Campground = require("./public/schemas/campgroundSchema");
 const User = require("./public/schemas/userSchema");
 const PORT = 8000;
+require('dotenv').config() // parses the .env file containing the environment variable
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -42,7 +43,7 @@ app.use(sanitizer());
 
 // passport configuration
 app.use(session({
-    secret: "everyday is a new learning for me.",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }))
@@ -63,12 +64,18 @@ app.use( function (req, res, next) { // this is to pass in the variables on all 
 // =========================================
 // CONNECT/CHECK DATABASE
 // =========================================
-mongoose.connect("mongodb://localhost/yelpcamp", {useNewUrlParser: true});
+let url;
+process.env.PORT === undefined ? url = process.env.DBURL : url = "mongodb+srv://rookiemonkey:rookiemonkey@kevinroi-pw4oq.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(url, {useNewUrlParser: true});
 mongoose.connection.on("error", () => {
     console.error("Something went wrong upon connecting to the database. TIMESTAMP:", Date());
 });
 mongoose.connection.on("open", () => {
-    console.log("Established connection to Mongo Local database. TIMESTAMP:", Date())
+    if (process.env.DBURL == "mongodb://localhost/yelpcamp"){
+        console.log("Established connection to Mongo Local database. TIMESTAMP:", Date())
+    } else {
+        console.log("Established connection to Mongo Atlas remote database. TIMESTAMP:", Date())
+    }
 });
 
 // =========================================
@@ -91,6 +98,10 @@ app.use(require("./public/routes/error404"));       // /*
 // =========================================
 // SERVER
 // =========================================
-app.listen(PORT, () => {
-    console.log(`Yelpcamp server started at http://localhost:${PORT} TIMESTAMP: `, Date());
+app.listen(process.env.PORT || PORT, () => {
+    if (process.env.DBURL == "mongodb://localhost/yelpcamp"){
+        console.log(`Yelpcamp server started at http://localhost:${PORT} TIMESTAMP: `, Date());
+    } else {
+        console.log(`Yelpcamp server started at ${process.env.IP}:${process.env.PORT} TIMESTAMP: `, Date());
+    }
 });
