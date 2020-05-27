@@ -33,7 +33,7 @@
                         <div class="date"><em>Submitted by:  &nbsp<strong><%= campground.uploader.name %></em></strong></div>
                         <span class="date"><%= campground.location %></span>
                     </div>
-                    <div class="description">
+                    <div class="description" id="description">
                         <%= campground.description %>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         <div class="fifteen wide field">
                             <input type="text" name="comment" placeholder="review details" autocomplete="off" required>
                         </div>
-                        <button class="positive ui button">Review</button>
+                        <button id="reviewButton" class="positive ui button">Review</button>
                     </div>
                 </form>
                 <% }; %>
