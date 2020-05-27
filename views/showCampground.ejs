@@ -27,7 +27,7 @@
                 <div class="content">
                     <span class="header"><%= campground.campname %></span>
                     <div id="priceContainer" class="ui tag labels">
-                        <span id="pricetag" class="ui green label">$ 9 / night</span>
+                        <span id="pricetag" class="ui green label">$ <%= campground.price %> / night</span>
                     </div>
                     <div class="meta">
                         <div class="date"><em>Submitted by:  &nbsp<strong><%= campground.uploader.name %></em></strong></div>

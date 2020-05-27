@@ -31,6 +31,7 @@ router.post("/campgrounds/new", isLoggedIn,(req, res) => {
     let uploader = { id: req.user.id, name: req.user.username}
     let newCampground = {
         campname: campname, 
+        price: req.body.price,
         image: req.body.image, 
         location: location, 
         description: description,
