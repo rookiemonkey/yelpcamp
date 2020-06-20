@@ -2,6 +2,10 @@
 
 <article id="campgrounds" class="ui four stackable cards">
 
+    <% if(message) { %>
+        <h4><%=message%></h4>
+    <% } %>
+
     <% campgrounds.forEach(camp => { %>
         <section class="card">
             <div class="image">
