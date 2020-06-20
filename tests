@@ -1,0 +1,30 @@
+not logged in  // camp
+    -- cant add camp with postman? ====// it redirects to login == fixed with error message
+    -- cant delete camp with postman? ====// it redirects to login == fixed with error message
+    -- cant edit camp with postman? ====// it redirects to login == fixed with error message
+    -- cant update camp with postman mp? ====// it redirects to login == fixed with error message
+
+logged in and owner of the camp
+    -- add camp? working == now with success msg
+    -- edit camp? working == now with seccess msg
+    -- update camp? working ==  now with seccess msg
+    -- delete camp? working ==  now with seccess msg
+
+
+not logged in comment
+    -- add comment with postman? ====// it redirects to login == fixed with error message
+    -- delete comment with postman? ====// it redirects to login == fixed with error message
+    -- edit/update comment with postman? ====// it redirects to login == fixed with error message
+
+logged in comment
+    -- add comment? working, db ok
+    -- delete comment? working, db ok
+    -- edit comment? working, db ok
+    -- update comment? working, db ok
+
+    
+login
+    -- errors ok
+    
+sign up
+    -- errors ok

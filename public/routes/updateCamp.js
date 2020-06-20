@@ -12,9 +12,20 @@ const Campground = require("../schemas/campgroundSchema");
 router.put("/campgrounds/:id/update",( req, res) => {
     Campground.findById(req.params.id, (err, foundCampground) => {
         if(req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id)) {
+
+            geocoder.geocode(req.body.updates.location, function (err, data) {
+            if (err || !data.length) {
+              req.flash('error', 'Invalid address');
+              return res.redirect('back');
+            }
+            req.body.updates.lat = data[0].latitude;
+            req.body.updates.lng = data[0].longitude;
+            req.body.updates.location = data[0].formattedAddress;
+
             Campground.findByIdAndUpdate(req.params.id, req.body.updates, (err) => {
                 if(err) {
-                    console.error(err);
+                    req.flash("error", `Something went wrong upon updating. ${err.message} Please try again`);
+                    res.redirect(`/campgrounds/${req.params.id}`);
                 } else {
                     req.flash("success", `${req.user.username}, your "${foundCampground.campname}" camp was updated successfully`);
                     res.redirect(`/campgrounds/${req.params.id}`);

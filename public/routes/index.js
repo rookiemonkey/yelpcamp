@@ -3,17 +3,7 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
-const NodeGeocoder = require('node-geocoder');
 const Campground = require("../schemas/campgroundSchema");
-
-const options = {
-  provider: 'google',
-  httpAdapter: 'https',
-  apiKey: process.env.GEOCODER_API_KEY,
-  formatter: null
-};
-
-const geocoder = NodeGeocoder(options);
 
 // ===========================
 // INDEX ROUTE
