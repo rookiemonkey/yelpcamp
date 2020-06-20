@@ -1,0 +1,16 @@
+/* KNOW ISSUES
+------------- STYLES
+------------- header banner not responsive
+------------- add camp form badly needs a background
+------------- login form badly needs a background
+
+------------- ROUTES / FUNCTIONALITIES
+------------- sticky sidebar nav options should be different when signed in or not
+
+------------- NOT ON THE COURSE
+------------- rent button shown to users that is not the owner of the camp
+------------- page to display the account of the user all of camp he uploaded
+------------- campground lists display
+              ------------- if logged in, show only those that user doesn't own
+              ------------- if not, the n show all campgrounds
+*/

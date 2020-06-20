@@ -1,23 +1,7 @@
-/* KNOW ISSUES
-------------- STYLES
-------------- header banner not responsive
-------------- add camp form badly needs a background
-------------- login form badly needs a background
-
-------------- ROUTES / FUNCTIONALITIES
-------------- sticky sidebar nav options should be different when signed in or not
-
-------------- NOT ON THE COURSE
-------------- rent button shown to users that is not the owner of the camp
-------------- page to display the account of the user all of camp he uploaded
-------------- campground lists display
-              ------------- if logged in, show only those that user doesn't own
-              ------------- if not, the n show all campgrounds
-*/
-
 // =========================================
 // DEPENDENCIES
 // =========================================
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const sanitizer = require("express-sanitizer");
@@ -32,8 +16,7 @@ const mongoose = require("mongoose");
 const Comment = require("./public/schemas/commentSchema");
 const Campground = require("./public/schemas/campgroundSchema");
 const User = require("./public/schemas/userSchema");
-const PORT = 8000;
-require('dotenv').config() // parses the .env file containing the environment variable
+const PORT = process.env.PORT || 8000;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -53,20 +36,19 @@ passport.use(new passportLocal(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(flash()); // flash requires session in order to work properly
-app.use( function (req, res, next) { // this is to pass in the variables on all the responses being made
+// flash configuration
+app.use(flash());
+app.use( function (req, res, next) {
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     res.locals.info = req.flash("info");
-    next(); // this is important unless you want your browser to load forever
+    next();
 })
 
 // =========================================
 // CONNECT/CHECK DATABASE
 // =========================================
-let url;
-process.env.PORT === undefined ? url = process.env.DBURL : url = "mongodb+srv://rookiemonkey:rookiemonkey@kevinroi-pw4oq.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(url, {useNewUrlParser: true});
+mongoose.connect(process.env.DBURL, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connection.on("error", () => {
     console.error("Something went wrong upon connecting to the database. TIMESTAMP:", Date());
 });
@@ -98,10 +80,10 @@ app.use(require("./public/routes/error404"));       // /*
 // =========================================
 // SERVER
 // =========================================
-app.listen(process.env.PORT || PORT, () => {
-    if (process.env.DBURL == "mongodb://localhost/yelpcamp"){
+app.listen(PORT, () => {
+    if (PORT == 8000){
         console.log(`Yelpcamp server started at http://localhost:${PORT} TIMESTAMP: `, Date());
     } else {
-        console.log(`Yelpcamp server started at ${process.env.IP}:${process.env.PORT} TIMESTAMP: `, Date());
+        console.log(`Yelpcamp server started at HEROKU PORT:${process.env.PORT} TIMESTAMP: `, Date());
     }
 });
