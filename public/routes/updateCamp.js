@@ -14,10 +14,11 @@ router.put("/campgrounds/:id/update",( req, res) => {
         if(req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id)) {
 
             geocoder.geocode(req.body.updates.location, function (err, data) {
-            if (err || !data.length) {
-              req.flash('error', 'Invalid address');
-              return res.redirect('back');
-            }
+                if (err || !data.length) {
+                  req.flash('error', 'Invalid address');
+                  return res.redirect('back');
+                }
+            });
             req.body.updates.lat = data[0].latitude;
             req.body.updates.lng = data[0].longitude;
             req.body.updates.location = data[0].formattedAddress;

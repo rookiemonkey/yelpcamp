@@ -34,10 +34,11 @@ router.post("/campgrounds/new", (req, res) => {
     const uploader = { id: req.user.id, name: req.user.username}
 
     geocoder.geocode(location, function (err, data) {
-    if (err || !data.length) {
-      req.flash("error", "Invalid address");
-      return res.redirect("/campgrounds");
-    }
+        if (err || !data.length) {
+          req.flash("error", "Invalid address");
+          return res.redirect("/campgrounds");
+        }
+    })
     const lat = data[0].latitude;
     const lng = data[0].longitude;
     const GeocodedLocation = data[0].formattedAddress;
