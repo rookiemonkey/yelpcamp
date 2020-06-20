@@ -2,7 +2,7 @@
 
 <article id="campgrounds" class="ui four stackable cards">
 
-    <% campgrounds.forEach(camp => { %> 
+    <% campgrounds.forEach(camp => { %>
         <section class="card">
             <div class="image">
                 <img src="<%= camp.image %>" alt="<%= camp.campname %>">
@@ -21,7 +21,8 @@
                 </div>
             </div>
         </section>
-    <% }) %> 
+    <% }) %>
+
 </article>
 
-<%- include("partials/footer") %> 
+<%- include("partials/footer") %>

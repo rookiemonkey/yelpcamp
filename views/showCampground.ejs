@@ -1,12 +1,13 @@
-<%- include("partials/header") %> 
+<%- include("partials/header") %>
 
-<section id="campgroundParentContainer"> 
+<section id="campgroundParentContainer">
 
-    <% if (success.length > 0) { %> 
+    <!-- alert message -->
+    <% if (success.length > 0) { %>
         <div class="ui positive message" style="margin: 2% 5%;">
             <div class="header"><%= success %></div>
         </div>
-    <% } %> 
+    <% } %>
 
     <div id="campgroundContainer" class="ui relaxed grid">
         <!-- sticky sidebar -->
@@ -68,7 +69,7 @@
                 <!-- comments section -->
                 <% if(campground.comments.length > 0) { %>
                     <% campground.comments.forEach(com => { %>
-                        <div class="item"> 
+                        <div class="item">
                             <div class="content">
 
                                 <!-- author / date of the comment -->
@@ -126,4 +127,4 @@
     </div>
 </section>
 
-<%- include("partials/footer") %> 
+<%- include("partials/footer") %>

@@ -16,38 +16,38 @@
         <div class="ui text container">
           <div class="header item">
             <span><i class="bandcamp icon"></i>Yelp Camp</span>
-            <% if (user !== undefined) { %> 
+            <% if (user !== undefined) { %>
               <a href="/campgrounds" class="item">Home</a>
-              <a href="/campgrounds/new" class="item">Add</a> 
+              <a href="/campgrounds/new" class="item">Add</a>
               <a href="/campgrounds/logout" class="item">Logout</a>
             <% } %>
           </div>
           <div class="nav options">
-            <% if (user === undefined) { %> 
+            <% if (user === undefined) { %>
               <a href="/campgrounds" class="item">Home</a>
               <a href="/campgrounds/login" class="item">Login</a>
               <a href="/campgrounds/signup" class="item">Sign Up</a>
-            <% } else { %> 
+            <% } else { %>
               <span class="item">Good day, &nbsp <strong><%= user.username %></strong></span>
-            <% } %> 
+            <% } %>
           </div>
         </div>
       </nav>
     <div id="headlineContainer">
 
       <!-- message for successfully adding a camp -->
-      <% if (success.length > 0) { %> 
+      <% if (success.length > 0) { %>
           <div class="ui positive message" style="margin: 0 0 5% 0">
               <div class="header" style="text-align: center;"><%= success %></div>
           </div>
-      <% } %> 
+      <% } %>
 
       <!-- message for successfully deleting a camp -->
-      <% if (info.length > 0) { %> 
+      <% if (info.length > 0) { %>
           <div class="ui positive message" style="margin: 0 0 5% 0">
               <div class="header" style="text-align: center;"><%= info %></div>
           </div>
-      <% } %> 
+      <% } %>
 
         <i class="fas fa-campground"></i>
         <h1>Yelp Camp</h1>

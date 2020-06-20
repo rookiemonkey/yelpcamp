@@ -14,20 +14,20 @@
     <div class="ui text container">
       <div class="header item">
         <span><i class="bandcamp icon"></i>Yelp Camp</span>
-        <% if (user !== undefined) { %> 
+        <% if (user !== undefined) { %>
           <a href="/campgrounds" class="item">Home</a>
-          <a href="/campgrounds/new" class="item">Add</a> 
+          <a href="/campgrounds/new" class="item">Add</a>
           <a href="/campgrounds/logout" class="item">Logout</a>
         <% } %>
       </div>
       <div class="nav options">
-        <% if (user === undefined) { %> 
+        <% if (user === undefined) { %>
           <a href="/campgrounds" class="item">Home</a>
           <a href="/campgrounds/login" class="item">Login</a>
           <a href="/campgrounds/signup" class="item">Sign Up</a>
-        <% } else { %> 
+        <% } else { %>
           <span class="item">Good day, &nbsp <strong><%= user.username %></strong></span>
-        <% } %> 
+        <% } %>
       </div>
     </div>
   </nav>

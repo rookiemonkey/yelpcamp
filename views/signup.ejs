@@ -1,15 +1,16 @@
-<%- include("partials/header") %> 
+<%- include("partials/header") %>
 
 <section id="signUpFormContainerParent">
     <div id="formContainer">
 
         <!-- error message -->
-        <% if (error.length > 0) { %> 
+        <% if (error.length > 0) { %>
             <div class="ui negative message">
                 <div class="header"><%= error %></div>
             </div>
-        <% } %> 
+        <% } %>
 
+        <!-- sign up form -->
         <h1>Signup</h1>
         <form class="ui form" action="/campgrounds/signup" method="POST">
             <div class="field">
@@ -22,7 +23,8 @@
             </div>
             <button class="ui button" type="submit">Sign Up</button>
         </form>
+
     </div>
 </section>
 
-<%- include("partials/footer") %> 
+<%- include("partials/footer") %>
