@@ -5,6 +5,8 @@ let campSchema = mongoose.Schema({
     price: String,
     image: String,
     location: String,
+    lat: Number,
+    lng: Number,
     description: String,
     uploader: {
             id: {
