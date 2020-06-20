@@ -24,14 +24,4 @@ let campSchema = mongoose.Schema({
     ]
 });
 
-// this is a pre hook that suppose to help with the campground deletion
-// however this is not working ..
-// campSchema.pre('remove', async function() {
-// 	await Comment.remove({
-// 		_id: {
-// 			$in: this.comments
-// 		}
-// 	});
-// });
-
 module.exports = mongoose.model("Campground", campSchema)

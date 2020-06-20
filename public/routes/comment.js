@@ -3,15 +3,9 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const sanitizer = require("express-sanitizer");
-const passport = require("passport");
-const passportLocal = require("passport-local");
-const passportLocalMongoose = require("passport-local-mongoose");
-const session = require("express-session");
+const isLoggedIn = require("../middleware/isLoggedIn");
 const Comment = require("../schemas/commentSchema");
 const Campground = require("../schemas/campgroundSchema");
-const User = require("../schemas/userSchema");
 
 // ===========================
 // SHOW ROUTE: handler for new comments
@@ -28,7 +22,7 @@ router.post("/campgrounds/:id/comment", isLoggedIn, (req, res) => {
                 comment: req.sanitize(req.body.comment),
                 author: {
                     id: req.user.id,
-                    name: req.user.username}}, 
+                    name: req.user.username}},
                 (err, newComment) => {
 
                 // adds the comment to the comment's array since its based on that schema
@@ -43,16 +37,6 @@ router.post("/campgrounds/:id/comment", isLoggedIn, (req, res) => {
         };
     });
 });
-
-// midlleware to check if the user is logged in
-function isLoggedIn(req, res, next) {
-    if(req.session.passport !== undefined){
-        return next(); 
-    } else {
-        req.flash("error", "Something is not right. You need to be logged in to add a comment");
-        res.redirect("/campgrounds/login");
-    };
-};
 
 // ===========================
 // EXPORTS ALL THE ROUTES

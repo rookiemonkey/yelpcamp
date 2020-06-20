@@ -3,15 +3,8 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const sanitizer = require("express-sanitizer");
-const passport = require("passport");
-const passportLocal = require("passport-local");
-const passportLocalMongoose = require("passport-local-mongoose");
-const session = require("express-session");
-const Comment = require("../schemas/commentSchema");
+const isLoggedIn = require("../middleware/isLoggedIn");
 const Campground = require("../schemas/campgroundSchema");
-const User = require("../schemas/userSchema");
 
 // ===========================
 // NEW ROUTE
@@ -30,10 +23,10 @@ router.post("/campgrounds/new", isLoggedIn,(req, res) => {
     let description = req.sanitize(req.body.description);
     let uploader = { id: req.user.id, name: req.user.username}
     let newCampground = {
-        campname: campname, 
+        campname: campname,
         price: req.body.price,
-        image: req.body.image, 
-        location: location, 
+        image: req.body.image,
+        location: location,
         description: description,
         uploader: uploader};
     Campground.create(newCampground, (err, addedCamp) => {
@@ -46,17 +39,6 @@ router.post("/campgrounds/new", isLoggedIn,(req, res) => {
         };
     });
 });
-
-
-// midlleware to check if the user is logged in
-function isLoggedIn(req, res, next) {
-    if(req.session.passport !== undefined){
-        return next(); 
-    } else {
-        req.flash("error", "Something is not right. You need to be logged in to add a new camp");
-        res.redirect("/campgrounds/login");
-    };
-};
 
 // ===========================
 // EXPORTS ALL THE ROUTES
