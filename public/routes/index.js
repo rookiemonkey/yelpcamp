@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 router.get("/campgrounds", (req, res) =>{
     if(!req.query.search) {
         Campground.find().exec((err, foundCampground) => {
-            res.render("campgrounds", { campgrounds: foundCampground, user: req.user });
+            res.render("campgrounds", { campgrounds: foundCampground, message: null, user: req.user });
         });
     } else {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
@@ -27,9 +27,10 @@ router.get("/campgrounds", (req, res) =>{
                     user: req.user
                 })
                 : res.render("campgrounds", {
-                    campgrounds: foundCampground,
+                    campgrounds: [],
                     message: "No Matching Campground",
-                    user: req.user })
+                    user: req.user
+            })
         })
     }
 });
