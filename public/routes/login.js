@@ -4,11 +4,12 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const isStillApplicable = require("../middleware/isStillApplicable");
 
 // ===========================
 // LOGIN ROUTE:
 // ===========================
-router.get("/campgrounds/login", (req, res) => {
+router.get("/campgrounds/login", isStillApplicable, (req, res) => {
     if(req.session.passport !== undefined) {
         // redirect to home if user access the URL when logged in
         res.redirect('/');

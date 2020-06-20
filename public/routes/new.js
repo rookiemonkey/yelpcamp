@@ -16,7 +16,7 @@ router.get("/campgrounds/new", isLoggedIn, (req, res) => {
 // ===========================
 // CREATE ROUTE: handler for new campgrounds
 // ===========================
-router.post("/campgrounds/new", isLoggedIn,(req, res) => {
+router.post("/campgrounds/new", (req, res) => {
     // req.body.value is value of the name attribute on the form
     let campname = req.sanitize(req.body.name);
     let location = req.sanitize(req.body.location);
@@ -28,7 +28,8 @@ router.post("/campgrounds/new", isLoggedIn,(req, res) => {
         image: req.body.image,
         location: location,
         description: description,
-        uploader: uploader};
+        uploader: uploader
+    };
     Campground.create(newCampground, (err, addedCamp) => {
         if (err) {
             req.flash("error", err.message)

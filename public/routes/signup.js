@@ -4,13 +4,13 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const isLoggedIn = require("../middleware/isLoggedIn");
+const isStillApplicable = require("../middleware/isStillApplicable");
 const User = require("../schemas/userSchema");
 
 // ===========================
 // SIGNUP ROUTE:
 // ===========================
-router.get("/campgrounds/signup", (req, res) => {
+router.get("/campgrounds/signup", isStillApplicable, (req, res) => {
     if(req.session.passport !== undefined) {
         // msg: you are already logged in
         res.redirect("/");
@@ -20,7 +20,7 @@ router.get("/campgrounds/signup", (req, res) => {
 
 
 // SIGNUP ROUTE: handler
-router.post("/campgrounds/signup", isLoggedIn, (req, res) => {
+router.post("/campgrounds/signup", isStillApplicable, (req, res) => {
     User.register(new User ({username: req.body.username}), req.body.password, (err, newUser) => {
         if(err) {
             req.flash("error", `Unfortunately, server encountered an error: ${err.message}`);

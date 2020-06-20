@@ -49,6 +49,13 @@
           </div>
       <% } %>
 
+      <!-- message for any errors -->
+      <% if (error.length > 0) { %>
+          <div class="ui negative message" style="margin: 0 0 5% 0">
+              <div class="header" style="text-align: center;"><%= error %></div>
+          </div>
+      <% } %>
+
         <i class="fas fa-campground"></i>
         <h1>Yelp Camp</h1>
         <hr>

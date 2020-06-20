@@ -5,7 +5,7 @@ const isLoggedIn = (req, res, next) => {
 
     } else {
 
-        req.flash("error", "Something is not right. You need to be logged in to add a comment");
+        req.flash("error", "Please log in first");
         res.redirect("/campgrounds/login");
 
     };
