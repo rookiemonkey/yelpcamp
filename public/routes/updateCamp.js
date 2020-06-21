@@ -4,24 +4,36 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const opencage = require('opencage-api-client');
 const Campground = require("../schemas/campgroundSchema");
 
 // =========================================
 // UPDATE ROUTE: edit handler
 // =========================================
 router.put("/campgrounds/:id/update",( req, res) => {
-    Campground.findById(req.params.id, (err, foundCampground) => {
+    Campground.findById(req.params.id, async (err, foundCampground) => {
         if(req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id)) {
 
-            geocoder.geocode(req.body.updates.location, function (err, data) {
-                if (err || !data.length) {
-                  req.flash('error', 'Invalid address');
-                  return res.redirect('back');
-                }
-                req.body.updates.lat = data[0].latitude;
-                req.body.updates.lng = data[0].longitude;
-                req.body.updates.location = data[0].formattedAddress;
-            });
+            await opencage.geocode({ q: req.body.updates.location })
+                .then(res => { return JSON.stringify(res)})
+                .then(data => {
+                    const d = JSON.parse(data)
+                  if (d.status.code == 200) {
+                    if (d.results.length > 0) {
+                      req.body.updates.lat = d.results[0].geometry.lat;
+                      req.body.updates.lng = d.results[0].geometry.lng;
+                      req.body.updates.location = d.results[0].formatted;
+                    }
+                  } else if (d.status.code == 402) {
+                    console.log('hit free-trial daily limit');
+                    console.log('become a customer: https://opencagedata.com/pricing');
+                  } else {
+                    console.log('error', d.status.message);
+                  }
+                })
+                .catch(error => {
+                  console.log('error', error.message);
+                });
 
             Campground.findByIdAndUpdate(req.params.id, req.body.updates, (err) => {
                 if(err) {

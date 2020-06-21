@@ -7,12 +7,6 @@ const opencage = require('opencage-api-client');
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Campground = require("../schemas/campgroundSchema");
 
-// data.results[0].geometry.lat
-// data.results[0].geometry.lng
-// data.results[0].formatted
-// data.status.code
-// data.status.message
-
 // ===========================
 // NEW ROUTE
 // ===========================
