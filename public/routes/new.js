@@ -3,18 +3,15 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
-const NodeGeocoder = require('node-geocoder');
+const opencage = require('opencage-api-client');
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Campground = require("../schemas/campgroundSchema");
 
-const options = {
-  provider: 'google',
-  httpAdapter: 'https',
-  apiKey: process.env.GEOCODER_API_KEY,
-  formatter: null
-};
-
-const geocoder = NodeGeocoder(options);
+// data.results[0].geometry.lat
+// data.results[0].geometry.lng
+// data.results[0].formatted
+// data.status.code
+// data.status.message
 
 // ===========================
 // NEW ROUTE
@@ -27,32 +24,38 @@ router.get("/campgrounds/new", isLoggedIn, (req, res) => {
 // CREATE ROUTE: handler for new campgrounds
 // ===========================
 router.post("/campgrounds/new", async (req, res) => {
-    // req.body.value is value of the name attribute on the form
     const campname = req.sanitize(req.body.name);
     const location = req.sanitize(req.body.location);
     const description = req.sanitize(req.body.description);
     const uploader = { id: req.user.id, name: req.user.username}
+    let lat, lng, formattedLocation;
 
-    let lat;
-    let lng;
-    let GeocodedLocation;
-
-    await geocoder.geocode(location, function (err, data) {
-        if (err || !data.length) {
-          req.flash("error", "Invalid address");
-          return res.redirect("/campgrounds");
-        }
-        console.log(data[0])
-        lat = data[0].latitude;
-        lng = data[0].longitude;
-        GeocodedLocation = data[0].formattedAddress;
-    })
+    await opencage.geocode({ q: location })
+        .then(res => { return JSON.stringify(res)})
+        .then(data => {
+            const d = JSON.parse(data)
+          if (d.status.code == 200) {
+            if (d.results.length > 0) {
+              lat = d.results[0].geometry.lat;
+              lng = d.results[0].geometry.lng;
+              formattedLocation = d.results[0].formatted;
+            }
+          } else if (d.status.code == 402) {
+            console.log('hit free-trial daily limit');
+            console.log('become a customer: https://opencagedata.com/pricing');
+          } else {
+            console.log('error', d.status.message);
+          }
+        })
+        .catch(error => {
+          console.log('error', error.message);
+        });
 
     const newCampground = {
         campname: campname,
         price: req.body.price,
         image: req.body.image,
-        location: GeocodedLocation,
+        location: formattedLocation,
         lat: lat,
         lng: lng,
         description: description,
