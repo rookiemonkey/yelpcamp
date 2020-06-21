@@ -26,22 +26,27 @@ router.get("/campgrounds/new", isLoggedIn, (req, res) => {
 // ===========================
 // CREATE ROUTE: handler for new campgrounds
 // ===========================
-router.post("/campgrounds/new", (req, res) => {
+router.post("/campgrounds/new", async (req, res) => {
     // req.body.value is value of the name attribute on the form
     const campname = req.sanitize(req.body.name);
     const location = req.sanitize(req.body.location);
     const description = req.sanitize(req.body.description);
     const uploader = { id: req.user.id, name: req.user.username}
 
-    geocoder.geocode(location, function (err, data) {
+    let lat;
+    let lng;
+    let GeocodedLocation;
+
+    await geocoder.geocode(location, function (err, data) {
         if (err || !data.length) {
           req.flash("error", "Invalid address");
           return res.redirect("/campgrounds");
         }
+        console.log(data[0])
+        lat = data[0].latitude;
+        lng = data[0].longitude;
+        GeocodedLocation = data[0].formattedAddress;
     })
-    const lat = data[0].latitude;
-    const lng = data[0].longitude;
-    const GeocodedLocation = data[0].formattedAddress;
 
     const newCampground = {
         campname: campname,

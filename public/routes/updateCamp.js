@@ -18,10 +18,10 @@ router.put("/campgrounds/:id/update",( req, res) => {
                   req.flash('error', 'Invalid address');
                   return res.redirect('back');
                 }
+                req.body.updates.lat = data[0].latitude;
+                req.body.updates.lng = data[0].longitude;
+                req.body.updates.location = data[0].formattedAddress;
             });
-            req.body.updates.lat = data[0].latitude;
-            req.body.updates.lng = data[0].longitude;
-            req.body.updates.location = data[0].formattedAddress;
 
             Campground.findByIdAndUpdate(req.params.id, req.body.updates, (err) => {
                 if(err) {
