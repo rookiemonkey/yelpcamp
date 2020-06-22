@@ -4,6 +4,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const bcrypt = require("bcrypt")
 const isStillApplicable = require("../middleware/isStillApplicable");
 
 // ===========================
@@ -26,19 +27,25 @@ router.post("/campgrounds/login", passport.authenticate("local", {
     failureFlash: true
 }), (req, res) => {
 
+    bcrypt.hash(res.req.user.adminCode, 10, async (err, hash) => {
+            try {
+                const output = await bcrypt.compare(res.req.body.admin, hash)
+                if(output) {
+                    const d = new Date();
+                    const dt = d.setTime(d.getTime() + (30*24*60*60*1000));
+                    const a = bcrypt.hashSync(toString(res.req.user._id), 10);
+                    res.cookie('role', a, { maxAge: dt })
+                    res.redirect('/')
+                } else {
+                    res.redirect('/')
+                }
+            }
 
-    // compare these two if matched login as ADMIN if "" or not matched regular login
-    console.log(res.req.body.admin || "empty string") // from the form
-    console.log(res.req.user.adminCode) // all info of the user from db
-
-    // use bcrypt sign a token for res.req.user._id
-    // use secret key adminCode
-    // store the token it on localstorage
-    // this is to check if the user is an admin allthrough out the website
-    console.log(res.req.user._id)
-    console.log(res.req.user.adminCode)
-
-    res.redirect('/')
+            catch(err) {
+                console.error("ERROR FROM LOGIN POST ROUTE: ", err)
+                res.redirect('/campgrounds/login')
+            }
+    });
 });
 
 // ===========================
