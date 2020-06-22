@@ -7,6 +7,10 @@ let userSchema = mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    adminCode: {
+        type: String,
+        default: ''
     }
 });
 

@@ -29,6 +29,9 @@
               <a href="/campgrounds/signup" class="item">Sign Up</a>
             <% } else { %>
               <span class="item">Good day, &nbsp <strong><%= user.username %></strong></span>
+              <% if(user.isAdmin) { %>
+                <span class="item">Role: ADMIN </span>
+              <% } %>
             <% } %>
           </div>
         </div>
