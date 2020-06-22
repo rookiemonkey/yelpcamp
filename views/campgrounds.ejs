@@ -1,10 +1,26 @@
 <%- include("partials/campgroundHeader") %>
 
-<article id="campgrounds" class="ui four stackable cards">
+<div id="campgrounds-title-container">
+
+    <!-- campgrounds collection header -->
+    <h1 id="campgrounds-title">Campgrounds</h1>
 
     <% if(message) { %>
-        <h4><%=message%></h4>
+        <h4 id="campgrounds-subtitle">
+            <%=message%>
+        </h4>
     <% } %>
+
+    <% if(campgrounds.length === 0) {%>
+        <h4 id="campgrounds-subtitle">
+            We don't have any active campgrounds for rent. Please come back a week after.
+        </h4>
+    <% } %>
+
+</div>
+
+<!-- campground cards -->
+<article id="campgrounds" class="ui four stackable cards">
 
     <% campgrounds.forEach(camp => { %>
         <section class="card">

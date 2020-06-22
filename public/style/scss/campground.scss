@@ -1,0 +1,210 @@
+section#campgroundParentContainer {
+    height: fit-content;
+
+    button.positive.ui.button {
+        color: $campground-button-font-color;
+
+        &:hover {
+            color: $campground-button-font-color-hover;
+        }
+    }
+
+    // wraps both side bar and campground
+    div#campgroundContainer {
+        width: fit-content;
+        margin: 2.5% auto;
+        display: flex;
+        justify-content: center;
+
+        // sidebar yellow navigation
+        article#sidebar {
+
+            div#sidebarNavigation {
+                width: 20vw; // originally 300px
+                position: sticky;
+                top: 10px;
+                background-color: $color-accent4;
+                border-color: $color-accent4;
+
+                a {
+                    font-weight: bold;
+                    color: $campground-button-font-color;
+
+                    &:hover {
+                        color: $campground-button-font-color-hover;
+                    }
+                }
+            }
+
+            /* Google Maps */
+            div#map {
+                outline: 1px solid white;
+                height: 400px;
+                width: 100%;
+            }
+        }
+
+        // campground with the image, desctiption, price etc..
+        article#campgroundCard {
+
+            div.ui.card {
+                width: $campground-card-width;
+
+                div.image {
+                    width: $campground-card-width;
+
+                    img {
+                        width: $campground-card-width;
+                    }
+                }
+
+                div.content {
+                    width: $campground-card-width;
+
+                    span.header {
+                        display: inline;
+                        color: $color-accent1;
+                    }
+
+                    div#priceContainer {
+                        display: inline;
+                        margin: 0px 14px;
+
+                        span#pricetag {
+                            font-size: 0.9em;
+                        }
+                    }
+
+                    div.meta {
+                        width: fit-content;
+
+                        span.date {
+                            color: $color-accent3;
+                        }
+                    }
+
+                    div.description {
+                        width: fit-content;
+                        text-align: justify;
+                    }
+                }
+
+                // comments section
+                div.ui.celled.list {
+                    width: $campground-card-width;
+
+                    // delete/edit button
+                    form.deleteCampground {
+                        display: flex;
+
+                        div.inline.fields {
+                            display: flex;
+
+                            div.one.wide.field {
+                                display: flex;
+
+                                button#deleteButton {
+                                    background-color: #db2828 !important;
+                                    color: white !important;
+                                }
+
+                                a#editButton {
+                                    background-color: #f2711c !important;
+                                    color: white !important;
+                                }
+                            }
+                        }
+                    }
+
+
+                    // review button
+                    form {
+                        margin: 0px 14px;
+
+                        button {
+                            background-color: $color-accent4;
+                        }
+                    }
+
+                    // comment box
+                    div.item {
+                        padding: 14px;
+
+                        &:nth-of-type(odd) {
+                            background-color: rgba(128, 128, 128, 0.1);
+                        }
+
+                        div.content {
+                            width: $campground-card-width - 2;
+
+                            // comment header
+                            div.header {
+                                color: $color-accent1;
+
+                                span#date {
+                                    margin: 0px 5px;
+                                    font-size: 0.8em;
+                                    color: $color-accent3;
+                                }
+                            }
+
+                            // update comment container
+                            div.editCommentContainer {
+                                display: inline;
+
+                                span {
+                                    a.ui.mini.orange.basic.button {
+                                        border-radius: 3px;
+                                        padding: 5px !important;
+                                        margin-bottom: 5px;
+                                        border-top-color: purple !important;
+                                    }
+                                }
+                            }
+
+                            // delete comment container
+                            form.ui.form.deleteCommentBtn {
+                                margin: 0px;
+                                display: inline;
+
+                                div.inline.fields {
+                                    display: inline;
+
+                                    div.one.wide.field {
+                                        display: inline;
+
+                                        button {
+                                            border-radius: 3px;
+                                            padding: 5px !important;
+                                            margin-bottom: 5px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            div.description {
+                                margin: 5px 7.5px;
+                            }
+
+                            // update comment form
+                            form#updateCommentBox {
+                                margin: 0px;
+
+                                div.inline.fields {
+                                    margin:  0px;
+
+                                    div.fifteen.wide.field {
+
+                                        button.ui.positive.button {
+                                            color: black !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+// header
+div#campgrounds-title-container {
+    padding: 15px 0px;
+    text-align: center;
+    h1 { text-transform: uppercase; font-size: 3.5rem;}
+    h1, h4 { margin: 5px; }
+}
+
+// campground card
+article#campgrounds {
+    padding: 60px;
+    margin: auto;
+    min-height: 500px;
+
+    // each campground card
+    section.card {
+
+        // campground image
+        div.image {
+            height: $campgrounds-card-image-height;
+
+            img {
+                height: $campgrounds-card-image-height;
+            }
+        }
+
+        // campground contents
+        div.content {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: space-between;
+
+            div.meta {
+                h2 {
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 1.5em;
+                    color: $color-accent5;
+                }
+            }
+
+            div#buttonContainer {
+                display: flex;
+                justify-content: flex-end;
+
+                button {
+                    background-color: $color-accent4;
+                }
+            }
+        }
+    }
+}

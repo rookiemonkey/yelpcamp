@@ -15,8 +15,13 @@ router.get("/", (req, res) => {
 router.get("/campgrounds", (req, res) =>{
     if(!req.query.search) {
         Campground.find().exec((err, foundCampground) => {
-            res.render("campgrounds", { campgrounds: foundCampground, message: null, user: req.user });
+            res.render("campgrounds", {
+                campgrounds: foundCampground,
+                message: null,
+                user: req.user
+            });
         });
+
     } else {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         Campground.find({ campname: regex }).exec((err, foundCampground) => {

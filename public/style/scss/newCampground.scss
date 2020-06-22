@@ -1,0 +1,15 @@
+section {
+    div#formContainer {
+        width: $form-width;
+        margin: 2.5% auto;
+
+        form {
+            width: $form-width;
+
+            button {
+                margin: 2.5% 0px;
+                background-color: $color-accent4;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+// navigation bar
+nav.ui.borderless.main.menu {
+    background-color: $color-accent1;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+
+    div.ui.text.container {
+        display: flex;
+
+        div.header{
+            padding: 5px;
+            margin: 0px 5px;
+
+            span {
+                margin: 0px 5px;
+            }
+
+            a {
+                display: block;
+                width: 80px;
+                text-align: center;
+            }
+
+            a.item:hover, a.item:active {
+                background-color: $color-accent2;
+            }
+        }
+
+        div.header.item, a.item, span,item {
+            color: white;
+            padding: 5px;
+        }
+
+        a.item, span,item {
+            padding: 10px;
+        }
+
+        div.nav.options {
+            display: flex;
+            justify-content: flex-end;
+            width: inherit;
+            padding: 5px;
+
+            a.item:hover, a.item:active {
+                background-color: $color-accent2;
+            }
+        }
+    }
+}

@@ -1,0 +1,211 @@
+// FOR LANDING PAGE
+
+    // nav bar/header section ============================================================
+    @media screen and (max-width: 630px) {
+
+        // navigation bar
+        nav.ui.borderless.main.menu {
+            div.ui.text.container {
+
+                // selects all the nav options of logged in/not and hides it
+                div.header, div.nav.options {
+                    a.item, span.item {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        header#headline {
+
+            // header
+            div#headlineContainer {
+                margin: 6% auto;
+
+                h1 {
+                    font-size: 2.5em;
+                }
+
+                span {
+                    font-size: 1.1em;
+                }
+
+                i.fas {
+                    font-size: 2.5em;
+                }
+            }
+        }
+    }
+
+    // campgrounds grid ============================================================
+    @media screen and (max-width: 480px) {
+        article#campgrounds {
+            padding: 30px;
+
+            section.card {
+                div#buttonContainer {
+                    a {
+                        button {
+                            font-size: 0.8rem !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // campgrounds grid ============================================================
+    @media screen and (max-width: 767px) {
+        article#campgrounds {
+            section.card {
+
+                //changes the image height to auto
+                div.image {
+                    height: auto;
+
+                    img {
+                        height: auto;
+                    }
+                }
+
+                // shows the desctiption once image is enlarged
+                div.description {
+                    display: block;
+                }
+
+                // brings back the initial font-size
+                div#buttonContainer {
+                    a {
+                        button {
+                            font-size: initial;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // campgrounds card description ============================================================
+    @media screen and (max-width: 860px) {
+        // hides the description when its to tight
+        div.description {
+            display: none;
+        }
+
+        // lessen the font size of the "see more" button
+        div#buttonContainer {
+            a {
+                button {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+// FOR FORMS (signup, login, add camp, edit camp) ===================================================
+    @media screen and (max-width: 600px) {
+        section {
+
+            div#formContainer {
+                $form-width: auto;
+                width: $form-width;
+                margin: 2.5% 2.5%;
+
+                form {
+                    $form-width: auto;
+                    width: $form-width;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+// FOR SHOWING A SINGLE CAMPGROUND
+    //to show desc for smaller screens=========================================================
+    @media screen and (min-width: 200px) {
+        div#description {
+            display: block !important;
+        }
+    }
+
+    // review button when it collapsed=========================================================
+    @media screen and (max-width: 767px) {
+        section#campgroundParentContainer {
+
+            div#campgroundContainer {
+
+                article#campgroundCard {
+
+                    div.ui.card {
+
+                        div.ui.celled.list {
+
+                            #reviewButton {
+                                width: 98%;
+                                margin-top: 15px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // over-all single campground =========================================================
+    $camp-card-width-1000px: 100%; // originally 60vw
+    @media screen and (max-width: 1000px) {
+        section#campgroundParentContainer {
+            div#campgroundContainer {
+
+                // side bar navigation
+                article#sidebar  {
+                    display: none;
+                }
+
+                article#campgroundCard {
+                    width: $camp-card-width-1000px;
+                    padding: 0px;
+
+                    div.ui.card {
+                        border-radius: 0px;
+                        width: $camp-card-width-1000px;
+
+                        div.image {
+                            border-radius: 0px;
+                            width: $camp-card-width-1000px;
+
+                            img {
+                                border-radius: 0px;
+                                width: $camp-card-width-1000px;
+                            }
+                        }
+
+                        div.content {
+                            width: $camp-card-width-1000px;
+                        }
+
+                        div.ui.celled.list {
+                            width: $camp-card-width-1000px;
+
+                            div.item {
+
+                                div.content {
+                                    width: $camp-card-width-1000px - 5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
