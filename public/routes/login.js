@@ -19,29 +19,23 @@ router.get("/campgrounds/login", isStillApplicable, (req, res) => {
 
 
 // LOGIN ROUTE: handler
-router.post("/campgrounds/login", passport.authenticate("local"), (req, res) => {
+router.post("/campgrounds/login", passport.authenticate("local"), async (req, res) => {
 
-    bcrypt.hash(res.req.user.adminCode, 10, async (err, hash) => {
+    const salt = await bcrypt.genSaltSync(10);
+    const hash = await bcrypt.hashSync(res.req.user.adminCode, salt);
+    const output = await bcrypt.compareSync(res.req.body.admin, hash);
 
-            try {
-                const output = await bcrypt.compare(res.req.body.admin, hash)
-                if(output && res.req.user.adminCode !== '') {
-                    const d = new Date();
-                    const dt = d.setTime(d.getTime() + (30*24*60*60*1000));
-                    const a = bcrypt.hashSync(toString(res.req.user._id), 10);
-                    res.cookie('role', a, { maxAge: dt })
-                    res.redirect('/')
-                } else {
-                    res.clearCookie('role', { path: '/' })
-                    res.redirect('/')
-                }
-            }
+   if(output && res.req.user.adminCode !== '') {
+        const d = new Date();
+        const dt = d.setTime(d.getTime() + (30*24*60*60*1000));
+        const a = bcrypt.hashSync(toString(res.req.user._id), 10);
+        res.cookie('role', a, { maxAge: dt })
+        res.redirect('/')
+    } else {
+        res.clearCookie('role', { path: '/' })
+        res.redirect('/')
+    }
 
-            catch(err) {
-                console.error("ERROR FROM LOGIN POST ROUTE: ", err)
-                res.redirect('/campgrounds/login')
-            }
-    });
 });
 
 // ===========================

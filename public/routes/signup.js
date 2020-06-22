@@ -23,7 +23,7 @@ router.get("/campgrounds/signup", isStillApplicable, (req, res) => {
 router.post("/campgrounds/signup", isStillApplicable, (req, res) => {
     User.register(new User ({username: req.body.username}), req.body.password, (err, newUser) => {
         if(err) {
-            req.flash("error", `Unfortunately, server encountered an error: ${err.message}`);
+            req.flash("error", `${err.message}. Please use a different username.`);
             res.redirect("/campgrounds/signup");
         } else {
             passport.authenticate("local")(req, res, function(){res.redirect("/")} )

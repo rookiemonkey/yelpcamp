@@ -41,7 +41,7 @@ router.put("/campgrounds/:id/update",( req, res) => {
                     req.flash("error", `Something went wrong upon updating. ${err.message} Please try again`);
                     res.redirect(`/campgrounds/${req.params.id}`);
                 } else {
-                    req.flash("success", `${req.user.username}, your "${foundCampground.campname}" camp was updated successfully`);
+                    req.flash("success", `"${foundCampground.campname}" was updated successfully`);
                     res.redirect(`/campgrounds/${req.params.id}`);
                 }
             });

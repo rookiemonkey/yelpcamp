@@ -5,6 +5,7 @@ const express = require("express");
 const router = express.Router();
 const Campground = require("../schemas/campgroundSchema");
 const isAdmin = require("../middleware/isAdmin");
+const shuffle = require("../middleware/shuffle");
 
 // ===========================
 // INDEX ROUTE
@@ -18,7 +19,7 @@ router.get("/campgrounds", (req, res) =>{
         Campground.find().exec((err, foundCampground) => {
             if(isAdmin(req)) {
                 res.render("campgrounds", {
-                    campgrounds: foundCampground,
+                    campgrounds: shuffle(foundCampground),
                     message: null,
                     user: req.user,
                     role: "ADMIN"
@@ -36,16 +37,18 @@ router.get("/campgrounds", (req, res) =>{
     } else {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         Campground.find({ campname: regex }).exec((err, foundCampground) => {
-            foundCampground.length !== 0
+            foundCampground.length !== 0 && isAdmin(req)
                 ? res.render("campgrounds", {
-                    campgrounds: foundCampground,
+                    campgrounds: shuffle(foundCampground),
                     message: null,
-                    user: req.user
+                    user: req.user,
+                    role: "ADMIN"
                 })
                 : res.render("campgrounds", {
                     campgrounds: [],
                     message: "No Matching Campground",
-                    user: req.user
+                    user: req.user,
+                    role: null
             })
         })
     }
