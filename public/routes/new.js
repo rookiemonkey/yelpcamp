@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 const opencage = require('opencage-api-client');
 const isAdmin = require("../middleware/isAdmin");
-const isLoggedIn = require("../middleware/isLoggedIn");
+const isLoggedIn = require("../middleware/isLoggedin");
 const Campground = require("../schemas/campgroundSchema");
 
 // ===========================
