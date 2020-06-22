@@ -26,7 +26,7 @@ router.post("/campgrounds/login", passport.authenticate("local"), (req, res) => 
 
             try {
                 const output = await bcrypt.compare(res.req.body.admin, hash)
-                if(output) {
+                if(output && res.req.user.adminCode !== '') {
                     const d = new Date();
                     const dt = d.setTime(d.getTime() + (30*24*60*60*1000));
                     const a = bcrypt.hashSync(toString(res.req.user._id), 10);

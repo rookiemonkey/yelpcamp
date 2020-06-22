@@ -3,6 +3,7 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
+const isAdmin = require("../middleware/isAdmin");
 const Comment = require("../schemas/commentSchema");
 const Campground = require("../schemas/campgroundSchema");
 
@@ -12,7 +13,7 @@ const Campground = require("../schemas/campgroundSchema");
 router.delete("/campgrounds/:id/comment/:comid/delete", (req, res) => {
     Comment.findById(req.params.comid, (err, foundComment) => {
         Campground.findById(req.params.id, (err, foundCampground) => {
-            if (req.session.passport !== undefined && req.user.id == foundComment.author.id) {
+            if (req.session.passport !== undefined && req.user.id == foundComment.author.id || isAdmin(req)) {
                 // removed comment reference from the campground first
                 foundCampground.comments.remove({ _id: req.params.comid })
                 // then removed the comment from the comments collections

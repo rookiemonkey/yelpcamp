@@ -4,6 +4,7 @@
 const express = require("express");
 const router = express.Router();
 const Campground = require("../schemas/campgroundSchema");
+const isAdmin = require("../middleware/isAdmin");
 
 // ===========================
 // INDEX ROUTE
@@ -15,11 +16,21 @@ router.get("/", (req, res) => {
 router.get("/campgrounds", (req, res) =>{
     if(!req.query.search) {
         Campground.find().exec((err, foundCampground) => {
-            res.render("campgrounds", {
-                campgrounds: foundCampground,
-                message: null,
-                user: req.user
-            });
+            if(isAdmin(req)) {
+                res.render("campgrounds", {
+                    campgrounds: foundCampground,
+                    message: null,
+                    user: req.user,
+                    role: "ADMIN"
+                });
+            } else {
+                res.render("campgrounds", {
+                    campgrounds: foundCampground,
+                    message: null,
+                    user: req.user,
+                    role: null
+                });
+            }
         });
 
     } else {

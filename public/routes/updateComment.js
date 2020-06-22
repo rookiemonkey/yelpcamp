@@ -4,11 +4,12 @@
 const express = require("express");
 const router = express.Router();
 const parser = require("body-parser");
+const isAdmin = require("../middleware/isAdmin");
 const Comment = require("../schemas/commentSchema");
 
 router.put("/campgrounds/:id/comment/:comid/update", (req, res) => {
     Comment.findById(req.params.comid, (err, foundComment) => {
-        if (req.session.passport !== undefined && req.user.id == foundComment.author.id) {
+        if (req.session.passport !== undefined && req.user.id == foundComment.author.id || isAdmin(req)) {
             let sanitizedComment = req.sanitize(req.body.comment);
             Comment.findByIdAndUpdate(req.params.comid, {
                 comment: sanitizedComment

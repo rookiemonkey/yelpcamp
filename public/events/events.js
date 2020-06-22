@@ -19,6 +19,3 @@ for (let i=0; i<= commentCancel. length-1; i++) {
         updateCommentBox[i].classList.add("hidden");
     })
 }
-
-performance.navigation.type == 1 ? document.cookie = '' : null
-

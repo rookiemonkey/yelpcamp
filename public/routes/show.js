@@ -3,6 +3,7 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
+const isAdmin = require("../middleware/isAdmin");
 const Campground = require("../schemas/campgroundSchema");
 
 // ===========================
@@ -13,7 +14,19 @@ router.get("/campgrounds/:id", (req, res) =>{
         if (err) {
             console.error("ERROR BEFORE SHOWING THE CHOSEN CAMPGROUND....", err);
         } else {
-            res.render("showCampground", {campground: foundCampground, user: req.user});
+            if (isAdmin(req)) {
+                res.render("showCampground", {
+                    campground: foundCampground,
+                    user: req.user,
+                    role: "ADMIN"
+                });
+            } else {
+                res.render("showCampground", {
+                    campground: foundCampground,
+                    user: req.user,
+                    role: null
+                });
+            }
         };
     });
 });

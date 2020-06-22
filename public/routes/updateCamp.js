@@ -4,6 +4,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const isAdmin = require("../middleware/isAdmin");
 const opencage = require('opencage-api-client');
 const Campground = require("../schemas/campgroundSchema");
 
@@ -12,7 +13,7 @@ const Campground = require("../schemas/campgroundSchema");
 // =========================================
 router.put("/campgrounds/:id/update",( req, res) => {
     Campground.findById(req.params.id, async (err, foundCampground) => {
-        if(req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id)) {
+        if(req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id) || isAdmin(req)) {
 
             await opencage.geocode({ q: req.body.updates.location })
                 .then(res => { return JSON.stringify(res)})

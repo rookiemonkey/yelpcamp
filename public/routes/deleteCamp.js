@@ -3,6 +3,7 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
+const isAdmin = require("../middleware/isAdmin");
 const Comment = require("../schemas/commentSchema");
 const Campground = require("../schemas/campgroundSchema");
 const User = require("../schemas/userSchema");
@@ -15,7 +16,7 @@ router.delete("/campgrounds/:id/delete", (req, res) => {
         Campground.findById(req.params.id, (err, foundCampgound) => {
 
             //compare the current user's id to the uploaders id
-            if (req.user.id == foundCampgound.uploader.id) {
+            if (req.user.id == foundCampgound.uploader.id || isAdmin(req)) {
 
                 // remove the commenta associate to the camp, since hooks are not working
                 let comids = foundCampgound.comments;
