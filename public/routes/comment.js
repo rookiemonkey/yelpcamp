@@ -3,7 +3,7 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
-const isLoggedIn = require("../middleware/isLoggedIn");
+const isLoggedIn = require("../middleware/isLoggedin");
 const Comment = require("../schemas/commentSchema");
 const Campground = require("../schemas/campgroundSchema");
 
