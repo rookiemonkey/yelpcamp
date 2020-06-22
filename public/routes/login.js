@@ -12,7 +12,6 @@ const isStillApplicable = require("../middleware/isStillApplicable");
 // ===========================
 router.get("/campgrounds/login", isStillApplicable, (req, res) => {
     if(req.session.passport !== undefined) {
-        // redirect to home if user access the URL when logged in
         res.redirect('/');
     }
     res.render("login", {user: req.user});

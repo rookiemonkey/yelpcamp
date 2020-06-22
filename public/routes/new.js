@@ -4,6 +4,7 @@
 const express = require("express");
 const router = express.Router();
 const opencage = require('opencage-api-client');
+const isAdmin = require("../middleware/isAdmin");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Campground = require("../schemas/campgroundSchema");
 
@@ -11,7 +12,17 @@ const Campground = require("../schemas/campgroundSchema");
 // NEW ROUTE
 // ===========================
 router.get("/campgrounds/new", isLoggedIn, (req, res) => {
-    res.render("addcampground", {user: req.user});
+    if(isAdmin(req)) {
+        res.render("addcampground", {
+            user: req.user,
+            role: "ADMIN"
+        });
+    } else {
+        res.render("addcampground", {
+            user: req.user,
+            role: null
+        });
+    }
 });
 
 // ===========================
