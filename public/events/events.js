@@ -20,3 +20,5 @@ for (let i=0; i<= commentCancel. length-1; i++) {
     })
 }
 
+performance.navigation.type == 1 ? document.cookie = '' : null
+

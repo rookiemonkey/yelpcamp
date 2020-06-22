@@ -20,14 +20,10 @@ router.get("/campgrounds/login", isStillApplicable, (req, res) => {
 
 
 // LOGIN ROUTE: handler
-router.post("/campgrounds/login", passport.authenticate("local", {
-    // successRedirect: "/",
-    successFlash: true,
-    // failureRedirect: "/campgrounds/login",
-    failureFlash: true
-}), (req, res) => {
+router.post("/campgrounds/login", passport.authenticate("local"), (req, res) => {
 
     bcrypt.hash(res.req.user.adminCode, 10, async (err, hash) => {
+
             try {
                 const output = await bcrypt.compare(res.req.body.admin, hash)
                 if(output) {
@@ -37,6 +33,7 @@ router.post("/campgrounds/login", passport.authenticate("local", {
                     res.cookie('role', a, { maxAge: dt })
                     res.redirect('/')
                 } else {
+                    res.clearCookie('role', { path: '/' })
                     res.redirect('/')
                 }
             }
