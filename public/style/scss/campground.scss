@@ -68,10 +68,11 @@ section#campgroundParentContainer {
 
                     div#priceContainer {
                         display: inline;
-                        margin: 0px 14px;
+                        float: right;
 
                         span#pricetag {
-                            font-size: 0.9em;
+                            font-size: 1.25rem;
+                            margin: 0px;
                         }
                     }
 
