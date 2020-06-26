@@ -37,9 +37,9 @@ router.get("/campgrounds", (req, res) =>{
     } else {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         Campground.find({ campname: regex }).exec((err, foundCampground) => {
-            foundCampground.length !== 0 && isAdmin(req)
+            foundCampground.length !== 0 || isAdmin(req) && foundCampground.length !== 0
                 ? res.render("campgrounds", {
-                    campgrounds: shuffle(foundCampground),
+                    campgrounds: foundCampground,
                     message: null,
                     user: req.user,
                     role: "ADMIN"
