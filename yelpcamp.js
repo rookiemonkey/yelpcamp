@@ -23,6 +23,7 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.use(parser.urlencoded({extended: true}));
 app.use(sanitizer());
+app.locals.moment = require('moment');
 
 // passport configuration
 app.use(session({

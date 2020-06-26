@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 let campSchema = mongoose.Schema({
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
     campname: String,
     price: String,
     image: String,

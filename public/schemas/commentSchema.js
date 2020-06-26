@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 let today = Date();
 
 let commentSchema = mongoose.Schema({
+    createdAt: {
+      type: Date,
+      default: Date.now
+    },
     comment: String,
     author: {
           id: {
@@ -13,11 +17,7 @@ let commentSchema = mongoose.Schema({
               type: String,
               ref: "User"
           }
-    },
-    date: {
-        type: Date,
-        default: Date.now
-      }
+    }
 })
 
 module.exports = mongoose.model("Comment", commentSchema);

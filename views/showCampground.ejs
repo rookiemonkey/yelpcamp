@@ -32,7 +32,7 @@
                         <span id="pricetag" class="ui green label">$ <%= campground.price %> / night</span>
                     </div>
                     <div class="meta">
-                        <div class="date"><em>Submitted by:  &nbsp<strong><%= campground.uploader.name %></em></strong></div>
+                        <div class="date"><em>Submitted by:  &nbsp<strong><%= campground.uploader.name %></em></strong> - <%= moment(campground.createdAt).fromNow() %></div>
                         <span class="date"><%= campground.location %></span>
                     </div>
                     <div class="description" id="description">
@@ -75,7 +75,7 @@
 
                                 <!-- author / date of the comment -->
                                 <div class="header">
-                                    <%= com.author.name %><span id="date"><%= com.date.toDateString() %></span>
+                                    <%= com.author.name %><span id="date" style="float: right"><%= moment(com.createdAt).fromNow() %></span>
                                 </div>
 
                                 <!-- edit / delete comment -->
