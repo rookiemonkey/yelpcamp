@@ -12,9 +12,8 @@ router.get("/campgrounds/logout", isLoggedIn, (req, res) => {
     res.status(200)
     res.clearCookie('connect.sid', { path: '/' });
     res.clearCookie('role', { path: '/' });
-
     req.session.destroy(function (err) {
-        res.redirect('/');
+        return res.redirect('/campgrounds');
     });
 
 });
