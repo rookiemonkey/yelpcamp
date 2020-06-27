@@ -3,6 +3,13 @@
 <section>
     <div id="formContainer">
 
+        <!-- error message -->
+        <% if (error.length > 0) { %>
+            <div class="ui negative message">
+                <div class="header"><%= error %></div>
+            </div>
+        <% } %>
+
         <h1>New Campground Form</h1>
         <form class="ui form" action="/campgrounds/new" method="POST">
             <div class="field">

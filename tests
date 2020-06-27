@@ -1,30 +1,32 @@
+login in
+    -- common user - ok with success msg 27/06
+    -- admin user -
+
+sign up
+    -- same username - ok with error msg 27/06
+    -- same email - ok with error msg 27/06
+    -- all correct - ok with success msg 27/06
+
 not logged in  // camp
-    -- cant add camp with postman? ====// it redirects to login == fixed with error message
-    -- cant delete camp with postman? ====// it redirects to login == fixed with error message
-    -- cant edit camp with postman? ====// it redirects to login == fixed with error message
-    -- cant update camp with postman mp? ====// it redirects to login == fixed with error message
-
-logged in and owner of the camp
-    -- add camp? working == now with success msg
-    -- edit camp? working == now with seccess msg
-    -- update camp? working ==  now with seccess msg
-    -- delete camp? working ==  now with seccess msg
-
+    -- cant add camp with postman? ====// it redirects to login == fixed with error message - ok 27/06
+    -- cant delete camp with postman? ====// it redirects to login == fixed with error message - ok 27/06
+    -- cant edit camp with postman? ====// it redirects to login == fixed with error message - ok 27/06
+    -- cant update camp with postman mp? ====// it redirects to login == fixed with error message - ok 27/06
 
 not logged in comment
-    -- add comment with postman? ====// it redirects to login == fixed with error message
-    -- delete comment with postman? ====// it redirects to login == fixed with error message
-    -- edit/update comment with postman? ====// it redirects to login == fixed with error message
+    -- add comment with postman? ====// it redirects to login == fixed with error message - ok 27/06
+    -- delete comment with postman? ====// it redirects to login == fixed with error message - ok 27/06
+    -- edit/update comment with postman? ====// it redirects to login == fixed with error message - ok 27/06
+
+logged in and owner of the camp
+    -- add camp? working == now with success msg - ok 27/06
+    -- edit camp? working == now with seccess msg - ok 27/06
+    -- update camp? working ==  now with seccess msg - ok 27/06
+    -- delete camp? working ==  now with seccess msg - ok 27/06
 
 logged in comment
-    -- add comment? working, db ok
-    -- delete comment? working, db ok
-    -- edit comment? working, db ok
-    -- update comment? working, db ok
+    -- add comment? working, db ok 27/06
+    -- delete comment? working, db ok 27/06
+    -- edit comment? working, db ok 27/06
+    -- update comment? working, db ok 27/06
 
-    
-login
-    -- errors ok
-    
-sign up
-    -- errors ok

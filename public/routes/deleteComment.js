@@ -22,7 +22,7 @@ router.delete("/campgrounds/:id/comment/:comid/delete", (req, res) => {
                 }));
             } else {
                 // display a message that they cannot do that
-                req.flash("error", "Something is not right. You need to be delete a comment");
+                req.flash("error", "Something is not right. You need to be logged in and the author of the comment to delete it");
                 return res.redirect(`/campgrounds/login`)
             }
         });

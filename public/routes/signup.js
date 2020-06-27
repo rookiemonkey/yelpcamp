@@ -24,12 +24,18 @@ router.post("/campgrounds/signup", isStillApplicable, (req, res) => {
     const { username, email, password } = req.body;
     User.register(new User ({ username: username, email: email }), password, (err, newUser) => {
         if(err) {
-            req.flash("error", `It looks like we are having some challenges creating the account. ${err.message}.`);
-            return res.redirect("/campgrounds/signup");
+            if (err.name === 'UserExistsError') {
+                req.flash("error", `It looks like we are having some challenges creating the account. ${err.message}. Please use a different one.`);
+                return res.redirect("/campgrounds/signup");
+            }
+            else if (err.name === 'MongoError') {
+                req.flash("error", `It looks like we are having some challenges creating the account. A user is already using the email address that you typed in. Please use a different one.`);
+                return res.redirect("/campgrounds/signup");
+            }
         } else {
             passport.authenticate("local")(req, res, function(){
                 req.flash("success", `Successfully created an account for ${req.body.username}`)
-                return res.redirect("/")
+                return res.redirect("/campgrounds");
             })
         }
     });
