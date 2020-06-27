@@ -1,0 +1,37 @@
+$color-accent1: #173F5F;
+$color-accent2: #20639B;
+$color-accent3: #3CAEA3;
+$color-accent4: #F6D55C;
+$color-accent5: #ED553B;
+
+// campground collections
+$campgrounds-card-image-height: 155px;
+
+// view single campground
+$campground-card-width: 45vw; // originally 700px
+$campground-button-font-color:  rgba(0, 0, 0, 0.50) !important;
+$campground-button-font-color-hover:  rgba(0, 0, 0, 0.90) !important;
+
+// FORM
+$form-height: 65vh;
+$form-width: 500px;
+
+// helpers
+$identifier1: 1px solid red;
+$identifier2: 1px solid purple;
+$identifier3: 1px solid green;
+
+// togglers
+.hidden{ display:none }
+
+* { margin: 0px; padding: 0px; }
+html { scroll-behavior: smooth; }
+@import './scss/nav.scss';
+@import './scss/banner.scss';
+@import './scss/campground.scss';
+@import './scss/campgrounds.scss';;
+@import './scss/login.scss';
+@import './scss/signup.scss';
+@import './scss/newCampground.scss';
+@import './scss/footer.scss';
+@import './scss/mediaqueries.scss';
