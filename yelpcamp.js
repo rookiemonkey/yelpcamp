@@ -69,6 +69,8 @@ app.use(require("./public/routes/signup"));         // /campgrounds/signup
 app.use(require("./public/routes/login"));          // /campgrounds/login
 app.use(require("./public/routes/logout"));         // /campgrounds/logout
 app.use(require("./public/routes/new"));            // /campgrounds/new
+app.use(require("./public/routes/forgotPassword")); // /campgrounds/forgot-password
+app.use(require("./public/routes/resetPassword")); // /campgrounds/forgot-password/reset/:token
 app.use(require("./public/routes/show"));           // /campgrounds/:id
 app.use(require("./public/routes/editCamp"));       // /campgrounds/:id/edit
 app.use(require("./public/routes/updateCamp"));     // /campgrounds/:id/update

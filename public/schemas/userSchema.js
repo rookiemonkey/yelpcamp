@@ -6,7 +6,17 @@ let userSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    username: String,
+
+    username: {
+        type: String,
+        unique: true,
+        require: true
+    },
+    email: {
+        type: String,
+        unique: true,
+        require: true
+    },
     password: String,
     isAdmin: {
         type: Boolean,
@@ -14,6 +24,14 @@ let userSchema = mongoose.Schema({
     },
     adminCode: {
         type: String,
+        default: ''
+    },
+    resetPasswordToken: {
+        type: String,
+        default: ''
+    },
+    resetPasswordExpires: {
+        type: Date,
         default: ''
     }
 });

@@ -12,7 +12,7 @@ const User = require("../schemas/userSchema");
 // ===========================
 router.get("/campgrounds/signup", isStillApplicable, (req, res) => {
     if(req.session.passport !== undefined) {
-        // msg: you are already logged in
+        req.flash("info", "You are already logged in")
         res.redirect("/");
     }
     res.render("signup", {user: req.user});
@@ -21,12 +21,16 @@ router.get("/campgrounds/signup", isStillApplicable, (req, res) => {
 
 // SIGNUP ROUTE: handler
 router.post("/campgrounds/signup", isStillApplicable, (req, res) => {
-    User.register(new User ({username: req.body.username}), req.body.password, (err, newUser) => {
+    const { username, email, password } = req.body;
+    User.register(new User ({ username: username, email: email }), password, (err, newUser) => {
         if(err) {
-            req.flash("error", `${err.message}. Please use a different username.`);
-            res.redirect("/campgrounds/signup");
+            req.flash("error", `It looks like we are having some challenges creating the account. ${err.message}.`);
+            return res.redirect("/campgrounds/signup");
         } else {
-            passport.authenticate("local")(req, res, function(){res.redirect("/")} )
+            passport.authenticate("local")(req, res, function(){
+                req.flash("success", `Successfully created an account for ${req.body.username}`)
+                return res.redirect("/")
+            })
         }
     });
 });
