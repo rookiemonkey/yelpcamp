@@ -29,11 +29,11 @@ router.post("/campgrounds/login", passport.authenticate("local"), async (req, re
         const d = new Date();
         const dt = d.setTime(d.getTime() + (30*24*60*60*1000));
         const a = bcrypt.hashSync(toString(res.req.user._id), 10);
-        req.flash('success', 'Succesfully logged in as an Admin');
+        req.flash('success', `Succesfully logged in as ${res.req.user.username} with admin priviledges`);
         res.cookie('role', a, { maxAge: dt })
         return res.redirect('/campgrounds');
     } else {
-        req.flash('success', 'Succesfully logged in');
+        req.flash('success', `Succesfully logged in as ${res.req.user.username}`);
         res.clearCookie('role', { path: '/' })
         return res.redirect('/campgrounds');
     }

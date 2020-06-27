@@ -1,6 +1,6 @@
 login in
     -- common user - ok with success msg 27/06
-    -- admin user -
+    -- admin user - ok with success msg 27/06
 
 sign up
     -- same username - ok with error msg 27/06
