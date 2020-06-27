@@ -29,14 +29,12 @@ router.post('/campgrounds/forgot-password/reset/:token', (req, res) => {
                     return res.redirect('back');
                 }
                 if (req.body.newPassword === req.body.confirmPassword) {
-                    console.dir(foundUser.setPassword)
-                    foundUser.setPassword(req.body.password, (err) => {
-                        foundUser.resetPasswordToken = null;
-                        foundUser.resetPasswordExpires = null;
-                        foundUser.save((err) => {
-                            req.login(foundUser, (err) => {
-                                done(err, foundUser);
-                            });
+                    foundUser.resetPasswordToken = null;
+                    foundUser.resetPasswordExpires = null;
+                    foundUser.setPassword(req.body.newPassword, (err) => {
+                        foundUser.save();
+                        req.login(foundUser, (err) => {
+                            done(err, foundUser);
                         });
                     });
 
