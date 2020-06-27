@@ -2,6 +2,10 @@ login in
     -- common user - ok with success msg 27/06
     -- admin user - ok with success msg 27/06
 
+logout
+    -- common user - ok however, no success msg 27/03
+    -- admin user - ok however, no success msg 27/03
+
 sign up
     -- same username - ok with error msg 27/06
     -- same email - ok with error msg 27/06
@@ -29,4 +33,10 @@ logged in comment
     -- delete comment? working, db ok 27/06
     -- edit comment? working, db ok 27/06
     -- update comment? working, db ok 27/06
+
+
+ADMIN LOGIN ---------------
+    -- able to delete other's camp? db ok 27/06
+    -- able to edit/update others' camp? db ok 27/06
+    -- able to delete other's comment? db ok 27/06
 
