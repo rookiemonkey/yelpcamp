@@ -95,28 +95,38 @@ section#campgroundParentContainer {
                     width: $campground-card-width;
 
                     // delete/edit button
-                    form.deleteCampground {
+                    div#buttons-container {
                         display: flex;
+                        justify-content: flex-end;
+                        position: relative;
 
-                        div.inline.fields {
+                        div.editCommentContainer {
+                            a#editButton {
+                                background-color: #f2711c !important;
+                                color: white !important;
+                            }
+                        }
+
+                        form.deleteCampground {
                             display: flex;
+                            justify-content: flex-end;
 
-                            div.one.wide.field {
+                            div.inline.fields {
                                 display: flex;
+                                justify-content: flex-end;
 
-                                button#deleteButton {
-                                    background-color: #db2828 !important;
-                                    color: white !important;
-                                }
+                                div#one-wide-field {
+                                    display: flex;
+                                    justify-content: flex-end;
 
-                                a#editButton {
-                                    background-color: #f2711c !important;
-                                    color: white !important;
+                                    button#deleteButton {
+                                        background-color: #db2828 !important;
+                                        color: white !important;
+                                    }
                                 }
                             }
                         }
                     }
-
 
                     // review button
                     form {
