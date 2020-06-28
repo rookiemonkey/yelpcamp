@@ -1,6 +1,7 @@
 login in
     -- common user - ok with success msg 27/06
     -- admin user - ok with success msg 27/06
+    -- wrong credentials - ok with error msg 28/06
 
 logout
     -- common user - ok however, no success msg 27/03

@@ -11,16 +11,15 @@ const isStillApplicable = require("../middleware/isStillApplicable");
 // LOGIN ROUTE:
 // ===========================
 router.get("/campgrounds/login", isStillApplicable, (req, res) => {
-    if(req.session.passport !== undefined) {
-        res.redirect('/');
-    }
     res.render("login", {user: req.user});
 });
 
 
 // LOGIN ROUTE: handler
-router.post("/campgrounds/login", passport.authenticate("local"), async (req, res) => {
-
+router.post("/campgrounds/login", passport.authenticate("local", {
+    failureRedirect: "/campgrounds/login",
+    failureFlash: 'Invalid username or password'
+}), async (req, res) => {
     const salt = await bcrypt.genSaltSync(10);
     const hash = await bcrypt.hashSync(res.req.user.adminCode, salt);
     const output = await bcrypt.compareSync(res.req.body.admin, hash);
