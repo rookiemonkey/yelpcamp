@@ -57,11 +57,9 @@
 
                 <!-- add comment section -->
                 <% if(user !== undefined) {%>
-                <form class="ui form" action="/campgrounds/<%= campground._id %>/comment" method="POST">
+                <form class="ui form review-form" action="/campgrounds/<%= campground._id %>/comment" method="POST">
                     <div class="inline fields">
-                        <div class="fifteen wide field">
-                            <input type="text" name="comment" placeholder="review details" autocomplete="off" required>
-                        </div>
+                        <input type="text" name="comment" placeholder="review details" autocomplete="off" required>
                         <button id="reviewButton" class="positive ui button">Review</button>
                     </div>
                 </form>

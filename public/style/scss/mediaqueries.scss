@@ -150,9 +150,12 @@
 
                         div.ui.celled.list {
 
-                            #reviewButton {
-                                width: 98%;
-                                margin-top: 15px !important;
+                            form.review-form {
+
+                                button#reviewButton {
+                                    width: 100% !important;
+                                    margin-top: 15px !important;
+                                }
                             }
                         }
                     }
@@ -199,10 +202,16 @@
                         div.ui.celled.list {
                             width: $camp-card-width-1000px;
 
+                            form.review-form {
+                                button#reviewButton {
+                                    width: 20%;
+                                }
+                            }
+
                             div.item {
 
                                 div.content {
-                                    width: $camp-card-width-1000px - 5;
+                                    width: $camp-card-width-1000px;
                                 }
                             }
                         }
