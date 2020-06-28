@@ -11,7 +11,7 @@
         <% } %>
 
         <h1>New Campground Form</h1>
-        <form class="ui form" action="/campgrounds/new" method="POST">
+        <form class="ui form" action="/campgrounds/new" method="POST" enctype="multipart/form-data">
             <div class="field">
                 <label for="Camp Name">Camp Name</label>
                 <input type="text" id="Camp Name" name="name" placeholder="Wonder woods" autocomplete="off" required>
@@ -21,8 +21,8 @@
                 <input type="number" id="Camp Name" name="price" placeholder="10.00" autocomplete="off" step="0.10" min=".00" required>
             </div>
             <div class="field">
-                <label for="Image URL">Image URL</label>
-                <input type="text" id="Image URL" placeholder="http://www.image.com/image.jpg" name="image" autocomplete="off" required>
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
             </div>
             <div class="field">
                 <label for="location">Location</label>

@@ -4,9 +4,38 @@
 const express = require("express");
 const router = express.Router();
 const opencage = require('opencage-api-client');
+const multer = require('multer');
+const cloudinary = require('cloudinary');
 const isAdmin = require("../middleware/isAdmin");
 const isLoggedIn = require("../middleware/isLoggedin");
+const toUpload = require("../middleware/toUpload");
 const Campground = require("../schemas/campgroundSchema");
+
+// configure multer
+const storage = multer.diskStorage({
+  filename: function(req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  }
+});
+
+const imageFilter = function (req, file, cb) {
+    // accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+
+const upload = multer({ storage: storage, fileFilter: imageFilter})
+
+
+// configure cloudinary
+cloudinary.config({
+  cloud_name: 'promises',
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 
 // ===========================
 // NEW ROUTE
@@ -28,8 +57,10 @@ router.get("/campgrounds/new", isLoggedIn, (req, res) => {
 // ===========================
 // CREATE ROUTE: handler for new campgrounds
 // ===========================
-router.post("/campgrounds/new", async (req, res) => {
+router.post("/campgrounds/new", isLoggedIn, upload.single('image'), async (req, res) => {
     try {
+        const uploaded = await toUpload(cloudinary, req);
+        const image = uploaded.secure_url;
         const campname = req.sanitize(req.body.name);
         const location = req.sanitize(req.body.location);
         const description = req.sanitize(req.body.description);
@@ -60,7 +91,7 @@ router.post("/campgrounds/new", async (req, res) => {
         const newCampground = {
             campname: campname,
             price: req.body.price,
-            image: req.body.image,
+            image: image,
             location: formattedLocation,
             lat: lat,
             lng: lng,
