@@ -160,16 +160,14 @@ section#campgroundParentContainer {
                             }
 
                             // update comment container
-                            div.editCommentContainer {
-                                display: inline;
+                            span#editComment {
+                                float: right;
 
-                                span {
-                                    a.ui.mini.orange.basic.button {
-                                        border-radius: 3px;
-                                        padding: 5px !important;
-                                        margin-bottom: 5px;
-                                        border-top-color: purple !important;
-                                    }
+                                a.ui.mini.orange.basic.button {
+                                    border-radius: 3px;
+                                    padding: 5px !important;
+                                    margin-bottom: 5px;
+                                    border-top-color: purple !important;
                                 }
                             }
 
@@ -177,6 +175,7 @@ section#campgroundParentContainer {
                             form.ui.form.deleteCommentBtn {
                                 margin: 0px;
                                 display: inline;
+                                float: right;
 
                                 div.inline.fields {
                                     display: inline;

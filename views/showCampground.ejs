@@ -75,19 +75,10 @@
 
                                 <!-- author / date of the comment -->
                                 <div class="header">
-                                    <%= com.author.name %><span id="date" style="float: right"><%= moment(com.createdAt).fromNow() %></span>
-                                </div>
+                                    @<%= com.author.name %><span id="date"><%= moment(com.createdAt).fromNow() %></span>
 
-                                <!-- edit / delete comment -->
-                                <div id="buttons-container">
+                                    <!-- edit / delete comment -->
                                     <% if(user !== undefined) {%>
-                                        <% if(user.username == com.author.name) {%>
-                                            <div class="editCommentContainer">
-                                                <span id="date">
-                                                    <a id="editComment" class="ui mini orange basic button">Edit</a>
-                                                </span>
-                                            </div>
-                                        <% }; %>
 
                                         <% if(user.username == com.author.name || role != null) {%>
                                         <form class="ui form deleteCommentBtn" action="/campgrounds/<%= campground._id %>/comment/<%= com._id %>/delete?_method=DELETE" method="POST">
@@ -98,7 +89,15 @@
                                             </div>
                                         </form>
                                         <% }; %>
+
+                                        <% if(user.username == com.author.name) {%>
+                                            <span id="editComment">
+                                                <a id="edit" class="ui mini orange basic button">Edit</a>
+                                            </span>
+                                        <% }; %>
+
                                     <% }; %>
+
                                 </div>
 
                                 <!-- the comment -->
