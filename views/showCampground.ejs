@@ -45,8 +45,8 @@
                 <% if(user !== undefined) {%>
                     <% if(user.id == campground.uploader.id || role != null) {%>
                         <form class="ui form deleteCampground" action="/campgrounds/<%= campground._id %>/delete?_method=DELETE" method="POST">
-                            <div class="inline fields">
-                                <div class="one wide field">
+                            <div class="inline fields deleteCampground-parent">
+                                <div class="one wide field deleteCampground-inner">
                                     <a id="editButton" class="ui orange basic button" href="/campgrounds/<%= campground.id %>/edit">Edit</a>
                                     <button id="deleteButton" class="ui negative basic button">Delete</button>
                                 </div>

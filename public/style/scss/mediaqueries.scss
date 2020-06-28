@@ -150,11 +150,27 @@
 
                         div.ui.celled.list {
 
+                            form.deleteCampground {
+                                margin-bottom: 7.5px !important;
+
+                                div.deleteCampground-parent {
+                                    width: 100% !important;
+                                    div.deleteCampground-inner {
+                                        padding: 0px !important;
+                                        width: 100% !important;
+
+                                        a#editButton, button#deleteButton {
+                                            width: 50%;
+                                        }
+                                    }
+                                }
+                            }
+
                             form.review-form {
 
                                 button#reviewButton {
                                     width: 100% !important;
-                                    margin-top: 15px !important;
+                                    margin-top: 7.5px !important;
                                 }
                             }
                         }
