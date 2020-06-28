@@ -173,6 +173,35 @@
                                     margin-top: 7.5px !important;
                                 }
                             }
+
+                            div.item {
+
+                                form#update-comment-form {
+
+                                    div#update-comment-form-input {
+                                        display: flex;
+                                        justify-content: center;
+                                        padding-right: 0px !important;
+
+                                        input[type='text'] {
+                                            width:91.55%;
+                                        }
+                                    }
+
+                                    div.update-comment-form-buttons {
+                                        width: 100%;
+                                        justify-content: center;
+
+
+                                        button#commentUpdate, button#commentCancel, input[type='text'] {
+                                            margin-top: 7.5px !important;
+                                        }
+
+                                        button#commentCancel {margin-left: 7.5px !important;}
+
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -228,6 +257,19 @@
 
                                 div.content {
                                     width: $camp-card-width-1000px;
+                                }
+
+                                form#update-comment-form {
+
+                                    div.update-comment-form-buttons {
+
+                                        button#commentCancel {margin-left: 14px}
+
+                                        button#commentUpdate, button#commentCancel {
+                                                width: 45% !important;
+                                        }
+
+                                    }
                                 }
                             }
                         }

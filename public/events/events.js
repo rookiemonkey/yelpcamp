@@ -1,6 +1,6 @@
 // to toggle the comment box
 let editCommentBtns = document.querySelectorAll("#editComment");
-let updateCommentBox = document.querySelectorAll("form.updateCommentBox");
+let updateCommentBox = document.querySelectorAll("form.update-comment-form");
 let commentCancel = document.querySelectorAll("#commentCancel");
 
 for (let i=0; i<= editCommentBtns.length-1; i++) {

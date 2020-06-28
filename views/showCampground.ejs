@@ -106,13 +106,15 @@
                                 <!-- update comment box visible upon click of edit -->
                                 <% if(user !== undefined) {%>
                                     <% if(user.username == com.author.name) {%>
-                                        <form id="updateCommentBox"  class="ui form hidden updateCommentBox" action="/campgrounds/<%= campground._id %>/comment/<%= com._id %>/update?_method=PUT" method="POST">
+                                        <form id="update-comment-form"  class="ui form hidden update-comment-form" action="/campgrounds/<%= campground._id %>/comment/<%= com._id %>/update?_method=PUT" method="POST">
                                             <div class="inline fields">
-                                                <div class="fifteen wide field">
+                                                <div class="fifteen wide field" id="update-comment-form-input">
                                                     <input type="text" name="comment" placeholder="Comment" autocomplete="off" value="<%= com.comment %>" required>
                                                 </div>
-                                                <button class="positive ui button" id="commentUpdate" type='submit'>Update</button>
-                                                <button class="positive ui button" id="commentCancel" type='button'>Cancel</button>
+                                                <div class='update-comment-form-buttons'>
+                                                    <button class="positive ui button" id="commentUpdate" type='submit'>Update</button>
+                                                    <button class="positive ui button" id="commentCancel" type='button'>Cancel</button>
+                                                </div>
                                             </div>
                                         </form>
                                     <% }; %>

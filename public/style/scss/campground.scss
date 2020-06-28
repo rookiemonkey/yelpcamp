@@ -197,17 +197,24 @@ section#campgroundParentContainer {
                                 margin: 5px 7.5px;
                             }
 
+
                             // update comment form
-                            form#updateCommentBox {
+                            form#update-comment-form {
                                 margin: 0px;
 
                                 div.inline.fields {
                                     margin:  0px;
 
-                                    div.fifteen.wide.field {
+
+                                    div.update-comment-form-buttons {
+                                        display: flex;
 
                                         button.ui.positive.button {
                                             color: black !important;
+                                        }
+
+                                        button#commentUpdate, button#commentCancel {
+                                            width: 48%;
                                         }
                                     }
                                 }
