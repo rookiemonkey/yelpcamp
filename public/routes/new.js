@@ -41,8 +41,7 @@ router.get("/campgrounds/new", isLoggedIn, (req, res) => {
 // ===========================
 router.post("/campgrounds/new", isLoggedIn, upload.single('image'), async (req, res) => {
   try {
-    const uploaded = await toUpload(cloudinary, req);
-    const image = uploaded.secure_url;
+    const uploaded = await toUpload(cloudinary, req).then(u => { return u.secure_url });
     const location = req.sanitize(req.body.location);
     const loc = await toGeocode(location);
     const campname = req.sanitize(req.body.name);
@@ -52,7 +51,7 @@ router.post("/campgrounds/new", isLoggedIn, upload.single('image'), async (req, 
     const newCampground = {
       campname: campname,
       price: req.body.price,
-      image: image,
+      image: uploaded,
       location: loc.formattedLocation,
       lat: loc.lat,
       lng: loc.lng,
