@@ -5,6 +5,7 @@ const express = require("express");
 const router = express.Router();
 const async = require('async');
 const nodemailer = require('nodemailer');
+const toUpdatePassword = require("../middleware/toUpdatePassword");
 const User = require("../schemas/userSchema");
 
 // ===========================
@@ -22,21 +23,16 @@ router.get('/campgrounds/forgot-password/reset/:token', (req, res) => {
 
 router.post('/campgrounds/forgot-password/reset/:token', (req, res) => {
     async.waterfall([
-        function(done) {
+        function (done) {
             User.findOne({ resetPasswordToken: req.params.token }, (err, foundUser) => {
                 if (!foundUser) {
                     req.flash('error', 'Password reset token is invalid or expired');
                     return res.redirect('back');
                 }
                 if (req.body.newPassword === req.body.confirmPassword) {
-                    foundUser.resetPasswordToken = null;
-                    foundUser.resetPasswordExpires = null;
-                    foundUser.setPassword(req.body.newPassword, (err) => {
-                        foundUser.save();
-                        req.login(foundUser, (err) => {
-                            done(err, foundUser);
-                        });
-                    });
+                    toUpdatePassword(foundUser, req.body.newPassword);
+                    req.login(foundUser, (err) => { done(err, foundUser); });
+
 
                 } else {
                     req.flash('error', 'Passwords do not match');
@@ -44,7 +40,7 @@ router.post('/campgrounds/forgot-password/reset/:token', (req, res) => {
                 }
             })
         },
-        function(foundUser, done) {
+        function (foundUser, done) {
             const smtpTransport = nodemailer.createTransport({
                 service: "Gmail",
                 auth: {
