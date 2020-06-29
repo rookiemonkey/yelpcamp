@@ -3,7 +3,6 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
-const opencage = require('opencage-api-client');
 const multer = require('multer');
 const cloudinary = require('cloudinary');
 const isAdmin = require("../middleware/isAdmin");
@@ -11,6 +10,7 @@ const isLoggedIn = require("../middleware/isLoggedin");
 const toUpload = require("../middleware/toUpload");
 const setMulter = require("../middleware/setMulter");
 const setCloudinary = require("../middleware/setCloudinary");
+const toGeocode = require("../middleware/toGeocode");
 const Campground = require("../schemas/campgroundSchema");
 
 // configure multer
@@ -43,40 +43,19 @@ router.post("/campgrounds/new", isLoggedIn, upload.single('image'), async (req, 
   try {
     const uploaded = await toUpload(cloudinary, req);
     const image = uploaded.secure_url;
-    const campname = req.sanitize(req.body.name);
     const location = req.sanitize(req.body.location);
+    const loc = await toGeocode(location);
+    const campname = req.sanitize(req.body.name);
     const description = req.sanitize(req.body.description);
     const uploader = { id: req.user.id, name: req.user.username }
-    let lat, lng, formattedLocation;
-
-    await opencage.geocode({ q: location })
-      .then(res => { return JSON.stringify(res) })
-      .then(data => {
-        const d = JSON.parse(data)
-        if (d.status.code == 200) {
-          if (d.results.length > 0) {
-            lat = d.results[0].geometry.lat;
-            lng = d.results[0].geometry.lng;
-            formattedLocation = d.results[0].formatted;
-          }
-        } else if (d.status.code == 402) {
-          console.log('hit free-trial daily limit');
-          console.log('become a customer: https://opencagedata.com/pricing');
-        } else {
-          console.log('error', d.status.message);
-        }
-      })
-      .catch(error => {
-        console.log('error', error.message);
-      });
 
     const newCampground = {
       campname: campname,
       price: req.body.price,
       image: image,
-      location: formattedLocation,
-      lat: lat,
-      lng: lng,
+      location: loc.formattedLocation,
+      lat: loc.lat,
+      lng: loc.lng,
       description: description,
       uploader: uploader
     };
@@ -90,8 +69,8 @@ router.post("/campgrounds/new", isLoggedIn, upload.single('image'), async (req, 
         res.redirect("/campgrounds");
       };
     });
-  } catch  {
-    req.flash('error', `Something went wrong upon creating the campground. ${err}`)
+  } catch (err) {
+    req.flash('error', `Something went wrong upon creating the campground. ${err.message}`)
     res.redirect('/campgrounds/new');
   }
 });
