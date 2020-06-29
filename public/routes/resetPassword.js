@@ -4,8 +4,8 @@
 const express = require("express");
 const router = express.Router();
 const async = require('async');
-const nodemailer = require('nodemailer');
 const toUpdatePassword = require("../middleware/toUpdatePassword");
+const toEmail = require("../middleware/toEmail");
 const User = require("../schemas/userSchema");
 
 // ===========================
@@ -40,31 +40,21 @@ router.post('/campgrounds/forgot-password/reset/:token', (req, res) => {
                 }
             })
         },
-        function (foundUser, done) {
-            const smtpTransport = nodemailer.createTransport({
-                service: "Gmail",
-                auth: {
-                    user: 'kevinroirigorbasina@gmail.com',
-                    pass: process.env.GMAILPW
-                }
-            });
-            const mailOptions = {
-                subject: `Yelpcamp Password Reset Success`,
-                to: foundUser.email,
-                from: 'YelpCamp-Team-NOREPLY@gmail.com',
-                text: `We successfully reset your Yelpcamp Account password with the following details
+        async function (foundUser, done) {
+            await toEmail(
+                foundUser.email,
+                `Yelpcamp Password Reset Success`,
+                `We successfully reset your Yelpcamp Account password with the following details
 
-                        USERNAME: ${foundUser.username}
-                        EMAIL: ${foundUser.email}
+                         USERNAME: ${foundUser.username}
+                         EMAIL: ${foundUser.email}
 
-                Happy Camping!`
-            }
-            smtpTransport.sendMail(mailOptions, (err) => {
-                req.flash('success', 'Success! Your password has been changed');
-                done(err);
-            })
+                 Happy Camping!`
+            );
+            req.flash('success', 'Success! Your password has been changed');
+            done();
         }
-    ], (err) => {
+    ], () => {
         res.redirect('/campgrounds');
     })
 })
