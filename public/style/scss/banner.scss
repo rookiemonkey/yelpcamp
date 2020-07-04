@@ -66,23 +66,5 @@ header#headline {
                 }
             }
         }
-
-        // start now button
-        #startNow {
-            display: block;
-            width: 60%;
-            margin: 2% auto;
-            background-color: transparent !important;
-            border: 1px solid white;
-            transition-property: all;
-            transition-duration: 500ms;
-            color: white;
-
-            &:hover {
-                background-color: $color-accent2 !important;
-                border-color: $color-accent2 !important;
-                color: white;
-            }
-        }
     }
 }
