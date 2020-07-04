@@ -13,6 +13,7 @@
 <body>
 
 <header id="headline">
+
     <nav class="ui borderless main menu" style="background-color: transparent; border: none; box-shadow: none; border-radius: 0px;">
         <div class="ui text container">
           <div class="header item">
@@ -37,40 +38,45 @@
           </div>
         </div>
       </nav>
+
     <div id="headlineContainer">
+      <!-- banner -->
+        <div id="banner-parent-continer">
+            <div class="ui center aligned container">
 
-      <!-- message for successfully adding a camp -->
-      <% if (success.length > 0) { %>
-          <div class="ui positive message" style="margin: 0 0 5% 0">
-              <div class="header" style="text-align: center;"><%= success %></div>
-          </div>
-      <% } %>
+                <!-- message for successfully adding a camp -->
+                <% if (success.length > 0) { %>
+                    <div class="ui positive message" style="margin: 0 0 5% 0">
+                        <div class="header" style="text-align: center;"><%= success %></div>
+                    </div>
+                <% } %>
 
-      <!-- message for successfully deleting a camp -->
-      <% if (info.length > 0) { %>
-          <div class="ui positive message" style="margin: 0 0 5% 0">
-              <div class="header" style="text-align: center;"><%= info %></div>
-          </div>
-      <% } %>
+                <!-- message for successfully deleting a camp -->
+                <% if (info.length > 0) { %>
+                    <div class="ui positive message" style="margin: 0 0 5% 0">
+                        <div class="header" style="text-align: center;"><%= info %></div>
+                    </div>
+                <% } %>
 
-      <!-- message for any errors -->
-      <% if (error.length > 0) { %>
-          <div class="ui negative message" style="margin: 0 0 5% 0">
-              <div class="header" style="text-align: center;"><%= error %></div>
-          </div>
-      <% } %>
+                <!-- message for any errors -->
+                <% if (error.length > 0) { %>
+                    <div class="ui negative message" style="margin: 0 0 5% 0">
+                        <div class="header" style="text-align: center;"><%= error %></div>
+                    </div>
+                <% } %>
 
-        <div style="margin: 5% 0 0">
-          <i class="fas fa-campground"></i>
-          <h1>Yelp Camp</h1>
-          <hr>
-          <span><em>“Sleep under a blanket of stars, and your heart will forever be kept warm by your love of life.”</em></span>
-          <form action="/campgrounds" method="GET">
-              <div class="ui large icon input">
-                <input type="text" placeholder="Search" name="search" autocomplete="off">
-                <i class="search icon" style="color: white"></i>
-              </div>
-          </form>
+                <i class="fas fa-campground"></i>
+                <h1>Yelp Camp</h1>
+                <hr>
+                <span><em>“Sleep under a blanket of stars, and your heart will forever be kept warm by your love of life.”</em></span>
+                <form action="/campgrounds" method="GET">
+                    <div class="ui large icon input">
+                        <input type="text" placeholder="Search" name="search" autocomplete="off">
+                        <i class="search icon" style="color: white"></i>
+                    </div>
+                </form>
+            </div>
         </div>
+
     </div>
 </header>
