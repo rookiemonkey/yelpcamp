@@ -8,10 +8,8 @@
             div.ui.text.container {
 
                 // selects all the nav options of logged in/not and hides it
-                div.header, div.nav.options {
-                    a.item, span.item {
-                        display: none;
-                    }
+                div.nav.options {
+                    display: none;
                 }
             }
         }
