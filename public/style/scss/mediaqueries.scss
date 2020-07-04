@@ -20,6 +20,7 @@
 
             // header
             div#headlineContainer {
+                transform: scale(1.3);
 
                 h1 {
                     font-size: 2.5em;
@@ -31,6 +32,13 @@
 
                 i.fas {
                     font-size: 2.5em;
+                }
+            }
+
+            // search
+            form {
+                div.input {
+                    width: 100%;
                 }
             }
         }
