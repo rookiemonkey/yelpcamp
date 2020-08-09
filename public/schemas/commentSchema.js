@@ -5,7 +5,13 @@ const commentSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    comment: String,
+    comment: {
+        type: String,
+        required: true,
+        validate(value) {
+            if (!value) { throw new Error('Please provide a valid comment') }
+        }
+    },
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,

@@ -5,13 +5,49 @@ const campSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    campname: String,
-    price: String,
-    image: String,
-    location: String,
-    lat: Number,
-    lng: Number,
-    description: String,
+    campname: {
+        type: String,
+        required: true,
+        validate(value) {
+            if (!value) { throw new Error('Please provide a valid camp name') }
+        }
+    },
+    price: {
+        type: String,
+        required: true,
+        validate(value) {
+            if (!value) { throw new Error('Please provide a valid price for the camp') }
+        }
+    },
+    image: {
+        type: String,
+        required: true,
+        validate(value) {
+            if (!value) { throw new Error('Please provide a valid image url for the camp') }
+        }
+    },
+    location: {
+        type: String,
+        required: true,
+        validate(value) {
+            if (!value) { throw new Error('Please provide a valid location for the camp') }
+        }
+    },
+    lat: {
+        type: Number,
+        required: true
+    },
+    lng: {
+        type: Number,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true,
+        validate(value) {
+            if (!value) { throw new Error('Please provide a valid description for the camp') }
+        }
+    },
     uploader: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
