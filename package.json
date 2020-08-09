@@ -4,8 +4,8 @@
   "description": "this is udemy project. a full working website",
   "main": "yelpcamp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node yelpcamp.js"
+    "start": "node yelpcamp.js",
+    "dev": "nodemon yelpcamp.js"
   },
   "keywords": [
     "yelpcamp",
@@ -37,6 +37,7 @@
     "validator": "^13.1.1"
   },
   "devDependencies": {
-    "locus": "^2.0.4"
+    "locus": "^2.0.4",
+    "nodemon": "^2.0.4"
   }
 }
