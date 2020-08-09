@@ -3,7 +3,6 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
-const parser = require("body-parser");
 const isAdmin = require("../middleware/isAdmin");
 const Comment = require("../schemas/commentSchema");
 

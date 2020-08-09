@@ -1,22 +1,20 @@
 const mongoose = require("mongoose");
 
-let today = Date();
-
-let commentSchema = mongoose.Schema({
+const commentSchema = mongoose.Schema({
     createdAt: {
-      type: Date,
-      default: Date.now
+        type: Date,
+        default: Date.now
     },
     comment: String,
     author: {
-          id: {
-              type: mongoose.Schema.Types.ObjectId,
-              ref: "User"
-          },
-          name: {
-              type: String,
-              ref: "User"
-          }
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        name: {
+            type: String,
+            ref: "User"
+        }
     }
 })
 

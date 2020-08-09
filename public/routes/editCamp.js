@@ -3,7 +3,6 @@
 // ===========================
 const express = require("express");
 const router = express.Router();
-const sanitizer = require("express-sanitizer");
 const isAdmin = require("../middleware/isAdmin");
 const Campground = require("../schemas/campgroundSchema");
 
@@ -12,8 +11,8 @@ const Campground = require("../schemas/campgroundSchema");
 // =========================================
 router.get("/campgrounds/:id/edit", (req, res) => {
     Campground.findById(req.params.id, (err, foundCampground) => {
-        if(req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id) || isAdmin(req)) {
-            if(isAdmin(req)) {
+        if (req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id) || isAdmin(req)) {
+            if (isAdmin(req)) {
                 res.render("editcampground", {
                     user: req.user,
                     campground: foundCampground,

@@ -6,13 +6,12 @@ const router = express.Router();
 const isAdmin = require("../middleware/isAdmin");
 const Comment = require("../schemas/commentSchema");
 const Campground = require("../schemas/campgroundSchema");
-const User = require("../schemas/userSchema");
 
 // =========================================
 // DELETE CAMP ROUTE: delete handler
 // =========================================
 router.delete("/campgrounds/:id/delete", (req, res) => {
-    if(req.session.passport !== undefined) {
+    if (req.session.passport !== undefined) {
         Campground.findById(req.params.id, (err, foundCampgound) => {
 
             //compare the current user's id to the uploaders id

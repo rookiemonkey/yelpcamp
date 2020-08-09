@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-let campSchema = mongoose.Schema({
+const campSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
@@ -13,16 +13,16 @@ let campSchema = mongoose.Schema({
     lng: Number,
     description: String,
     uploader: {
-            id: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "User"
-            },
-            name: {
-                type: String,
-                ref: "User"
-            }
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        name: {
+            type: String,
+            ref: "User"
+        }
     },
-    comments : [
+    comments: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"
