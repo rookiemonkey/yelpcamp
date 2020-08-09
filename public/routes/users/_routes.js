@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
 const toAuthenticate = require('../../middleware/toAuthenticate')
+const isStillApplicable = require("../../middleware/isStillApplicable");
 const form_signup = require('./form_signup')
 const form_login = require('./form_login')
 const to_logout = require('./to_logout')
@@ -14,12 +15,12 @@ const handler_resetPassword = require('./handler_resetPassword')
 // ROOT: /campgrounds/users
 
 router
-    .get('/signup', form_signup)
-    .get('/login', form_login)
+    .get('/signup', isStillApplicable, form_signup)
+    .get('/login', isStillApplicable, form_login)
     .get('/forgot_password', form_forgotPassword)
     .get('/forgot_password/:token', form_resetPassword)
     .get('/logout', to_logout)
-    .post('/signup', handler_signup)
+    .post('/signup', isStillApplicable, handler_signup)
     .post('/login', toAuthenticate, handler_login)
     .post('/forgot_password', handler_forgotPassword)
     .post('/forgot_password/:token', handler_resetPassword)

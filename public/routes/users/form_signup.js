@@ -1,11 +1,4 @@
 // ===========================
-// ROUTE DEPENDENCIES
-// ===========================
-const isStillApplicable = require("../../middleware/isStillApplicable");
-
-// MIDDLEWARE isSTillApplicable
-
-// ===========================
 // SIGNUP ROUTE:
 // ===========================
 const form_signup = async (req, res) => {

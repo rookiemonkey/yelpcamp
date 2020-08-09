@@ -1,11 +1,4 @@
 // ===========================
-// ROUTE DEPENDENCIES
-// ===========================
-const isStillApplicable = require("../../middleware/isStillApplicable");
-
-// MIDDLEWARE: isStillApplicable
-
-// ===========================
 // LOGIN ROUTE:
 // ===========================
 const form_login = (req, res) => {
