@@ -61,21 +61,14 @@ mongoose.connection.on("open", () => {
 // =========================================
 // ROUTES
 // =========================================
-app.use(require("./public/routes/index"));          // /campgrounds
-app.use(require("./public/routes/signup"));         // /campgrounds/signup
-app.use(require("./public/routes/login"));          // /campgrounds/login
-app.use(require("./public/routes/logout"));         // /campgrounds/logout
-app.use(require("./public/routes/new"));            // /campgrounds/new
-app.use(require("./public/routes/forgotPassword")); // /campgrounds/forgot-password
-app.use(require("./public/routes/resetPassword")); // /campgrounds/forgot-password/reset/:token
-app.use(require("./public/routes/show"));           // /campgrounds/:id
-app.use(require("./public/routes/editCamp"));       // /campgrounds/:id/edit
-app.use(require("./public/routes/updateCamp"));     // /campgrounds/:id/update
-app.use(require("./public/routes/deleteCamp"));     // /campgrounds/:id/delete
-app.use(require("./public/routes/comment"));        // /campgrounds/:id/comment
-app.use(require("./public/routes/updateComment"));  // /campgrounds/:id/comment/:comid/update
-app.use(require("./public/routes/deleteComment"));  // /campgrounds/:id/comment/:comid/delete
-app.use(require("./public/routes/error404"));       // /*
+const campRoutes = require('./public/routes/campgrounds/_routes')
+const commentRoutes = require('./public/routes/comments/_routes')
+const userRoutes = require('./public/routes/users/_routes')
+
+app.get('/', (req, res) => res.redirect('/campgrounds/camps'))
+app.use('/campgrounds/users', userRoutes);
+app.use('/campgrounds/camps', campRoutes);
+app.use('/campgrounds/camps/:id/comment', commentRoutes);
 
 // =========================================
 // SERVER

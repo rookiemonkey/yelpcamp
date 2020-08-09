@@ -1,18 +1,16 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
 const async = require('async');
 const crypto = require('crypto');
-const User = require("../schemas/userSchema");
-const toEmail = require("../middleware/toEmail");
-const setToken = require("../middleware/setToken");
+const User = require("../../schemas/userSchema");
+const toEmail = require("../../middleware/toEmail");
+const setToken = require("../../middleware/setToken");
 
 // ===========================
 // PASSWORD RESET HANDLER:
 // ===========================
-router.post('/campgrounds/forgot-password', (req, res, next) => {
+const handler_forgotPassword = (req, res, next) => {
     async.waterfall([
         function (done) {
             crypto.randomBytes(20, (err, buf) => {
@@ -24,7 +22,7 @@ router.post('/campgrounds/forgot-password', (req, res, next) => {
             User.findOne({ email: req.body.email }, async (err, foundUser) => {
                 if (!foundUser) {
                     req.flash('error', 'No Account with that email address exists')
-                    return res.redirect('/campgrounds/forgot-password');
+                    return res.redirect('/campgrounds/users/forgot_password');
                 }
                 await setToken(foundUser, token);
                 done(err, token, foundUser);
@@ -44,11 +42,11 @@ router.post('/campgrounds/forgot-password', (req, res, next) => {
             done();
         }
     ], () => {
-        return res.redirect('/campgrounds/forgot-password');
+        return res.redirect('/campgrounds/users/forgot_password');
     });
-});
+};
 
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = handler_forgotPassword;

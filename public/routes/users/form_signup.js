@@ -1,14 +1,14 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
-const isStillApplicable = require("../middleware/isStillApplicable");
+const isStillApplicable = require("../../middleware/isStillApplicable");
+
+// MIDDLEWARE isSTillApplicable
 
 // ===========================
 // SIGNUP ROUTE:
 // ===========================
-router.get("/campgrounds/signup", isStillApplicable, async (req, res) => {
+const form_signup = async (req, res) => {
     try {
         if (req.session.passport !== undefined) { throw new Error('You are already logged in') }
         res.render("signup", { user: req.user });
@@ -16,11 +16,11 @@ router.get("/campgrounds/signup", isStillApplicable, async (req, res) => {
 
     catch (error) {
         req.flash("info", `${error.message}`)
-        res.redirect("/campgrounds");
+        res.redirect("/campgrounds/camps");
     }
-});
+};
 
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = form_signup;

@@ -6,15 +6,15 @@
     <h1 id="campgrounds-title">Campgrounds</h1>
 
     <% if(message) { %>
-        <h4 id="campgrounds-subtitle">
-            <%=message%>
-        </h4>
+    <h4 id="campgrounds-subtitle">
+        <%=message%>
+    </h4>
     <% } %>
 
     <% if(message === null && campgrounds.length === 0) {%>
-        <h4 id="campgrounds-subtitle">
-            We don't have any active campgrounds for rent. Please come back a week after.
-        </h4>
+    <h4 id="campgrounds-subtitle">
+        We don't have any active campgrounds for rent. Please come back a week after.
+    </h4>
     <% } %>
 
 </div>
@@ -23,24 +23,25 @@
 <article id="campgrounds" class="ui four stackable cards">
 
     <% campgrounds.forEach(camp => { %>
-        <section class="card">
-            <div class="image">
-                <img src="<%= camp.image %>" alt="<%= camp.campname %>" onerror="this.src='/camp.png';" >
+    <section class="card">
+        <div class="image">
+            <img src="<%= camp.image %>" alt="<%= camp.campname %>" onerror="this.src='/camp.png';">
+        </div>
+        <div class="content">
+            <div class="meta">
+                <h2><%= camp.campname %></h2>
+                <span class="date"><%= camp.location %></span>
             </div>
-            <div class="content">
-                <div class="meta">
-                    <h2><%= camp.campname %></h2>
-                    <span class="date"><%= camp.location %></span>
-                </div>
-                <div class="description">
-                    <span><%= camp.description.substring(0, 70) %>..</span>
-                </div>
+            <div class="description">
+                <span><%= camp.description.substring(0, 70) %>..</span>
+            </div>
             </br>
-                <div id="buttonContainer">
-                    <a href="/campgrounds/<%= camp.id %>"><button class="ui right labeled icon button"><i class="right arrow icon"></i>See More</button></a>
-                </div>
+            <div id="buttonContainer">
+                <a href="/campgrounds/camps/<%= camp.id %>"><button class="ui right labeled icon button"><i
+                            class="right arrow icon"></i>See More</button></a>
             </div>
-        </section>
+        </div>
+    </section>
     <% }) %>
 
 </article>

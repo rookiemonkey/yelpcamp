@@ -1,15 +1,13 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
-const isAdmin = require("../middleware/isAdmin");
-const Campground = require("../schemas/campgroundSchema");
+const isAdmin = require("../../middleware/isAdmin");
+const Campground = require("../../schemas/campgroundSchema");
 
 // =========================================
 // EDIT ROUTE; form
 // =========================================
-router.get("/campgrounds/:id/edit", (req, res) => {
+const form_updateCamp = (req, res) => {
     Campground.findById(req.params.id, (err, foundCampground) => {
         if (req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id) || isAdmin(req)) {
             if (isAdmin(req)) {
@@ -28,12 +26,12 @@ router.get("/campgrounds/:id/edit", (req, res) => {
         } else {
             // if not logged in let them log in first
             req.flash("error", "Something is not right. You need to be logged in and should be the owner of the camp to edit it");
-            res.redirect("/campgrounds/login")
+            res.redirect("/campgrounds/users/login")
         }
     })
-});
+};
 
 // =========================================
 // EXPORT ALL ROUTES
 // =========================================
-module.exports = router;
+module.exports = form_updateCamp;

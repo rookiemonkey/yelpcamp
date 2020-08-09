@@ -1,20 +1,14 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
-const Campground = require("../schemas/campgroundSchema");
-const isAdmin = require("../middleware/isAdmin");
-const toShuffle = require("../middleware/toShuffle");
+const Campground = require("../../schemas/campgroundSchema");
+const isAdmin = require("../../middleware/isAdmin");
+const toShuffle = require("../../middleware/toShuffle");
 
 // ===========================
 // INDEX ROUTE
 // ===========================
-router.get("/", (req, res) => {
-    res.redirect("/campgrounds");
-});
-
-router.get("/campgrounds", (req, res) => {
+const showCamgrounds = (req, res) => {
     if (!req.query.search) {
         Campground.find().exec((err, foundCampground) => {
             if (isAdmin(req)) {
@@ -52,7 +46,7 @@ router.get("/campgrounds", (req, res) => {
                 })
         })
     }
-});
+};
 
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
@@ -61,4 +55,4 @@ function escapeRegex(text) {
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = showCamgrounds;

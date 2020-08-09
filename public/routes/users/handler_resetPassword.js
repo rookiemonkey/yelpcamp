@@ -1,17 +1,15 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
 const async = require('async');
-const toUpdatePassword = require("../middleware/toUpdatePassword");
-const toEmail = require("../middleware/toEmail");
-const User = require("../schemas/userSchema");
+const toUpdatePassword = require("../../middleware/toUpdatePassword");
+const toEmail = require("../../middleware/toEmail");
+const User = require("../../schemas/userSchema");
 
 // ===========================
 // NEW PASSWORD HANDLER:
 // ===========================
-router.post('/campgrounds/forgot-password/reset/:token', (req, res) => {
+const handler_resetPassword = (req, res) => {
     async.waterfall([
         function (done) {
             User.findOne({ resetPasswordToken: req.params.token }, (err, foundUser) => {
@@ -45,12 +43,12 @@ router.post('/campgrounds/forgot-password/reset/:token', (req, res) => {
             done();
         }
     ], () => {
-        res.redirect('/campgrounds');
+        res.redirect('/campgrounds/camps');
     })
-})
+}
 
 
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = handler_resetPassword;

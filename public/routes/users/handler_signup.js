@@ -1,16 +1,16 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
 const passport = require("passport");
-const isStillApplicable = require("../middleware/isStillApplicable");
-const User = require("../schemas/userSchema");
+const isStillApplicable = require("../../middleware/isStillApplicable");
+const User = require("../../schemas/userSchema");
+
+// middleware: isStillApplicable
 
 // ===========================
 // SIGNUP HANDLER:
 // ===========================
-router.post("/campgrounds/signup", isStillApplicable, async (req, res) => {
+const handler_signup = async (req, res) => {
 
     try {
         const { username, email, password } = req.body;
@@ -19,17 +19,17 @@ router.post("/campgrounds/signup", isStillApplicable, async (req, res) => {
         await passport.authenticate("local")
             (req, res, () => {
                 req.flash("success", `Successfully created an account for ${req.body.username}`)
-                return res.redirect("/campgrounds");
+                return res.redirect("/campgrounds/camps");
             })
     }
 
     catch (error) {
         req.flash("error", `${error.message}`)
-        res.redirect("/campgrounds/signup");
+        res.redirect("/campgrounds/users/signup");
     }
-});
+};
 
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = handler_signup;

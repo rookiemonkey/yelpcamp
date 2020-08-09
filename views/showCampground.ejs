@@ -4,9 +4,9 @@
 
     <!-- alert-success message -->
     <% if (success.length > 0) { %>
-        <div class="ui positive message" style="margin: 2% 5%;">
-            <div class="header"><%= success %></div>
-        </div>
+    <div class="ui positive message" style="margin: 2% 5%;">
+        <div class="header"><%= success %></div>
+    </div>
     <% } %>
 
     <div id="campgroundContainer" class="ui relaxed grid">
@@ -24,7 +24,8 @@
         <article id="campgroundCard" class="ten wide column>">
             <div class="ui card">
                 <div class="image">
-                    <img class="ui fluid image" src="<%= campground.image %>" alt="<%= campground.campname %>" onerror="this.src='/camp.png';">
+                    <img class="ui fluid image" src="<%= campground.image %>" alt="<%= campground.campname %>"
+                        onerror="this.src='/camp.png';">
                 </div>
                 <div class="content">
                     <span class="header"><%= campground.campname %></span>
@@ -32,7 +33,8 @@
                         <span id="pricetag" class="ui green label">$ <%= campground.price %> / night</span>
                     </div>
                     <div class="meta">
-                        <div class="date"><em>Submitted by:  &nbsp<strong><%= campground.uploader.name %></em></strong> - <%= moment(campground.createdAt).fromNow() %></div>
+                        <div class="date"><em>Submitted by: &nbsp<strong><%= campground.uploader.name %></em></strong> -
+                            <%= moment(campground.createdAt).fromNow() %></div>
                         <span class="date"><%= campground.location %></span>
                     </div>
                     <div class="description" id="description">
@@ -41,89 +43,99 @@
                 </div>
                 <div class="ui celled list">
 
-                <!-- delete campground -->
-                <% if(user !== undefined) {%>
+                    <!-- delete/edit campground -->
+                    <% if(user !== undefined) {%>
                     <% if(user.id == campground.uploader.id || role != null) {%>
-                        <form class="ui form deleteCampground" action="/campgrounds/<%= campground._id %>/delete?_method=DELETE" method="POST">
-                            <div class="inline fields deleteCampground-parent">
-                                <div class="one wide field deleteCampground-inner">
-                                    <a id="editButton" class="ui orange basic button" href="/campgrounds/<%= campground.id %>/edit">Edit</a>
-                                    <button id="deleteButton" class="ui negative basic button">Delete</button>
-                                </div>
+                    <form class="ui form deleteCampground"
+                        action="/campgrounds/camps/<%= campground._id %>?_method=DELETE" method="POST">
+                        <div class="inline fields deleteCampground-parent">
+                            <div class="one wide field deleteCampground-inner">
+                                <a id="editButton" class="ui orange basic button"
+                                    href="/campgrounds/camps/<%= campground.id %>/edit">Edit</a>
+                                <button id="deleteButton" class="ui negative basic button">Delete</button>
                             </div>
-                        </form>
+                        </div>
+                    </form>
                     <% }; %>
-                <% }; %>
+                    <% }; %>
 
-                <!-- add comment section -->
-                <% if(user !== undefined) {%>
-                <form class="ui form review-form" action="/campgrounds/<%= campground._id %>/comment" method="POST">
-                    <div class="inline fields">
-                        <input type="text" name="comment" placeholder="review details" autocomplete="off" required>
-                        <button id="reviewButton" class="positive ui button">Review</button>
-                    </div>
-                </form>
-                <% }; %>
+                    <!-- add comment section -->
+                    <% if(user !== undefined) {%>
+                    <form class="ui form review-form" action="/campgrounds/camps/<%= campground._id %>/comment"
+                        method="POST">
+                        <div class="inline fields">
+                            <input type="text" name="comment" placeholder="review details" autocomplete="off" required>
+                            <button id="reviewButton" class="positive ui button">Review</button>
+                        </div>
+                    </form>
+                    <% }; %>
 
-                <!-- comments section -->
-                <% if(campground.comments.length > 0) { %>
+                    <!-- comments section -->
+                    <% if(campground.comments.length > 0) { %>
                     <% campground.comments.forEach(com => { %>
-                        <div class="item">
-                            <div class="content">
+                    <div class="item">
+                        <div class="content">
 
-                                <!-- author / date of the comment -->
-                                <div class="header">
-                                    @<%= com.author.name %><span id="date"><%= moment(com.createdAt).fromNow() %></span>
+                            <!-- author / date of the comment -->
+                            <div class="header">
+                                @<%= com.author.name %><span id="date"><%= moment(com.createdAt).fromNow() %></span>
 
-                                    <!-- edit / delete comment -->
-                                    <% if(user !== undefined) {%>
-
-                                        <% if(user.username == com.author.name || role != null) {%>
-                                        <form class="ui form deleteCommentBtn" action="/campgrounds/<%= campground._id %>/comment/<%= com._id %>/delete?_method=DELETE" method="POST">
-                                            <div class="inline fields">
-                                                <div class="one wide field" style="padding-right: 5px">
-                                                    <button class="ui mini negative basic button">Delete</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <% }; %>
-
-                                        <% if(user.username == com.author.name) {%>
-                                            <span id="editComment">
-                                                <a id="edit" class="ui mini orange basic button">Edit</a>
-                                            </span>
-                                        <% }; %>
-
-                                    <% }; %>
-
-                                </div>
-
-                                <!-- the comment -->
-                                <div class="description">
-                                    <span><em>"<%= com.comment %>"</em></span>
-                                </div>
-
-                                <!-- update comment box visible upon click of edit -->
+                                <!-- edit / delete comment -->
                                 <% if(user !== undefined) {%>
-                                    <% if(user.username == com.author.name) {%>
-                                        <form id="update-comment-form"  class="ui form hidden update-comment-form" action="/campgrounds/<%= campground._id %>/comment/<%= com._id %>/update?_method=PUT" method="POST">
-                                            <div class="inline fields">
-                                                <div class="fifteen wide field" id="update-comment-form-input">
-                                                    <input type="text" name="comment" placeholder="Comment" autocomplete="off" value="<%= com.comment %>" required>
-                                                </div>
-                                                <div class='update-comment-form-buttons'>
-                                                    <button class="positive ui button" id="commentUpdate" type='submit'>Update</button>
-                                                    <button class="positive ui button" id="commentCancel" type='button'>Cancel</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    <% }; %>
+
+                                <% if(user.username == com.author.name || role != null) {%>
+                                <form class="ui form deleteCommentBtn"
+                                    action="/campgrounds/camps/<%= campground._id %>/comment/<%= com._id %>?_method=DELETE"
+                                    method="POST">
+                                    <div class="inline fields">
+                                        <div class="one wide field" style="padding-right: 5px">
+                                            <button class="ui mini negative basic button">Delete</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <% }; %>
+
+                                <% if(user.username == com.author.name) {%>
+                                <span id="editComment">
+                                    <a id="edit" class="ui mini orange basic button">Edit</a>
+                                </span>
+                                <% }; %>
+
                                 <% }; %>
 
                             </div>
+
+                            <!-- the comment -->
+                            <div class="description">
+                                <span><em>"<%= com.comment %>"</em></span>
+                            </div>
+
+                            <!-- update comment box visible upon click of edit -->
+                            <% if(user !== undefined) {%>
+                            <% if(user.username == com.author.name) {%>
+                            <form id="update-comment-form" class="ui form hidden update-comment-form"
+                                action="/campgrounds/camps/<%= campground._id %>/comment/<%= com._id %>?_method=PUT"
+                                method="POST">
+                                <div class="inline fields">
+                                    <div class="fifteen wide field" id="update-comment-form-input">
+                                        <input type="text" name="comment" placeholder="Comment" autocomplete="off"
+                                            value="<%= com.comment %>" required>
+                                    </div>
+                                    <div class='update-comment-form-buttons'>
+                                        <button class="positive ui button" id="commentUpdate"
+                                            type='submit'>Update</button>
+                                        <button class="positive ui button" id="commentCancel"
+                                            type='button'>Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <% }; %>
+                            <% }; %>
+
                         </div>
+                    </div>
                     <%  }); %>
-                <% }; %>
+                    <% }; %>
 
                 </div>
             </div>
@@ -135,7 +147,7 @@
 
     const mymap = L.map('map').setView([<%= campground.lat %>, <%= campground.lng %>], 7.5);
     var marker = L.marker([<%= campground.lat %>, <%= campground.lng %>]).addTo(mymap);
-    var popup = L.popup({closeButton: false})
+    var popup = L.popup({ closeButton: false })
         .setLatLng([<%= campground.lat %>, <%= campground.lng %>])
         .setContent("<%= campground.campname %>")
         .openOn(mymap);
@@ -146,7 +158,7 @@
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken:'pk.eyJ1Ijoicm9va2llbW9ua2V5IiwiYSI6ImNrYm9saXRhbzIycGIyd215bWw4cDJtdmEifQ.CEstCFxd-sVsSA6ef_fgMA'
+        accessToken: 'pk.eyJ1Ijoicm9va2llbW9ua2V5IiwiYSI6ImNrYm9saXRhbzIycGIyd215bWw4cDJtdmEifQ.CEstCFxd-sVsSA6ef_fgMA'
     }).addTo(mymap);
 
 </script>

@@ -1,14 +1,14 @@
 const isStillApplicable = (req, res, next) => {
-    if(req.session.passport === undefined){
+    if (req.session.passport === undefined) {
 
         return next();
 
     } else {
 
         req.flash("error", "You are already logged in and has an account");
-        res.redirect("/campgrounds");
+        res.redirect("/campgrounds/camps");
 
     };
 }
 
-module.exports =  isStillApplicable;
+module.exports = isStillApplicable;

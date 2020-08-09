@@ -4,19 +4,21 @@
 const express = require("express");
 const router = express.Router();
 
+// MIDDLEWARE: isLoggedIn
+
 // ===========================
 // LOGOUT ROUTE:
 // ===========================
-router.get("/campgrounds/logout", isLoggedIn, (req, res) => {
+const to_logout = (req, res) => {
 
     res.status(200)
     res.clearCookie('connect.sid', { path: '/' });
     res.clearCookie('role', { path: '/' });
     req.session.destroy(function (err) {
-        return res.redirect('/campgrounds');
+        return res.redirect('/campgrounds/camps');
     });
 
-});
+};
 
 
 // middleware - check if signed in
@@ -27,11 +29,11 @@ function isLoggedIn(req, res, next) {
     let rt = req.route;
     let rs = req.session;
 
-    if(rs.passport !== undefined){
+    if (rs.passport !== undefined) {
 
-        if(rt.path === "/campgrounds/signup" && rt.hasOwnProperty("methods")) {
+        if (rt.path === "/campgrounds/users/signup" && rt.hasOwnProperty("methods")) {
 
-            res.redirect("/");
+            res.redirect("/campgrounds/camps");
 
         } else {
 
@@ -41,11 +43,11 @@ function isLoggedIn(req, res, next) {
 
     } else if (rs.passport === undefined && rt.methods.post === true) {
 
-            return next();
+        return next();
 
     } else {
 
-        res.redirect("/campgrounds/login");
+        res.redirect("/campgrounds/users/login");
 
     }
 };
@@ -54,4 +56,4 @@ function isLoggedIn(req, res, next) {
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = to_logout;

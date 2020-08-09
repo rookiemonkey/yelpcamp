@@ -1,15 +1,15 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
-const isAdmin = require("../middleware/isAdmin");
-const isLoggedIn = require("../middleware/isLoggedin");
+const isAdmin = require("../../middleware/isAdmin");
+const isLoggedIn = require("../../middleware/isLoggedin");
+
+// MIDDLEWARE: isLoggedIn
 
 // ===========================
 // ADD CAMP ROUTE
 // ===========================
-router.get("/campgrounds/new", isLoggedIn, (req, res) => {
+const form_addCamp = (req, res) => {
   if (isAdmin(req)) {
     res.render("addcampground", {
       user: req.user,
@@ -21,9 +21,9 @@ router.get("/campgrounds/new", isLoggedIn, (req, res) => {
       role: null
     });
   }
-});
+};
 
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = form_addCamp;

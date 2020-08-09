@@ -23,16 +23,16 @@
         <div class="header item">
           <span><i class="bandcamp icon"></i>Yelp Camp</span>
           <% if (user !== undefined) { %>
-          <a href="/campgrounds" class="item">Home</a>
-          <a href="/campgrounds/new" class="item">Add</a>
-          <a href="/campgrounds/logout" class="item">Logout</a>
+          <a href="/campgrounds/camps" class="item">Home</a>
+          <a href="/campgrounds/camps/new" class="item">Add</a>
+          <a href="/campgrounds/users/logout" class="item">Logout</a>
           <% } %>
         </div>
         <div class="nav options">
           <% if (user === undefined) { %>
-          <a href="/campgrounds" class="item">Home</a>
-          <a href="/campgrounds/login" class="item">Login</a>
-          <a href="/campgrounds/signup" class="item">Sign Up</a>
+          <a href="/campgrounds/camps" class="item">Home</a>
+          <a href="/campgrounds/users/login" class="item">Login</a>
+          <a href="/campgrounds/users/signup" class="item">Sign Up</a>
           <% } else { %>
           <span class="item">Good day, &nbsp <strong><%= user.username %></strong></span>
           <% if(role != null) { %>
@@ -75,7 +75,7 @@
           <hr>
           <span><em>“Sleep under a blanket of stars, and your heart will forever be kept warm by your love of
               life.”</em></span>
-          <form action="/campgrounds" method="GET">
+          <form action="/campgrounds/camps" method="GET">
             <div class="ui large icon input">
               <input type="text" placeholder="Search" name="search" autocomplete="off">
               <i class="search icon" style="color: white"></i>

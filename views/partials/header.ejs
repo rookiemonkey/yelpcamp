@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
-    <script src="https://kit.fontawesome.com/f5d315bff2.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-    <title>Yelp Camp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="/style/style.css">
+  <script src="https://kit.fontawesome.com/f5d315bff2.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+  <title>Yelp Camp</title>
 </head>
+
 <body>
   <nav class="ui borderless main menu">
     <div class="ui text container">
       <div class="header item">
         <span><i class="bandcamp icon"></i>Yelp Camp</span>
         <% if (user !== undefined) { %>
-          <a href="/campgrounds" class="item">Home</a>
-          <a href="/campgrounds/new" class="item">Add</a>
-          <a href="/campgrounds/logout" class="item">Logout</a>
+        <a href="/campgrounds/camps" class="item">Home</a>
+        <a href="/campgrounds/camps/new" class="item">Add</a>
+        <a href="/campgrounds/users/logout" class="item">Logout</a>
         <% } %>
       </div>
       <div class="nav options">
         <% if (user === undefined) { %>
-          <a href="/campgrounds" class="item">Home</a>
-          <a href="/campgrounds/login" class="item">Login</a>
-          <a href="/campgrounds/signup" class="item">Sign Up</a>
+        <a href="/campgrounds/camps" class="item">Home</a>
+        <a href="/campgrounds/users/login" class="item">Login</a>
+        <a href="/campgrounds/users/signup" class="item">Sign Up</a>
         <% } else { %>
-          <span class="item">Good day, &nbsp <strong><%= user.username %></strong></span>
-          <% if(role != null) { %>
-            <span class="item">Role: ADMIN </span>
-          <% } %>
+        <span class="item">Good day, &nbsp <strong><%= user.username %></strong></span>
+        <% if(role != null) { %>
+        <span class="item">Role: ADMIN </span>
+        <% } %>
         <% } %>
       </div>
     </div>

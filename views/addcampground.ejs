@@ -5,20 +5,21 @@
 
         <!-- error message -->
         <% if (error.length > 0) { %>
-            <div class="ui negative message">
-                <div class="header"><%= error %></div>
-            </div>
+        <div class="ui negative message">
+            <div class="header"><%= error %></div>
+        </div>
         <% } %>
 
         <h1>New Campground Form</h1>
-        <form class="ui form" action="/campgrounds/new" method="POST" enctype="multipart/form-data">
+        <form class="ui form" action="/campgrounds/camps/new" method="POST" enctype="multipart/form-data">
             <div class="field">
                 <label for="Camp Name">Camp Name</label>
                 <input type="text" id="Camp Name" name="name" placeholder="Wonder woods" autocomplete="off" required>
             </div>
             <div class="field">
                 <label for="Camp Name">Price per night</label>
-                <input type="number" id="Camp Name" name="price" placeholder="10.00" autocomplete="off" step="0.10" min=".00" required>
+                <input type="number" id="Camp Name" name="price" placeholder="10.00" autocomplete="off" step="0.10"
+                    min=".00" required>
             </div>
             <div class="field">
                 <label for="image">Image</label>
@@ -30,7 +31,8 @@
             </div>
             <div class="field">
                 <label for="description">Description</label>
-                <textarea name="description" placeholder="Description" required style="font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;"></textarea>
+                <textarea name="description" placeholder="Description" required
+                    style="font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;"></textarea>
             </div>
             <button class="ui button" type="submit">Submit</button>
         </form>
@@ -39,4 +41,3 @@
 </section>
 
 <%- include("partials/footer") %>
-

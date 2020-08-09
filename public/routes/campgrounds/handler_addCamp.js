@@ -1,16 +1,14 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
 const multer = require('multer');
 const cloudinary = require('cloudinary');
-const isLoggedIn = require("../middleware/isLoggedin");
-const toUpload = require("../middleware/toUpload");
-const setMulter = require("../middleware/setMulter");
-const setCloudinary = require("../middleware/setCloudinary");
-const toGeocode = require("../middleware/toGeocode");
-const Campground = require("../schemas/campgroundSchema");
+const isLoggedIn = require("../../middleware/isLoggedin");
+const toUpload = require("../../middleware/toUpload");
+const setMulter = require("../../middleware/setMulter");
+const setCloudinary = require("../../middleware/setCloudinary");
+const toGeocode = require("../../middleware/toGeocode");
+const Campground = require("../../schemas/campgroundSchema");
 
 // configure multer
 const upload = setMulter(multer);
@@ -18,10 +16,12 @@ const upload = setMulter(multer);
 // configure cloudinary
 cloudinary.config(setCloudinary());
 
+// MIDDLEWARES = isLoggedIn, upload.single('image') 
+
 // ===========================
 // ADD CAMP HANDLER
 // ===========================
-router.post("/campgrounds/new", isLoggedIn, upload.single('image'), async (req, res) => {
+const handler_addCamp = async (req, res) => {
     try {
         const uploaded = await toUpload(cloudinary, req).then(u => { return u.secure_url });
         const location = req.sanitize(req.body.location);
@@ -44,19 +44,19 @@ router.post("/campgrounds/new", isLoggedIn, upload.single('image'), async (req, 
         Campground.create(newCampground, (err, addedCamp) => {
             if (err) {
                 req.flash("error", err.message)
-                res.redirect("/campgrounds");
+                res.redirect("/campgrounds/camps");
             } else {
                 req.flash("success", `Congratulations ${req.user.username}! Your new camp "${addedCamp.campname}" is now added on our catalogue`)
-                res.redirect("/campgrounds");
+                res.redirect("/campgrounds/camps");
             };
         });
     } catch (err) {
         req.flash('error', `Something went wrong upon creating the campground. ${err.message}`)
-        res.redirect('/campgrounds/new');
+        res.redirect('/campgrounds/camps/new');
     }
-});
+};
 
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = handler_addCamp;

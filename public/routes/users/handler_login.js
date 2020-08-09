@@ -1,19 +1,19 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
 const passport = require("passport");
-const setCookie = require("../middleware/setCookie");
-const toCheckAdmin = require("../middleware/toCheckAdmin");
+const setCookie = require("../../middleware/setCookie");
+const toCheckAdmin = require("../../middleware/toCheckAdmin");
+
+// MIDDLEWARE: passport.authenticate("local", {
+//     failureRedirect: "/campgrounds/login",
+//     failureFlash: 'Invalid username or password'
+// })
 
 // ===========================
 // LOGIN HANDLER:
 // ===========================
-router.post("/campgrounds/login", passport.authenticate("local", {
-    failureRedirect: "/campgrounds/login",
-    failureFlash: 'Invalid username or password'
-}), async (req, res) => {
+const handler_login = async (req, res) => {
 
     try {
         const { adminCode, username, _id } = req.user
@@ -24,21 +24,21 @@ router.post("/campgrounds/login", passport.authenticate("local", {
         if (output && adminCode !== '') {
             req.flash('success', `Succesfully logged in as ${username} with admin priviledges`);
             res.cookie('role', cookie.cookie, { maxAge: cookie.maxAge })
-            return res.redirect('/campgrounds');
+            return res.redirect('/campgrounds/camps');
         } else {
             req.flash('success', `Succesfully logged in as ${username}`);
             res.clearCookie('role', { path: '/' })
-            return res.redirect('/campgrounds');
+            return res.redirect('/campgrounds/camps');
         }
     }
 
     catch (error) {
         req.flash("error", `${error.message}`)
-        res.redirect('/campgrounds')
+        res.redirect('/campgrounds/camps')
     }
-});
+};
 
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = handler_login;

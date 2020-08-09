@@ -1,18 +1,18 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const express = require("express");
-const router = express.Router();
-const isStillApplicable = require("../middleware/isStillApplicable");
+const isStillApplicable = require("../../middleware/isStillApplicable");
+
+// MIDDLEWARE: isStillApplicable
 
 // ===========================
 // LOGIN ROUTE:
 // ===========================
-router.get("/campgrounds/login", isStillApplicable, (req, res) => {
+const form_login = (req, res) => {
     res.render("login", { user: req.user });
-});
+};
 
 // ===========================
 // EXPORTS ALL THE ROUTES
 // ===========================
-module.exports = router;
+module.exports = form_login;
