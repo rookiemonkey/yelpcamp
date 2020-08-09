@@ -22,18 +22,27 @@ router.post("/campgrounds/login", passport.authenticate("local", {
     failureFlash: 'Invalid username or password'
 }), async (req, res) => {
 
-    const output = await toCheckAdmin(res.req.user.adminCode, res.req.body.admin);
-    if (output && res.req.user.adminCode !== '') {
-        const c = await setCookie(res.req.user._id);
-        req.flash('success', `Succesfully logged in as ${res.req.user.username} with admin priviledges`);
-        res.cookie('role', c.cookie, { maxAge: c.maxAge })
-        return res.redirect('/campgrounds');
-    } else {
-        req.flash('success', `Succesfully logged in as ${res.req.user.username}`);
-        res.clearCookie('role', { path: '/' })
-        return res.redirect('/campgrounds');
+    try {
+        const { adminCode, username, _id } = req.user
+        const { admin } = req.body
+        const output = await toCheckAdmin(adminCode, admin);
+        const cookie = await setCookie(_id);
+
+        if (output && adminCode !== '') {
+            req.flash('success', `Succesfully logged in as ${username} with admin priviledges`);
+            res.cookie('role', cookie.cookie, { maxAge: cookie.maxAge })
+            return res.redirect('/campgrounds');
+        } else {
+            req.flash('success', `Succesfully logged in as ${username}`);
+            res.clearCookie('role', { path: '/' })
+            return res.redirect('/campgrounds');
+        }
     }
 
+    catch (error) {
+        req.flash("error", `${error.message}`)
+        res.redirect('/campgrounds')
+    }
 });
 
 // ===========================
