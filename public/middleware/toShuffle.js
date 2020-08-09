@@ -1,4 +1,4 @@
-const shuffle = arr => {
+const toShuffle = arr => {
     for (let idx1 = arr.length - 1; idx1 > 0; idx1--) {
 
         // generate a random index between 0 and idx1 (inclusive)
@@ -10,4 +10,4 @@ const shuffle = arr => {
     return arr;
 }
 
-module.exports = shuffle;
+module.exports = toShuffle;

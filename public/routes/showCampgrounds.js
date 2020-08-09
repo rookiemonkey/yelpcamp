@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 const Campground = require("../schemas/campgroundSchema");
 const isAdmin = require("../middleware/isAdmin");
-const shuffle = require("../middleware/shuffle");
+const toShuffle = require("../middleware/toShuffle");
 
 // ===========================
 // INDEX ROUTE
@@ -14,12 +14,12 @@ router.get("/", (req, res) => {
     res.redirect("/campgrounds");
 });
 
-router.get("/campgrounds", (req, res) =>{
-    if(!req.query.search) {
+router.get("/campgrounds", (req, res) => {
+    if (!req.query.search) {
         Campground.find().exec((err, foundCampground) => {
-            if(isAdmin(req)) {
+            if (isAdmin(req)) {
                 res.render("campgrounds", {
-                    campgrounds: shuffle(foundCampground),
+                    campgrounds: toShuffle(foundCampground),
                     message: null,
                     user: req.user,
                     role: "ADMIN"
@@ -49,7 +49,7 @@ router.get("/campgrounds", (req, res) =>{
                     message: "No Matching Campground",
                     user: req.user,
                     role: null
-            })
+                })
         })
     }
 });
