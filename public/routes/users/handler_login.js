@@ -5,11 +5,6 @@ const passport = require("passport");
 const setCookie = require("../../middleware/setCookie");
 const toCheckAdmin = require("../../middleware/toCheckAdmin");
 
-// MIDDLEWARE: passport.authenticate("local", {
-//     failureRedirect: "/campgrounds/login",
-//     failureFlash: 'Invalid username or password'
-// })
-
 // ===========================
 // LOGIN HANDLER:
 // ===========================
