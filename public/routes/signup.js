@@ -10,35 +10,37 @@ const User = require("../schemas/userSchema");
 // ===========================
 // SIGNUP ROUTE:
 // ===========================
-router.get("/campgrounds/signup", isStillApplicable, (req, res) => {
-    if(req.session.passport !== undefined) {
-        req.flash("info", "You are already logged in")
-        res.redirect("/");
+router.get("/campgrounds/signup", isStillApplicable, async (req, res) => {
+    try {
+        if (req.session.passport !== undefined) { throw new Error('You are already logged in') }
+        res.render("signup", { user: req.user });
     }
-    res.render("signup", {user: req.user});
+
+    catch (error) {
+        req.flash("info", `${error.message}`)
+        res.redirect("/campgrounds");
+    }
 });
 
 
 // SIGNUP ROUTE: handler
-router.post("/campgrounds/signup", isStillApplicable, (req, res) => {
-    const { username, email, password } = req.body;
-    User.register(new User ({ username: username, email: email }), password, (err, newUser) => {
-        if(err) {
-            if (err.name === 'UserExistsError') {
-                req.flash("error", `It looks like we are having some challenges creating the account. ${err.message}. Please use a different one.`);
-                return res.redirect("/campgrounds/signup");
-            }
-            else if (err.name === 'MongoError') {
-                req.flash("error", `It looks like we are having some challenges creating the account. A user is already using the email address that you typed in. Please use a different one.`);
-                return res.redirect("/campgrounds/signup");
-            }
-        } else {
-            passport.authenticate("local")(req, res, function(){
+router.post("/campgrounds/signup", isStillApplicable, async (req, res) => {
+
+    try {
+        const { username, email, password } = req.body;
+        const user = new User({ username, email, password })
+        await User.register(user, password)
+        await passport.authenticate("local")
+            (req, res, () => {
                 req.flash("success", `Successfully created an account for ${req.body.username}`)
                 return res.redirect("/campgrounds");
             })
-        }
-    });
+    }
+
+    catch (error) {
+        req.flash("error", `${error.message}`)
+        res.redirect("/campgrounds/signup");
+    }
 });
 
 // ===========================
