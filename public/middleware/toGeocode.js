@@ -4,7 +4,7 @@ const toError = require("./toError");
 const toGeocode = async (
     l = toError("Location")
 ) => {
-    return await opencage.geocode({ q: l })
+    return await opencage.geocode({ q: l, key: process.env.OCD_API_KEY })
         .then(res => { return JSON.stringify(res) })
         .then(data => {
             const d = JSON.parse(data)

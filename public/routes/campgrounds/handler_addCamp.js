@@ -1,22 +1,13 @@
 // ===========================
 // ROUTE DEPENDENCIES
 // ===========================
-const multer = require('multer');
 const cloudinary = require('cloudinary');
-const isLoggedIn = require("../../middleware/isLoggedin");
 const toUpload = require("../../middleware/toUpload");
-const setMulter = require("../../middleware/setMulter");
-const setCloudinary = require("../../middleware/setCloudinary");
 const toGeocode = require("../../middleware/toGeocode");
+const setCloudinary = require("../../middleware/setCloudinary");
 const Campground = require("../../schemas/campgroundSchema");
 
-// configure multer
-const upload = setMulter(multer);
-
-// configure cloudinary
 cloudinary.config(setCloudinary());
-
-// MIDDLEWARES = isLoggedIn, upload.single('image') 
 
 // ===========================
 // ADD CAMP HANDLER
@@ -26,6 +17,7 @@ const handler_addCamp = async (req, res) => {
         const uploaded = await toUpload(cloudinary, req).then(u => { return u.secure_url });
         const location = req.sanitize(req.body.location);
         const loc = await toGeocode(location);
+        console.log(loc)
         const campname = req.sanitize(req.body.name);
         const description = req.sanitize(req.body.description);
         const uploader = { id: req.user.id, name: req.user.username }
