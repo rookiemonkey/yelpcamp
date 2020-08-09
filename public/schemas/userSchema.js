@@ -23,13 +23,7 @@ let userSchema = mongoose.Schema({
             if (!validator.isEmail(value)) { throw new Error('Please provide a valid email') }
         }
     },
-    password: {
-        type: String,
-        required: true,
-        validate(value) {
-            if (!value || value.length < 8) { throw new Error('Please provide a password with minimum of 8 characters') }
-        }
-    },
+    password: String,
     isAdmin: {
         type: Boolean,
         default: false,

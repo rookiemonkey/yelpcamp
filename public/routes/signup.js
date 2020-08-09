@@ -28,7 +28,7 @@ router.post("/campgrounds/signup", isStillApplicable, async (req, res) => {
 
     try {
         const { username, email, password } = req.body;
-        const user = new User({ username, email, password })
+        const user = new User({ username, email })
         await User.register(user, password)
         await passport.authenticate("local")
             (req, res, () => {
