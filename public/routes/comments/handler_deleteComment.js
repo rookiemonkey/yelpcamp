@@ -8,23 +8,33 @@ const Campground = require("../../schemas/campgroundSchema");
 // =========================================
 // DELETE COMMENT ROUTE: delete handler
 // =========================================
-const handler_deleteComment = (req, res) => {
-    Comment.findById(req.params.comid, (err, foundComment) => {
-        Campground.findById(req.params.id, (err, foundCampground) => {
-            if (req.session.passport !== undefined && req.user.id == foundComment.author.id || isAdmin(req)) {
-                // removed comment reference from the campground first
-                foundCampground.comments.remove({ _id: req.params.comid })
-                // then removed the comment from the comments collections
-                Comment.findByIdAndRemove(req.params.comid, (err => {
-                    res.redirect(`/campgrounds/camps/${req.params.id}`)
-                }));
-            } else {
-                // display a message that they cannot do that
-                req.flash("error", "Something is not right. You need to be logged in and the author of the comment to delete it");
-                return res.redirect(`/campgrounds/users/login`)
-            }
-        });
-    });
+const handler_deleteComment = async (req, res) => {
+
+    try {
+        const { id, comid } = req.params
+        const foundComment = await Comment.findById(comid)
+        const foundCampgroud = await Campground.findById(id)
+
+        console.log('req.session.passport === undefined', req.session.passport === undefined)
+        console.log('req.user.id != foundComment.author.id', req.user.id != foundComment.author.id)
+        console.log('!isAdmin(req)', !isAdmin(req))
+        if (req.session.passport === undefined &&
+            req.user.id != foundComment.author.id ||
+            isAdmin(req)) {
+            throw new Error('Please log in first')
+        }
+
+        await foundCampgroud.comments.remove({ _id: comid })
+        await Comment.findByIdAndRemove(comid)
+        req.flash("success", `Sucessfully deleted a comment`);
+        res.redirect(`/campgrounds/camps/${id}`);
+    }
+
+    catch (error) {
+        const { id } = req.params
+        req.flash("error", `Something went wrong upon deleting a comment. ${error.message}`);
+        res.redirect(`/campgrounds/camps/${id}`);
+    }
 };
 
 // =========================================

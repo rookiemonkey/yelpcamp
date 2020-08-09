@@ -7,20 +7,30 @@ const Comment = require("../../schemas/commentSchema");
 // =========================================
 // UPDATE COMMENT ROUTE: update handler
 // =========================================
-const handler_updateComment = (req, res) => {
-    Comment.findById(req.params.comid, (err, foundComment) => {
-        if (req.session.passport !== undefined && req.user.id == foundComment.author.id || isAdmin(req)) {
-            let sanitizedComment = req.sanitize(req.body.comment);
-            Comment.findByIdAndUpdate(req.params.comid, {
-                comment: sanitizedComment
-            }, (err) => {
-                res.redirect(`/campgrounds/camps/${req.params.id}`);
-            });
-        } else {
-            req.flash("error", "Something is not right. You need to be logged to edit a comment");
-            return res.redirect(`/campgrounds/users/login`)
+const handler_updateComment = async (req, res) => {
+
+    try {
+        const { id, comid } = req.params
+        const { comment } = req.body
+        const foundComment = await Comment.findById(comid)
+
+        if (req.session.passport === undefined &&
+            req.user.id != foundComment.author.id ||
+            isAdmin(req)) {
+            throw new Error('Please log in first')
         }
-    })
+
+        const newComment = req.sanitize(comment);
+        await Comment.findByIdAndUpdate(comid, { comment: newComment })
+        req.flash("success", `Sucessfully updated a comment`);
+        res.redirect(`/campgrounds/camps/${id}`);
+    }
+
+    catch (error) {
+        const { id } = req.params
+        req.flash("error", `Something went wrong upon updating a comment. ${error.message}`);
+        return res.redirect(`/campgrounds/camps/${id}/comment`)
+    }
 };
 
 // =========================================

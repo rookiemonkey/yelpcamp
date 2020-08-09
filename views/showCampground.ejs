@@ -9,6 +9,12 @@
     </div>
     <% } %>
 
+    <% if (error.length > 0) { %>
+    <div class="ui positive message" style="margin: 2% 5%;">
+        <div class="header"><%= error %></div>
+    </div>
+    <% } %>
+
     <div id="campgroundContainer" class="ui relaxed grid">
         <!-- sticky sidebar -->
         <article id="sidebar" class="six wide column>">
