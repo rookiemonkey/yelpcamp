@@ -8,39 +8,35 @@ const Campground = require("../../schemas/campgroundSchema");
 // =========================================
 // DELETE CAMP ROUTE: delete handler
 // =========================================
-const handler_deleteCamp = (req, res) => {
-    if (req.session.passport !== undefined) {
-        Campground.findById(req.params.id, (err, foundCampgound) => {
+const handler_deleteCamp = async (req, res) => {
 
-            //compare the current user's id to the uploaders id
-            if (req.user.id == foundCampgound.uploader.id || isAdmin(req)) {
+    try {
+        if (req.session.passport === undefined) { throw new Error('You need to be logged in and owner of the camp to delete it') }
 
-                // remove the commenta associate to the camp, since hooks are not working
-                let comids = foundCampgound.comments;
-                comids.forEach(async function (comment) {
-                    await Comment.findById(comment, async (err, foundComment) => {
-                        await foundComment.remove();
-                    });
-                });
+        const foundCampground = await Campground.findById(req.params.id)
 
-                // remove the campgound once done
-                foundCampgound.remove();
-                req.flash("info", `${foundCampgound.campname} is now removed from our catalogue`);
-                res.redirect("/campgrounds/camps");
+        if (JSON.stringify(req.user.id) !== JSON.stringify(foundCampground.uploader.id) || isAdmin(req)) {
+            throw new Error('You need to be the owner of the camp to delete it')
+        }
 
-            } else {
-                // user need to be the uploader to delete this
-                req.flash("error", "Something is not right. You need to be the owner of the camp to delete it");
-                res.redirect("/campgrounds/camps");
-            }
-        })
+        // remove the comments associate to the camp, since hooks are not working
+        let comids = foundCampground.comments;
+        comids.forEach(async function (comment) {
+            await Comment.findById(comment, async (err, foundComment) => {
+                await foundComment.remove();
+            });
+        });
 
-    } else {
-        // if not logged in let them log in first
-        req.flash("error", "Something is not right. You need to be logged in and owner of the camp to delete it");
-        res.redirect("/campgrounds/users/login");
+        // remove the campgound once done
+        await foundCampground.remove();
+        req.flash("info", `${foundCampground.campname} is now removed from our catalogue`);
+        res.redirect("/campgrounds/camps");
     }
 
+    catch (error) {
+        req.flash("error", `Something is not right. ${error.message}`);
+        res.redirect(`/campgrounds/camps/${req.params.id}`);
+    }
 };
 
 // =========================================
