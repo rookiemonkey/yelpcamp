@@ -12,16 +12,30 @@
 
         <!-- sign up form -->
         <h1>Signup</h1>
-        <form class="ui form" action="/campgrounds/users/signup" method="POST">
+        <form class="ui form" action="/campgrounds/users/signup" method="POST" enctype="multipart/form-data">
+            <div class="field">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="John" autocomplete="off" maxlength="50"
+                    required>
+            </div>
+            <div class="field">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" autocomplete="off" maxlength="50"
+                    required>
+            </div>
+            <div class="field">
+                <label for="avatar">Avatar</label>
+                <input type="file" id="avatar" name="avatar">
+            </div>
             <div class="field">
                 <label for="Username">Username</label>
-                <input type="text" id="Username" name="username" placeholder="Username" autocomplete="off"
+                <input type="text" id="Username" name="username" placeholder="rookiemonkey123" autocomplete="off"
                     maxlength="50" required>
             </div>
             <div class="field">
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Email" autocomplete="off" maxlength="50"
-                    required>
+                <input type="text" id="email" name="email" placeholder="john@example.com" autocomplete="off"
+                    maxlength="50" required>
             </div>
             <div class="field">
                 <label for="Password">Password</label>

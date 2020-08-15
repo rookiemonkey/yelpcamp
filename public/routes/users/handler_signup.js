@@ -2,8 +2,13 @@
 // ROUTE DEPENDENCIES
 // ===========================
 const passport = require("passport");
+const cloudinary = require('cloudinary');
+const setCloudinary = require("../../middleware/setCloudinary");
+const toUpload = require("../../middleware/toUpload");
 const isPasswordStrong = require('../../middleware/isPasswordStrong');
 const User = require("../../schemas/userSchema");
+
+cloudinary.config(setCloudinary());
 
 // ===========================
 // SIGNUP HANDLER:
@@ -11,9 +16,10 @@ const User = require("../../schemas/userSchema");
 const handler_signup = async (req, res) => {
 
     try {
-        const { username, email, password } = req.body;
+        const avatar = await toUpload(cloudinary, req);
+        const { firstName, lastName, username, email, password } = req.body;
         await isPasswordStrong(password)
-        const user = new User({ username, email })
+        const user = new User({ firstName, lastName, avatar, username, email })
         await User.register(user, password)
         await passport.authenticate("local")
             (req, res, () => {

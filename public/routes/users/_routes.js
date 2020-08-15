@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
+const multer = require('multer');
 const toAuthenticate = require('../../middleware/toAuthenticate')
 const isLoggedIn = require('../../middleware/isLoggedin')
 const isStillApplicable = require("../../middleware/isStillApplicable");
@@ -13,6 +14,9 @@ const handler_signup = require('./handler_signup')
 const handler_forgotPassword = require('./handler_forgotPassword')
 const handler_resetPassword = require('./handler_resetPassword')
 
+const setMulter = require("../../middleware/setMulter");
+const upload = setMulter(multer);
+
 // ROOT: /campgrounds/users
 
 router
@@ -21,7 +25,7 @@ router
     .get('/forgot_password', isStillApplicable, form_forgotPassword)
     .get('/forgot_password/:token', form_resetPassword)
     .get('/logout', isLoggedIn, to_logout)
-    .post('/signup', isStillApplicable, handler_signup)
+    .post('/signup', isStillApplicable, upload.single('avatar'), handler_signup)
     .post('/login', toAuthenticate, handler_login)
     .post('/forgot_password', handler_forgotPassword)
     .post('/forgot_password/:token', handler_resetPassword)
