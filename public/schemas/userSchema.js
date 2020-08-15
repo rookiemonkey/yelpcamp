@@ -3,9 +3,23 @@ const validator = require('validator');
 const passportLocalMongoose = require("passport-local-mongoose")
 
 let userSchema = mongoose.Schema({
-    createdAt: {
-        type: Date,
-        default: Date.now
+    avatar: {
+        type: String,
+        default: 'https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png'
+    },
+    firstName: {
+        type: String,
+        required: true,
+        validate(value) {
+            if (!value) { throw new Error('Please provide a valid username') }
+        }
+    },
+    lastName: {
+        type: String,
+        required: true,
+        validate(value) {
+            if (!value) { throw new Error('Please provide a valid username') }
+        }
     },
     username: {
         type: String,
@@ -52,7 +66,7 @@ let userSchema = mongoose.Schema({
             if (value) { throw new Error('Invalid action') }
         }
     }
-});
+}, { timestamps: true });
 
 userSchema.plugin(passportLocalMongoose);
 
