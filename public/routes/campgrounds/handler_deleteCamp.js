@@ -15,22 +15,23 @@ const handler_deleteCamp = async (req, res) => {
 
         const foundCampground = await Campground.findById(req.params.id)
 
-        if (JSON.stringify(req.user.id) !== JSON.stringify(foundCampground.uploader.id) || isAdmin(req)) {
-            throw new Error('You need to be the owner of the camp to delete it')
+        if (JSON.stringify(req.user.id) === JSON.stringify(foundCampground.uploader.id) || isAdmin(req)) {
+
+            // remove the comments associate to the camp, since hooks are not working
+            let comids = foundCampground.comments;
+            comids.forEach(async function (comment) {
+                await Comment.findById(comment, async (err, foundComment) => {
+                    await foundComment.remove();
+                });
+            });
+
+            // remove the campgound once done
+            await foundCampground.remove();
+            req.flash("info", `${foundCampground.campname} is now removed from our catalogue`);
+            return res.redirect("/campgrounds/camps");
         }
 
-        // remove the comments associate to the camp, since hooks are not working
-        let comids = foundCampground.comments;
-        comids.forEach(async function (comment) {
-            await Comment.findById(comment, async (err, foundComment) => {
-                await foundComment.remove();
-            });
-        });
-
-        // remove the campgound once done
-        await foundCampground.remove();
-        req.flash("info", `${foundCampground.campname} is now removed from our catalogue`);
-        res.redirect("/campgrounds/camps");
+        throw new Error('You need to be the owner of the camp to delete it')
     }
 
     catch (error) {

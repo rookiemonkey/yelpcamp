@@ -18,20 +18,21 @@ const handler_updateCamp = async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id)
 
-    if (req.session.passport === undefined &&
-      !foundCampground.uploader.id.equals(req.user.id) || isAdmin(req)) {
-      throw new Error('You need to be logged in and should be the owner of the camp to edit it')
+    if (req.session.passport !== undefined &&
+      foundCampground.uploader.id.equals(req.user.id) || isAdmin(req)) {
+
+      const { image_default } = req.body;
+      const { lat, lng, formattedLocation } = await toGeocode(req.body.location);
+      const imageUrl = await toUpload(cloudinary, req)
+      const image = imageUrl ? imageUrl : image_default
+      const updates = { ...req.body, lat, lng, location: formattedLocation, image }
+
+      await Campground.findByIdAndUpdate(req.params.id, updates)
+      req.flash("success", `"${foundCampground.campname}" was updated successfully`);
+      return res.redirect(`/campgrounds/camps/${req.params.id}`);
     }
 
-    const { image_default } = req.body;
-    const { lat, lng, formattedLocation } = await toGeocode(req.body.location);
-    const imageUrl = await toUpload(cloudinary, req)
-    const image = imageUrl ? imageUrl : image_default
-    const updates = { ...req.body, lat, lng, location: formattedLocation, image }
-
-    await Campground.findByIdAndUpdate(req.params.id, updates)
-    req.flash("success", `"${foundCampground.campname}" was updated successfully`);
-    res.redirect(`/campgrounds/camps/${req.params.id}`);
+    throw new Error('You need to be logged in and should be the owner of the camp to edit it')
   }
 
   catch (error) {
