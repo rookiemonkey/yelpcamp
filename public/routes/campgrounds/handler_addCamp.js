@@ -32,15 +32,10 @@ const handler_addCamp = async (req, res) => {
             uploader: uploader
         };
 
-        Campground.create(newCampground, (err, addedCamp) => {
-            if (err) {
-                req.flash("error", err.message)
-                res.redirect("/campgrounds/camps");
-            } else {
-                req.flash("success", `Congratulations ${req.user.username}! Your new camp "${addedCamp.campname}" is now added on our catalogue`)
-                res.redirect("/campgrounds/camps");
-            };
-        });
+        const addedCamp = await Campground.create(newCampground)
+        req.flash("success", `Congratulations ${req.user.username}! Your new camp "${addedCamp.campname}" is now added on our catalogue`)
+        res.redirect("/campgrounds/camps");
+
     } catch (err) {
         req.flash('error', `Something went wrong upon creating the campground. ${err.message}`)
         res.redirect('/campgrounds/camps/new');
