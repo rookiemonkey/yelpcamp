@@ -11,11 +11,11 @@ const handler_addComment = async (req, res) => {
 
     try {
         const { id } = req.params
-        const { id: comid, username } = req.user
+        const { _id, username } = req.user
         const { comment } = req.body
         const newCommentOption = {
             comment: req.sanitize(comment),
-            author: { id: comid, username }
+            author: { _id, name: username }
         }
         const foundCampground = await Campground.findById(id)
         const newComment = await Comment.create(newCommentOption)

@@ -7,26 +7,30 @@ const Campground = require("../../schemas/campgroundSchema");
 // ===========================
 // SHOW ROUTE
 // ===========================
-const showCampground = (req, res) => {
-    Campground.findById(req.params.id).populate("comments").exec((err, foundCampground) => {
-        if (err) {
-            console.error("ERROR BEFORE SHOWING THE CHOSEN CAMPGROUND....", err);
+const showCampground = async (req, res) => {
+    try {
+        const foundCampground = await Campground.findById(req.params.id)
+            .populate('comments')
+
+        if (isAdmin(req)) {
+            res.render("showCampground", {
+                campground: foundCampground,
+                user: req.user,
+                role: "ADMIN"
+            });
         } else {
-            if (isAdmin(req)) {
-                res.render("showCampground", {
-                    campground: foundCampground,
-                    user: req.user,
-                    role: "ADMIN"
-                });
-            } else {
-                res.render("showCampground", {
-                    campground: foundCampground,
-                    user: req.user,
-                    role: null
-                });
-            }
-        };
-    });
+            res.render("showCampground", {
+                campground: foundCampground,
+                user: req.user,
+                role: null
+            });
+        }
+    }
+
+    catch (error) {
+        req.flash("error", `Something went wrong upon fetching the camp ${error.message}`)
+        res.redirect("/campgrounds/camps");
+    }
 };
 
 // ===========================
