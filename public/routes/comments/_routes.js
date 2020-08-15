@@ -9,7 +9,7 @@ const handler_updateComment = require('./handler_updateComment')
 
 router
     .post('/', isLoggedIn, handler_addComment)
-    .delete('/:comid', handler_deleteComment)
-    .put('/:comid', handler_updateComment)
+    .delete('/:comid', isLoggedIn, handler_deleteComment)
+    .put('/:comid', isLoggedIn, handler_updateComment)
 
 module.exports = router

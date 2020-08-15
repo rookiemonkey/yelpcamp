@@ -2,9 +2,6 @@
 // ROUTE DEPENDENCIES
 // ===========================
 const isAdmin = require("../../middleware/isAdmin");
-const isLoggedIn = require("../../middleware/isLoggedin");
-
-// MIDDLEWARE: isLoggedIn
 
 // ===========================
 // ADD CAMP ROUTE
