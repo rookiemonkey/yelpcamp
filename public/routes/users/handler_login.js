@@ -13,7 +13,7 @@ const handler_login = async (req, res) => {
     try {
         const { adminCode, username, _id } = req.user
         const { admin } = req.body
-        const output = await toCheckAdmin(adminCode, admin);
+        const output = await toCheckAdmin(adminCode, admin, _id);
         const cookie = await setCookie(_id);
 
         if (output && adminCode !== '') {
