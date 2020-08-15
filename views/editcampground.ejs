@@ -1,5 +1,29 @@
 <%- include("partials/header") %>
 
+<style>
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    #Image-Input {
+        color: gray
+    }
+
+    #Image-File {
+        height: 38px;
+        padding-top: 5px;
+    }
+
+    #Default-Button,
+    #Update-Button {
+        float: right;
+    }
+</style>
+
 <section>
     <div id="formContainer">
 
@@ -7,27 +31,35 @@
         <form class="ui form" action="/campgrounds/camps/<%= campground._id %>/edit?_method=PUT" method="POST">
             <div class="field">
                 <label for="Camp Name">Camp Name</label>
-                <input type="text" id="Camp Name" value="<%= campground.campname %>" name="updates[campname]"
-                    autocomplete="off" required>
+                <input type="text" id="Camp Name" value="<%= campground.campname %>" name="campname" autocomplete="off"
+                    required>
             </div>
             <div class="field">
                 <label for="Camp Name">Price per night</label>
-                <input type="number" id="Camp Name" value="<%= campground.price %>" name="updates[price]"
-                    autocomplete="off" step="0.10" min=".00" required>
+                <input type="number" id="Camp Name" value="<%= campground.price %>" name="price" autocomplete="off"
+                    step="0.10" min=".00" required>
             </div>
+
             <div class="field">
                 <label for="Image URL">Image URL</label>
-                <input type="text" id="Image URL" value="<%= campground.image %>" name="updates[image]"
-                    autocomplete="off" required>
+                <input type="text" id="Image-Input" class='show' name="image_default" autocomplete="off"
+                    value="<%= campground.image %>" readonly>
+                <input type="file" id="Image-File" class='hide' name="image_update" placeholder="Image URL"
+                    autocomplete="off">
+
+                <button type='button' id="Default-Button" class="ui button">Old</button>
+                <button type='button' id="Update-Button" class="ui button">New</button>
+
             </div>
+
             <div class="field">
                 <label for="location">Location</label>
-                <input type="text" id="location" value="<%= campground.location %>" name="updates[location]"
-                    autocomplete="off" required>
+                <input type="text" id="location" value="<%= campground.location %>" name="location" autocomplete="off"
+                    required>
             </div>
             <div class="field">
                 <label for="description">Description</label>
-                <textarea name="updates[description]" required
+                <textarea name="description" required
                     style="font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;"><%= campground.description %></textarea>
             </div>
             <button class="ui button" type="submit">Update</button>
@@ -35,5 +67,32 @@
 
     </div>
 </section>
+
+<script>
+    const imageFileDefault = document.querySelector('#Image-Input')
+    const imageFileInput = document.querySelector('#Image-File')
+    const btn_chooseDefault = document.querySelector('#Default-Button')
+    const btn_chooseUpdate = document.querySelector('#Update-Button')
+
+    btn_chooseDefault.addEventListener('click', () => { chooseDefault() })
+    btn_chooseUpdate.addEventListener('click', () => { chooseUpdate() })
+
+    function chooseDefault() {
+        imageFileDefault.classList.remove('hide')
+        imageFileDefault.classList.add('show')
+        imageFileInput.classList.add('hide')
+        imageFileInput.classList.remove('show')
+        imageFileInput.value = ''
+        imageFileInput.removeAttribute('required')
+    }
+
+    function chooseUpdate() {
+        imageFileDefault.classList.remove('show')
+        imageFileDefault.classList.add('hide')
+        imageFileInput.classList.add('show')
+        imageFileInput.classList.remove('hide')
+        imageFileInput.setAttribute('required', 'required')
+    }
+</script>
 
 <%- include("partials/footer") %>
