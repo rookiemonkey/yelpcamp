@@ -14,7 +14,7 @@ cloudinary.config(setCloudinary());
 // ===========================
 const handler_addCamp = async (req, res) => {
     try {
-        const uploaded = await toUpload(cloudinary, req).then(u => { return u.secure_url });
+        const uploaded = await toUpload(cloudinary, req);
         const location = req.sanitize(req.body.location);
         const loc = await toGeocode(location);
         console.log(loc)

@@ -22,6 +22,6 @@ router
     .get('/:id/edit', form_updateCamp)
     .post('/new', isLoggedIn, upload.single('image'), handler_addCamp)
     .delete(':id', handler_deleteCamp)
-    .put('/:id/edit', handler_updateCamp)
+    .put('/:id/edit', upload.single('image_update'), handler_updateCamp)
 
 module.exports = router

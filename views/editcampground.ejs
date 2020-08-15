@@ -28,7 +28,8 @@
     <div id="formContainer">
 
         <h1>Editing Campground "<strong><%= campground.campname %></strong>"</h1>
-        <form class="ui form" action="/campgrounds/camps/<%= campground._id %>/edit?_method=PUT" method="POST">
+        <form class="ui form" action="/campgrounds/camps/<%= campground._id %>/edit?_method=PUT" method="POST"
+            enctype="multipart/form-data">
             <div class="field">
                 <label for="Camp Name">Camp Name</label>
                 <input type="text" id="Camp Name" value="<%= campground.campname %>" name="campname" autocomplete="off"

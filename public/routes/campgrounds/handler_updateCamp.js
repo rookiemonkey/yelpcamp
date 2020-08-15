@@ -2,8 +2,13 @@
 // ROUTE DEPENDENCIES
 // ===========================
 const isAdmin = require("../../middleware/isAdmin");
+const cloudinary = require('cloudinary');
+const toUpload = require("../../middleware/toUpload");
 const toGeocode = require("../../middleware/toGeocode");
+const setCloudinary = require("../../middleware/setCloudinary");
 const Campground = require("../../schemas/campgroundSchema");
+
+cloudinary.config(setCloudinary());
 
 // =========================================
 // UPDATE ROUTE: edit handler
@@ -12,12 +17,13 @@ const handler_updateCamp = (req, res) => {
   Campground.findById(req.params.id, async (err, foundCampground) => {
     if (req.session.passport !== undefined && foundCampground.uploader.id.equals(req.user.id) || isAdmin(req)) {
 
-      const loc = await toGeocode(req.body.updates.location);
-      req.body.updates.lat = loc.lat;
-      req.body.updates.lng = loc.lng;
-      req.body.updates.location = loc.formattedLocation;
+      const { image_default } = req.body;
+      const imageUrl = await toUpload(cloudinary, req)
+      const { lat, lng, formattedLocation } = await toGeocode(req.body.location);
+      let image = imageUrl ? imageUrl : image_default
+      const updates = { ...req.body, lat, lng, location: formattedLocation, image }
 
-      Campground.findByIdAndUpdate(req.params.id, req.body.updates, (err) => {
+      Campground.findByIdAndUpdate(req.params.id, updates, (err) => {
         if (err) {
           req.flash("error", `Something went wrong upon updating. ${err.message} Please try again`);
           res.redirect(`/campgrounds/camps/${req.params.id}`);
