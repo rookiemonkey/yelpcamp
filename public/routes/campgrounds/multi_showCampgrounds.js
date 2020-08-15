@@ -8,43 +8,45 @@ const toShuffle = require("../../middleware/toShuffle");
 // ===========================
 // INDEX ROUTE
 // ===========================
-const showCamgrounds = (req, res) => {
-    if (!req.query.search) {
-        Campground.find().exec((err, foundCampground) => {
-            if (isAdmin(req)) {
-                res.render("campgrounds", {
-                    campgrounds: toShuffle(foundCampground),
-                    message: null,
-                    user: req.user,
-                    role: "ADMIN"
-                });
-            } else {
-                res.render("campgrounds", {
-                    campgrounds: foundCampground,
-                    message: null,
-                    user: req.user,
-                    role: null
-                });
-            }
-        });
+const showCamgrounds = async (req, res) => {
+    try {
+        if (!req.query.search) {
+            const foundCampgrounds = await Campground.find()
 
-    } else {
+            let role; if (isAdmin(req)) { role = 'ADMIN' } else { role = null }
+
+            return res.render("campgrounds", {
+                campgrounds: toShuffle(foundCampgrounds),
+                message: null,
+                user: req.user,
+                role,
+            });
+        }
+
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-        Campground.find({ campname: regex }).exec((err, foundCampground) => {
-            foundCampground.length !== 0 || isAdmin(req) && foundCampground.length !== 0
-                ? res.render("campgrounds", {
-                    campgrounds: foundCampground,
-                    message: null,
-                    user: req.user,
-                    role: "ADMIN"
-                })
-                : res.render("campgrounds", {
-                    campgrounds: [],
-                    message: "No Matching Campground",
-                    user: req.user,
-                    role: null
-                })
+        const foundCampgrounds = await Campground.find({ campname: regex })
+        if (foundCampgrounds.length !== 0 ||
+            isAdmin(req) &&
+            foundCampgrounds.length !== 0) {
+            return res.render("campgrounds", {
+                campgrounds: toShuffle(foundCampgrounds),
+                message: `Search results for: "${req.query.search}"`,
+                user: req.user,
+                role: "ADMIN"
+            })
+        }
+
+        return res.render("campgrounds", {
+            campgrounds: [],
+            message: `No Matching Campground for: "${req.query.search}"`,
+            user: req.user,
+            role: null
         })
+    }
+
+    catch (error) {
+        req.flash('error', `Something went wrong. ${error.message}`)
+        res.redirect('/campgrounds/camps')
     }
 };
 
