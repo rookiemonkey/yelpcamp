@@ -17,7 +17,6 @@ const handler_addCamp = async (req, res) => {
         const uploaded = await toUpload(cloudinary, req);
         const location = req.sanitize(req.body.location);
         const loc = await toGeocode(location);
-        console.log(loc)
         const campname = req.sanitize(req.body.name);
         const description = req.sanitize(req.body.description);
         const uploader = { id: req.user.id, name: req.user.username }
