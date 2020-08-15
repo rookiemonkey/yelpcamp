@@ -1,11 +1,4 @@
 // ===========================
-// ROUTE DEPENDENCIES
-// ===========================
-const isStillApplicable = require("../../middleware/isStillApplicable");
-
-// MIDDLEWARE  isStillApplicable
-
-// ===========================
 // PASSWORD RESET FORM ROUTE:
 // ===========================
 const form_forgotPassword = (req, res) => {
