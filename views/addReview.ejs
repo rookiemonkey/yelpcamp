@@ -5,7 +5,7 @@
 
         <h1>Adding a review for "<strong><%= campground.campname %></strong>"</h1>
 
-        <form action="/campgrounds/<%= campground._id %>/reviews" method="POST">
+        <form action="/campgrounds/camps/<%= campground._id %>/reviews/new" method="POST">
             <div class="ui form">
                 <label for="rating">Leave a rating:</label>
                 <div class="field">

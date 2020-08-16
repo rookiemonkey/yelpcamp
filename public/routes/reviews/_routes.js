@@ -13,7 +13,7 @@ const handler_deleteReview = require('./handler_deleteReview')
 
 router
     .get('/', isLoggedIn, get_allReviews)
-    .post('/', isLoggedIn, isReviewExisiting, handler_addReview)
+    .post('/new', isLoggedIn, isReviewExisiting, handler_addReview)
     .get('/new', isLoggedIn, isReviewExisiting, form_addReview)
     .delete('/:reviewId', isLoggedIn, handler_deleteReview)
     .get('/:reviewId/edit', isLoggedIn, form_updateReview)
