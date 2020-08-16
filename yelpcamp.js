@@ -64,12 +64,14 @@ mongoose.connection.on("open", () => {
 const campRoutes = require('./public/routes/campgrounds/_routes')
 const commentRoutes = require('./public/routes/comments/_routes')
 const userRoutes = require('./public/routes/users/_routes')
+const reviewRoutes = require('./public/routes/reviews/_routes')
 const notFoundRoute = require('./public/routes/error404')
 
 app.get('/', (req, res) => res.redirect('/campgrounds/camps'))
 app.use('/campgrounds/users', userRoutes);
 app.use('/campgrounds/camps', campRoutes);
 app.use('/campgrounds/camps/:id/comment', commentRoutes);
+app.use('/campgrounds/camps/:id/reviews', reviewRoutes)
 app.use('*', notFoundRoute)
 
 // =========================================

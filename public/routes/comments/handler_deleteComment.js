@@ -15,9 +15,6 @@ const handler_deleteComment = async (req, res) => {
         const foundComment = await Comment.findById(comid)
         const foundCampgroud = await Campground.findById(id)
 
-        console.log('req.session.passport === undefined', req.session.passport === undefined)
-        console.log('req.user.id != foundComment.author.id', req.user.id != foundComment.author.id)
-        console.log('!isAdmin(req)', !isAdmin(req))
         if (req.session.passport === undefined &&
             req.user.id != foundComment.author.id ||
             isAdmin(req)) {
