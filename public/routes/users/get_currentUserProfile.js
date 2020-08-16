@@ -13,17 +13,24 @@ const get_currentUserProfile = async (req, res) => {
         const foundUser = await User.findById(req.user._id)
         if (!foundUser) { throw new Error('User not found') }
 
+        const foundUserCamps = await Campground
+            .find({})
+            .where('uploader.id')
+            .equals(foundUser._id)
+
         if (isAdmin(req)) {
             res.render("userProfile", {
                 user: req.user,
                 role: "ADMIN",
-                foundUser
+                foundUser,
+                foundUserCamps
             });
         } else {
             res.render("userProfile", {
                 user: req.user,
                 role: null,
-                foundUser
+                foundUser,
+                foundUserCamps
             });
         }
     }

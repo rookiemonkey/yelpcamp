@@ -7,4 +7,13 @@ This is the user profile page
     <li><%= foundUser.email %></li>
 </ul>
 
+<h5>List of uploaded camps</h5>
+<ul>
+    <% foundUserCamps.forEach(camp => { %>
+    <li>
+        <a href="/campgrounds/camps/<%= camp._id %>"><%= camp.campname %></a>
+    </li>
+    <% }) %>
+</ul>
+
 <%- include("partials/footer") %>

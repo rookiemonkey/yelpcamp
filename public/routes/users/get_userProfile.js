@@ -2,6 +2,7 @@
 // ROUTE DEPENDENCIES
 // ===========================
 const User = require("../../schemas/userSchema");
+const Campground = require("../../schemas/campgroundSchema");
 const isAdmin = require("../../middleware/isAdmin");
 
 // ===========================
@@ -12,17 +13,24 @@ const user_profile = async (req, res) => {
         const foundUser = await User.findById(req.params.id)
         if (!foundUser) { throw new Error('User not found') }
 
+        const foundUserCamps = await Campground
+            .find({})
+            .where('uploader.id')
+            .equals(foundUser._id)
+
         if (isAdmin(req)) {
             res.render("userProfile", {
                 user: req.user,
                 role: "ADMIN",
-                foundUser
+                foundUser,
+                foundUserCamps
             });
         } else {
             res.render("userProfile", {
                 user: req.user,
                 role: null,
-                foundUser
+                foundUser,
+                foundUserCamps
             });
         }
     }
