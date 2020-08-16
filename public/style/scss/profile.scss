@@ -16,7 +16,7 @@
 }
 
 #profile_parentContainer {
-    min-height: 100vh;
+    min-height: $form-height-min;
     display: flex;
     justify-content: center;
 }

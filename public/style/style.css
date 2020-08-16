@@ -280,6 +280,12 @@ section#signUpFormContainerParent {
   height: 135px;
   padding: 10px; }
 
+#addReview_parentContainer {
+  min-height: 100vh; }
+
+#updateReview_parentContainer {
+  min-height: 100vh; }
+
 section div#formContainer {
   width: 500px;
   margin: 2.5% auto; }
