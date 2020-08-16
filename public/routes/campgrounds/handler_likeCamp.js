@@ -20,6 +20,11 @@ const handler_likeCamp = async (req, res) => {
 
         await foundCampground.save()
 
+        if (foundUserLike) {
+            req.flash('success', 'Successfully removed a like')
+            return res.redirect(`/campgrounds/camps/${foundCampground._id}`)
+        }
+
         req.flash('success', 'Successfully added a like')
         res.redirect(`/campgrounds/camps/${foundCampground._id}`)
     }

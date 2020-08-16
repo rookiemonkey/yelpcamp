@@ -68,6 +68,26 @@
                         </div>
                     </form>
                     <% }; %>
+
+                    <form action="/campgrounds/camps/<%= campground._id %>/like" method="POST">
+                        <div class="btn-group">
+                            <% if (user && campground.likes.some(function (like) {
+                                        return like.equals(user._id)
+                                    })) { %>
+                            <button class="ui positive basic button">
+                                <i class="fas fa-thumbs-up"></i> Liked (<%= campground.likes.length %>)
+                            </button>
+                            <% } else { %>
+                            <button class="ui positive basic button">
+                                <i class="fas fa-thumbs-up"></i> Like (<%= campground.likes.length %>)
+                            </button>
+                            <% } %>
+                            <button id="modalbutton" type="button" class="ui positive basic button">See more
+                                details
+                            </button>
+                        </div>
+                    </form>
+
                     <% }; %>
 
                     <!-- add comment section -->
@@ -154,6 +174,45 @@
         </article>
     </div>
 </section>
+
+<div class="ui mini modal">
+    <i class="close icon"></i>
+    <div class="image content">
+        <div class="description">
+            <div class="ui header">Liked by: </div>
+            <table class="table table-striped">
+                <tbody>
+
+                    <% campground.likes.forEach(like => { %>
+                    <tr>
+                        <td>
+                            <span class="badge">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            <a href="/campgrounds/users/<%= like._id %>">
+                                <%= like.username %>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }); %>
+
+                    <% if (campground.likes.length === 0) { %>
+                    <tr>
+                        <td><em>No likes yet.</em></td>
+                    </tr>
+                    <% } %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#modalbutton').on('click', () => {
+        $('.ui.mini.modal').modal('show');
+    })
+</script>
 
 <script>
 
