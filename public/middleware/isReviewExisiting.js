@@ -10,7 +10,7 @@ const isReviewExisiting = async (req, res, next) => {
         if (!foundCampground) { throw new Error('Campground not existing') }
 
         const foundUserReview = foundCampground.reviews.some(review => {
-            return review.author.id.equals(req.user._id);
+            return review.author._id.equals(req.user._id);
         });
 
         if (foundUserReview) { throw new Error(`You've already made a review on this post`) }
