@@ -24,6 +24,7 @@ const handler_deleteReview = async (req, res) => {
             { $pull: { reviews: req.params.review_id } }, { new: true }
         )
             .populate('reviews')
+            .exec()
         if (!foundCampground) { throw new Error('Campground not existing') }
 
         foundCampground.rating = toAverage(foundCampground.reviews)

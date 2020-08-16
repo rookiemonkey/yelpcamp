@@ -13,7 +13,7 @@ const handler_addReview = async (req, res) => {
     try {
         const foundCampground = await Campground.findById(req.params.id)
             .populate('reviews')
-            .execPopulate()
+            .exec()
 
         const newReview = await Review.create(req.body.review)
 

@@ -15,7 +15,7 @@ const get_allReviews = async (req, res) => {
                 path: 'reviews',
                 options: { sort: { createdAt: -1 } } // latest first
             })
-            .execPopulate() 
+            .exec() 
 
         if (!foundCampground) { throw new Error('Campground not existing') }
 

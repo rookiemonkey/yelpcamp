@@ -22,7 +22,7 @@ const handler_updateReview = async (req, res) => {
 
         const foundCampground = await Campground.findById(req.params.id)
             .populate('reviews')
-            .execPopulate()
+            .exec()
         if (!foundCampground) { throw new Error('Campground not existing') }
 
         foundCampground.rating = toAverage(foundCampground.reviews)

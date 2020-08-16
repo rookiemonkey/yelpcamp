@@ -1,0 +1,66 @@
+<%- include("partials/header") %>
+
+<section>
+    <div id="formContainer">
+
+        <h1>Adding a review for "<strong><%= campground.campname %></strong>"</h1>
+
+        <form action="/campgrounds/<%= campground._id %>/reviews" method="POST">
+            <div class="ui form">
+                <label for="rating">Leave a rating:</label>
+                <div class="field">
+                    <fieldset id="rating">
+                        <div class="ui radio checkbox">
+                            <input type="radio" id="first-rate5" name="review[rating]" value="5" checked />
+                            <label for="first-rate5" title="5 stars - Amazing">
+                                <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
+                            </label>
+                        </div>
+                        <div class="ui radio checkbox">
+                            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                            <label for="first-rate4" title="4 stars - Very good">
+                                <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
+                            </label>
+                        </div>
+                        <div class="ui radio checkbox">
+                            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                            <label for="first-rate3" title="3 stars - Average">
+                                <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
+                            </label>
+                        </div>
+                        <div class="ui radio checkbox">
+                            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                            <label for="first-rate2" title="2 stars - Not good">
+                                <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
+                            </label>
+                        </div>
+                        <div class="ui radio checkbox">
+                            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                            <label for="first-rate1" title="1 star - Terrible">
+                                <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="field">
+                    <label>Review Details: </label>
+                    <textarea rows="2" name="review[text]"></textarea>
+                </div>
+
+                <div class="field">
+                    <button class="ui primary basic button">Submit Review</button>
+
+                    <a href="/campgrounds/camps/<%= campground._id %>">
+                        <button class="ui secondary basic button">
+                            <i class="left arrow icon"></i>
+                            Go Back
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<%- include("partials/footer") %>
