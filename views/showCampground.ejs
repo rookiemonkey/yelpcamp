@@ -39,8 +39,13 @@
                         <span id="pricetag" class="ui green label">$ <%= campground.price %> / night</span>
                     </div>
                     <div class="meta">
-                        <div class="date"><em>Submitted by: &nbsp<strong><%= campground.uploader.name %></em></strong> -
-                            <%= moment(campground.createdAt).fromNow() %></div>
+                        <div class="date"><em>Submitted by: &nbsp<strong>
+                                    <a href="/campgrounds/users/<%= campground.uploader.id %>">
+                                        <%= campground.uploader.name %>
+                                    </a>
+                            </em></strong> -
+                            <%= moment(campground.createdAt).fromNow() %>
+                        </div>
                         <span class="date"><%= campground.location %></span>
                     </div>
                     <div class="description" id="description">
