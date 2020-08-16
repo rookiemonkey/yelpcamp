@@ -14,7 +14,7 @@ const handler_updateReview = async (req, res) => {
         const foundReview = await Review.findById(req.params.reviewId)
         if (!foundReview) { throw new Error('Review not existing') }
 
-        if (foundReview.author._id !== req.user.id) {
+        if (JSON.stringify(foundReview.author._id) !== JSON.stringify(req.user.id)) {
             throw new Error('Invalid action. You are not the author of the review')
         }
 
@@ -29,12 +29,12 @@ const handler_updateReview = async (req, res) => {
         await foundCampground.save()
 
         req.flash('success', `Sucessfully updated your review`)
-        res.redirect(`/campgrounds/camps/${req.params.id}`)
+        res.redirect(`/campgrounds/camps/${req.params.id}/reviews`)
     }
 
     catch (error) {
         req.flash('error', `Something went wrong. ${error.message}`)
-        res.redirect(`/campgrounds/camps/${req.params.id}`)
+        res.redirect(`/campgrounds/camps/${req.params.id}/reviews`)
     }
 }
 

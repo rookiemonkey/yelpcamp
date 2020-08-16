@@ -1,8 +1,25 @@
 <%- include("partials/header") %>
 
+<% if (error.length > 0) { %>
+<div class="ui negative message">
+    <div class="header"><%= error %></div>
+</div>
+<% } %>
+
+<% if (success.length > 0) { %>
+<div class="ui positive message">
+    <div class="header"><%= success %></div>
+</div>
+<% } %>
+
 <h1>reviews for: <%= campground.campname %></h1>
 
 <div class="ui items">
+
+    <%if(campground.reviews.length === 0) { %>
+    <h3>There are no reviews for this post yet.</h3>
+    <% } %>
+
     <% campground.reviews.forEach(review => { %>
     <div class="item">
         <a class="ui tiny image">
@@ -12,11 +29,25 @@
             <a class="header" href="/campgrounds/users/<%= review.author._id %>">
                 @<%= review.author.username %>
             </a>
+
+            <% if(user !== undefined) {%>
+            <% if(JSON.stringify(review.author._id) === JSON.stringify(user.id))  { %>
+            <form action="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                <button class="ui red button">Delete</button>
+            </form>
+            <% } %>
+            <% } %>
+
             <div class="meta">
                 <span>Rating: <%= review.rating %> <i class="star icon"></i> </span>
             </div>
             <div class="description">
-                <p><%= review.text %></p>
+                <p><%= review.text %> Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
+                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
+                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
+                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
+                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
+                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen</p>
             </div>
         </div>
     </div>

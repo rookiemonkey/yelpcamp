@@ -28,12 +28,12 @@ const handler_addReview = async (req, res) => {
         await foundCampground.save()
 
         req.flash('success', `Sucessfully added your review`)
-        res.redirect(`/campgrounds/camps/${req.params.id}`)
+        res.redirect(`/campgrounds/camps/${req.params.id}/reviews`)
     }
 
     catch (error) {
         req.flash('error', `Something went wrong. ${error.message}`)
-        res.redirect(`/campgrounds/camps/${req.params.id}`)
+        res.redirect(`/campgrounds/camps/${req.params.id}/reviews`)
     }
 }
 

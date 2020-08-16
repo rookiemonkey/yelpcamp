@@ -14,14 +14,14 @@ const handler_deleteReview = async (req, res) => {
         const foundReview = await Review.findById(req.params.reviewId)
         if (!foundReview) { throw new Error('Review not existing') }
 
-        if (foundReview.author._id !== req.user.id) {
+        if (JSON.stringify(foundReview.author._id) !== JSON.stringify(req.user.id)) {
             throw new Error('Invalid action. You are not the author of the review')
         }
 
         await foundReview.remove()
 
         const foundCampground = await Campground.findByIdAndUpdate(req.params.id,
-            { $pull: { reviews: req.params.review_id } }, { new: true }
+            { $pull: { reviews: req.params.reviewId } }, { new: true }
         )
             .populate('reviews')
             .exec()
@@ -31,12 +31,12 @@ const handler_deleteReview = async (req, res) => {
         await foundCampground.save()
 
         req.flash('success', `Sucessfully deleted your review`)
-        res.redirect(`/campgrounds/camps/${req.params.id}`)
+        res.redirect(`/campgrounds/camps/${req.params.id}/reviews`)
     }
 
     catch (error) {
         req.flash('error', `Something went wrong. ${error.message}`)
-        res.redirect(`/campgrounds/camps/${req.params.id}`)
+        res.redirect(`/campgrounds/camps/${req.params.id}/reviews`)
     }
 }
 
