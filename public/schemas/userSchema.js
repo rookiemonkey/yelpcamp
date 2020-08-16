@@ -3,10 +3,7 @@ const validator = require('validator');
 const passportLocalMongoose = require("passport-local-mongoose")
 
 let userSchema = mongoose.Schema({
-    avatar: {
-        type: String,
-        default: 'https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png'
-    },
+    avatar: String,
     firstName: {
         type: String,
         required: true,

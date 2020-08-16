@@ -16,7 +16,8 @@ cloudinary.config(setCloudinary());
 const handler_signup = async (req, res) => {
 
     try {
-        const avatar = await toUpload(cloudinary, req);
+        let avatar = await toUpload(cloudinary, req);
+        if (!avatar) { avatar = 'https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png' }
         const { firstName, lastName, username, email, password } = req.body;
         await isPasswordStrong(password)
         const user = new User({ firstName, lastName, avatar, username, email })
