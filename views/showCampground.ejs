@@ -90,6 +90,12 @@
 
                     <% }; %>
 
+                    <a href="/campgrounds/camps/<%= campground._id %>/reviews">
+                        <button class="ui positive basic button">
+                            Reviews
+                        </button>
+                    </a>
+
                     <!-- add comment section -->
                     <% if(user !== undefined) {%>
                     <form class="ui form review-form" action="/campgrounds/camps/<%= campground._id %>/comment"

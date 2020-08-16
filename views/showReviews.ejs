@@ -35,6 +35,10 @@
             <form action="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
                 <button class="ui red button">Delete</button>
             </form>
+
+            <a href="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>/edit">
+                <button class="ui blue button">Update</button>
+            </a>
             <% } %>
             <% } %>
 
@@ -42,12 +46,7 @@
                 <span>Rating: <%= review.rating %> <i class="star icon"></i> </span>
             </div>
             <div class="description">
-                <p><%= review.text %> Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
-                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
-                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
-                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
-                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen Lorme
-                    impus sodldo emen Lorme impus sodldo emen Lorme impus sodldo emen</p>
+                <p><%= review.text %></p>
             </div>
         </div>
     </div>

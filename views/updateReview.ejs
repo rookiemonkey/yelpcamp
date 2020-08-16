@@ -3,11 +3,15 @@
 <section>
     <div id="formContainer">
 
-        <h1>Adding a review for "<strong><%= campground.campname %></strong>"</h1>
+        <h1>Updating a review</h1>
 
-        <form action="/campgrounds/camps/<%= campground._id %>/reviews/new" method="POST">
+        <form action="/campgrounds/camps/<%= campgroundId %>/reviews/<%= review._id %>/edit?_method=PUT" method="POST">
             <div class="ui form">
-                <label for="rating">Leave a rating:</label>
+                <label for="rating">Update rating:
+                    <span>Current rating: <%= review.rating %>
+                        <i class="star icon"></i>
+                    </span>
+                </label>
                 <div class="field">
                     <fieldset id="rating">
                         <div class="ui radio checkbox">
@@ -45,14 +49,14 @@
 
                 <div class="field">
                     <label>Review Details: </label>
-                    <textarea rows="2" name="review[text]"></textarea>
+                    <textarea rows="2" name="review[text]"><%= review.text %></textarea>
                 </div>
 
                 <div class="field">
-                    <button class="ui primary basic button" type='submit'>Submit Review</button>
+                    <button class="ui primary basic button" type='submit'>Update Review</button>
 
-                    <a href="/campgrounds/camps/<%= campground._id %>/reviews">
-                        <button class="ui secondary basic button" type='button'>
+                    <a href="/campgrounds/camps/<%= campgroundId %>/reviews">
+                        <button class="ui secondary basic button" type="button">
                             <i class="left arrow icon"></i>
                             Go Back
                         </button>

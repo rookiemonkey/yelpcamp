@@ -14,7 +14,7 @@ const form_updateReview = async (req, res) => {
 
         if (!foundReview) { throw new Error('Review not existing') }
 
-        if (foundReview.author._id !== req.user.id) {
+        if (JSON.stringify(foundReview.author._id) !== JSON.stringify(req.user.id)) {
             throw new Error('Invalid action. You are not the author of the review')
         }
 
@@ -37,7 +37,7 @@ const form_updateReview = async (req, res) => {
 
     catch (error) {
         req.flash("error", `${error.message}`);
-        res.redirect(`/campgrouns/camps/${req.params.id}`);
+        res.redirect(`/campgrounds/camps/${req.params.id}/reviews`);
     }
 }
 
