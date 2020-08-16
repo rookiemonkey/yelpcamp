@@ -37,9 +37,13 @@
             </div>
             </br>
             <div id="buttonContainer">
-                <a href="/campgrounds/camps/<%= camp.id %>"><button class="ui right labeled icon button"><i
-                            class="right arrow icon"></i>See More</button></a>
+                <a href="/campgrounds/camps/<%= camp.id %>">
+                    <button class="ui right labeled icon button">
+                        <i class="right arrow icon"></i> See More
+                    </button>
+                </a>
             </div>
+            <span><i class="fas fa-thumbs-up"></i> <%= camp.likes.length %></span>
         </div>
     </section>
     <% }) %>
