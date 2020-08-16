@@ -12,45 +12,51 @@
 </div>
 <% } %>
 
-<h1>reviews for: <%= campground.campname %></h1>
+<section id="reviews_parentContainer">
 
-<div class="ui items">
+    <div id="reviews_parentInnerContainer">
+        <h3 id="reviews_title">reviews for: <%= campground.campname %></h3>
 
-    <%if(campground.reviews.length === 0) { %>
-    <h3>There are no reviews for this post yet.</h3>
-    <% } %>
+        <div id="reviews_items" class="ui items">
 
-    <% campground.reviews.forEach(review => { %>
-    <div class="item">
-        <a class="ui tiny image">
-            <img src="<%= review.author.avatar %>">
-        </a>
-        <div class="content">
-            <a class="header" href="/campgrounds/users/<%= review.author._id %>">
-                @<%= review.author.username %>
-            </a>
-
-            <% if(user !== undefined) {%>
-            <% if(JSON.stringify(review.author._id) === JSON.stringify(user.id))  { %>
-            <form action="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
-                <button class="ui red button">Delete</button>
-            </form>
-
-            <a href="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>/edit">
-                <button class="ui blue button">Update</button>
-            </a>
-            <% } %>
+            <%if(campground.reviews.length === 0) { %>
+            <h3>There are no reviews for this post yet.</h3>
             <% } %>
 
-            <div class="meta">
-                <span>Rating: <%= review.rating %> <i class="star icon"></i> </span>
+            <% campground.reviews.forEach(review => { %>
+            <div id="reviews_item" class="item">
+                <a class="ui tiny image">
+                    <img src="<%= review.author.avatar %>">
+                </a>
+                <div class="content">
+                    <a class="header" href="/campgrounds/users/<%= review.author._id %>">
+                        @<%= review.author.username %>
+                    </a>
+
+                    <% if(user !== undefined) {%>
+                    <% if(JSON.stringify(review.author._id) === JSON.stringify(user.id))  { %>
+                    <form action="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
+                        method="POST" id="reviews_deleteForm">
+                        <button id="reviews_deleteButton" class="ui red button" type='submit'>Delete</button>
+
+                        <a href="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>/edit">
+                            <button id="reviews_updateButton" class="ui blue button" type="button">Update</button>
+                        </a>
+                    </form>
+                    <% } %>
+                    <% } %>
+
+                    <div class="meta">
+                        <span>Rating: <%= review.rating %> <i class="star icon"></i> </span>
+                    </div>
+                    <div class="description">
+                        <p><%= review.text %></p>
+                    </div>
+                </div>
             </div>
-            <div class="description">
-                <p><%= review.text %></p>
-            </div>
+            <% }) %>
         </div>
     </div>
-    <% }) %>
-</div>
+</section>
 
 <%- include("partials/footer") %>

@@ -1,0 +1,22 @@
+#reviews_parentContainer {
+    min-height: 100vh;
+}
+
+#reviews_parentInnerContainer {
+    margin: 10px auto;
+    width: 665px;
+}
+
+#reviews_item {
+    border: 1px solid grey;
+    padding: 10px
+}
+
+#reviews_updateButton,
+#reviews_deleteButton {
+    transform: scale(0.8);
+}
+
+#reviews_deleteForm {
+    float: right;
+}
