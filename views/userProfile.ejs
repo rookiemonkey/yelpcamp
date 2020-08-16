@@ -1,36 +1,5 @@
 <%- include("partials/header") %>
 
-<style>
-    #profile_sidebar,
-    #profile_camplist {
-        border: 2px solid red;
-        margin: 10px;
-    }
-
-    #profile_sidebar {
-        width: 300px;
-    }
-
-    #profile_camplist {
-        width: 500px;
-    }
-
-    #profile_avatar {
-        border: 2px solid red;
-    }
-
-    #profile_listmetas {
-        list-style-type: none;
-    }
-
-    #profile_parentContainer {
-        border: 5px solid pink;
-        height: max-width;
-        display: flex;
-        justify-content: center;
-    }
-</style>
-
 <article id="profile_parentContainer">
     <section id="profile_sidebar" class="six wide column>">
         <img id="profile_avatar" class="ui medium circular image" src="<%= foundUser.avatar %>" />
@@ -44,6 +13,10 @@
     <section id="profile_camplist">
         <h5>Uploaded Camps</h5>
         <div id="profile_listcamps" class="ui items">
+
+            <% if(foundUserCamps.length === 0) { %>
+            <h4>No uploaded camps yet</h4>
+            <% } %>
 
             <% foundUserCamps.forEach(camp => { %>
             <div id="profile_camplistitem" class="item">
@@ -59,7 +32,7 @@
                         <span class="stay"> /nigth</span>
                     </div>
                     <div class="description">
-                        <p><%= camp.description.substring(0, 70) %></p>
+                        <p><%= camp.description.substring(0, 70) %>...</p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,28 @@
+#profile_sidebar,
+#profile_camplist {
+    margin: 10px;
+}
+
+#profile_sidebar {
+    width: 300px;
+}
+
+#profile_camplist {
+    width: 500px;
+}
+
+#profile_listmetas {
+    list-style-type: none;
+}
+
+#profile_parentContainer {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#profile_camplistitem {
+    border: 1px solid gray;
+    height: 135px;
+    padding: 10px;
+}
