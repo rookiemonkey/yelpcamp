@@ -8,14 +8,14 @@ let userSchema = mongoose.Schema({
         type: String,
         required: true,
         validate(value) {
-            if (!value) { throw new Error('Please provide a valid username') }
+            if (!value) { throw new Error('Please provide a valid first name') }
         }
     },
     lastName: {
         type: String,
         required: true,
         validate(value) {
-            if (!value) { throw new Error('Please provide a valid username') }
+            if (!value) { throw new Error('Please provide a valid last name') }
         }
     },
     username: {

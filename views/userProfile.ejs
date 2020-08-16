@@ -1,0 +1,10 @@
+<%- include("partials/header") %>
+
+This is the user profile page
+<h1><%= foundUser.firstName %> <%= foundUser.lastName %></h1>
+<ul>
+    <li><%= foundUser.username %></li>
+    <li><%= foundUser.email %></li>
+</ul>
+
+<%- include("partials/footer") %>
