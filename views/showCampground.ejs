@@ -84,7 +84,8 @@
 
                             <!-- author / date of the comment -->
                             <div class="header">
-                                @<%= com.author.name %><span id="date"><%= moment(com.createdAt).fromNow() %></span>
+                                <a href="/campgrounds/users/<%= com.author._id %>">@<%= com.author.name %></a>
+                                <span id="date"><%= moment(com.createdAt).fromNow() %></span>
 
                                 <!-- edit / delete comment -->
                                 <% if(user !== undefined) {%>
