@@ -2,6 +2,7 @@
 // ROUTE DEPENDENCIES
 // ===========================
 const User = require("../../schemas/userSchema");
+const Campground = require("../../schemas/campgroundSchema");
 const isAdmin = require("../../middleware/isAdmin");
 
 // ===========================
