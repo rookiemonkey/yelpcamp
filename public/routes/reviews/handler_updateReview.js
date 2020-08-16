@@ -14,7 +14,7 @@ const handler_updateReview = async (req, res) => {
         const foundReview = await Review.findById(req.params.reviewId)
         if (!foundReview) { throw new Error('Review not existing') }
 
-        if (foundReview.author.id !== req.user.id) {
+        if (foundReview.author._id !== req.user.id) {
             throw new Error('Invalid action. You are not the author of the review')
         }
 

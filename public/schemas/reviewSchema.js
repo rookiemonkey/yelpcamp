@@ -16,11 +16,12 @@ const reviewSchema = new mongoose.Schema({
         type: String
     },
     author: {
-        id: {
+        _id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-        username: String
+        username: String,
+        avatar: String
     },
     campground: {
         type: mongoose.Schema.Types.ObjectId,

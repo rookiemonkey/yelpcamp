@@ -17,8 +17,9 @@ const handler_addReview = async (req, res) => {
 
         const newReview = await Review.create(req.body.review)
 
-        newReview.author.id = req.user._id;
+        newReview.author._id = req.user.id;
         newReview.author.username = req.user.username;
+        newReview.author.avatar = req.user.avatar;
         newReview.campground = foundCampground;
         await newReview.save()
 

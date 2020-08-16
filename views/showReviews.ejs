@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<h1>reviews for: <%= campground.campname %></h1>
+
+<div class="ui items">
+    <% campground.reviews.forEach(review => { %>
+    <div class="item">
+        <a class="ui tiny image">
+            <img src="<%= review.author.avatar %>">
+        </a>
+        <div class="content">
+            <a class="header" href="/campgrounds/users/<%= review.author._id %>">
+                @<%= review.author.username %>
+            </a>
+            <div class="meta">
+                <span>Rating: <%= review.rating %> <i class="star icon"></i> </span>
+            </div>
+            <div class="description">
+                <p><%= review.text %></p>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
+
+<%- include("partials/footer") %>

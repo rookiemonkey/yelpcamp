@@ -3,6 +3,7 @@
 // ===========================
 const Campground = require("../../schemas/campgroundSchema");
 const isAdmin = require("../../middleware/isAdmin");
+const { populate } = require("../../schemas/reviewSchema");
 
 // ===========================
 // GET ALL REVIEWS ROUTE
@@ -15,7 +16,7 @@ const get_allReviews = async (req, res) => {
                 path: 'reviews',
                 options: { sort: { createdAt: -1 } } // latest first
             })
-            .exec() 
+            .exec()
 
         if (!foundCampground) { throw new Error('Campground not existing') }
 

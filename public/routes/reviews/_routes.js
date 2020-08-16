@@ -12,7 +12,7 @@ const handler_deleteReview = require('./handler_deleteReview')
 // ROOT: /campgrounds/camps/:id/reviews
 
 router
-    .get('/', isLoggedIn, get_allReviews)
+    .get('/', get_allReviews)
     .post('/new', isLoggedIn, isReviewExisiting, handler_addReview)
     .get('/new', isLoggedIn, isReviewExisiting, form_addReview)
     .delete('/:reviewId', isLoggedIn, handler_deleteReview)
