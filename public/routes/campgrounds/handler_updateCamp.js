@@ -19,19 +19,21 @@ const handler_updateCamp = async (req, res) => {
     const foundCampground = await Campground.findById(req.params.id)
 
     const isOwner = foundCampground.uploader.id.equals(req.user.id)
-    if (!isOwner) { throw new Error("Invalid action") }
+    if (!isOwner || !isAdmin(req)) { throw new Error("Invalid action") }
 
-    if (isOwner || isAdmin(req)) {
-      const { image_default } = req.body;
-      const { lat, lng, formattedLocation } = await toGeocode(req.body.location);
-      const imageUrl = await toUpload(cloudinary, req)
-      const image = imageUrl ? imageUrl : image_default
-      const updates = { ...req.body, lat, lng, location: formattedLocation, image }
+    const { image_default, campname, location, description } = req.body;
+    req.body.campname = req.sanitize(campname)
+    req.body.location = req.sanitize(location)
+    req.body.description = req.sanitize(description)
 
-      await Campground.findByIdAndUpdate(req.params.id, updates)
-      req.flash("success", `"${foundCampground.campname}" was updated successfully`);
-      return res.redirect(`/campgrounds/camps/${req.params.id}`);
-    }
+    const { lat, lng, formattedLocation } = await toGeocode(req.body.location);
+    const imageUrl = await toUpload(cloudinary, req)
+    const image = imageUrl ? imageUrl : image_default
+    const updates = { ...req.body, lat, lng, location: formattedLocation, image }
+
+    await Campground.findByIdAndUpdate(req.params.id, updates)
+    req.flash("success", `"${foundCampground.campname}" was updated successfully`);
+    return res.redirect(`/campgrounds/camps/${req.params.id}`);
 
   }
 

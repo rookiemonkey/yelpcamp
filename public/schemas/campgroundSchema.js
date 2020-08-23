@@ -13,7 +13,7 @@ const campSchema = mongoose.Schema({
         }
     },
     price: {
-        type: String,
+        type: Number,
         required: true,
         validate(value) {
             if (!value) { throw new Error('Please provide a valid price for the camp') }
