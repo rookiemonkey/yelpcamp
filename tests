@@ -1,43 +1,44 @@
-login in
-    -- common user - ok with success msg 27/06
-    -- admin user - ok with success msg 27/06
-    -- wrong credentials - ok with error msg 28/06
+not logged in
+        CAMP
+        ok - add camp form
+        ok - edit camp form
+        ok - delete camp
+        ok - update camp
 
-logout
-    -- common user - ok however, no success msg 27/03
-    -- admin user - ok however, no success msg 27/03
+        COMMENT
+        ok - add comment
+        ok - delete comment
+        ok - update comment
 
-sign up
-    -- same username - ok with error msg 27/06
-    -- same email - ok with error msg 27/06
-    -- all correct - ok with success msg 27/06
+        REVIEW
+        ok - read all reviews
+        ok - add review
+        ok - add review form
+        ok - delete review
+        ok - update review
+        ok - update review form
 
-not logged in  // camp
-    -- cant add camp with postman? ====// it redirects to login == fixed with error message - ok 27/06
-    -- cant delete camp with postman? ====// it redirects to login == fixed with error message - ok 27/06
-    -- cant edit camp with postman? ====// it redirects to login == fixed with error message - ok 27/06
-    -- cant update camp with postman mp? ====// it redirects to login == fixed with error message - ok 27/06
+        USER
+        ok - logout
+        ok - forgot password form
+        ok - forgot password
+        ok - reset password form
 
-not logged in comment
-    -- add comment with postman? ====// it redirects to login == fixed with error message - ok 27/06
-    -- delete comment with postman? ====// it redirects to login == fixed with error message - ok 27/06
-    -- edit/update comment with postman? ====// it redirects to login == fixed with error message - ok 27/06
-
-logged in and owner of the camp
-    -- add camp? working == now with success msg - ok 27/06
-    -- edit camp? working == now with seccess msg - ok 27/06
-    -- update camp? working ==  now with seccess msg - ok 27/06
-    -- delete camp? working ==  now with seccess msg - ok 27/06
-
-logged in comment
-    -- add comment? working, db ok 27/06
-    -- delete comment? working, db ok 27/06
-    -- edit comment? working, db ok 27/06
-    -- update comment? working, db ok 27/06
+        ok - login form
+        ok - login
+        ok - signup form
+        ok - signup
+        ok - current userprofile page
+        ok - userprofile page
 
 
-ADMIN LOGIN ---------------
-    -- able to delete other's camp? db ok 27/06
-    -- able to edit/update others' camp? db ok 27/06
-    -- able to delete other's comment? db ok 27/06
 
+
+
+login normal
+        CAMP
+        can add
+        can edit his camp
+        can delete his camp
+        cannot delete other camp
+        cannot edit other camp

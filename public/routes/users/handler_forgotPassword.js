@@ -13,28 +13,28 @@ const setToken = require("../../middleware/setToken");
 const handler_forgotPassword = (req, res, next) => {
     async.waterfall([
         function (done) {
-            crypto.randomBytes(20, (err, buf) => {
-                let token = buf.toString('hex');
-                done(err, token);
-            });
-        },
-        function (token, done) {
-            User.findOne({ email: req.body.email }, async (err, foundUser) => {
+            User.findOne({ email: req.body.email }, (err, foundUser) => {
                 if (!foundUser) {
-                    req.flash('error', 'No Account with that email address exists')
+                    req.flash('error', `User doesn't exists`)
                     return res.redirect('/campgrounds/users/forgot_password');
                 }
-                await setToken(foundUser, token);
-                done(err, token, foundUser);
+                done(err, foundUser);
             });
         },
-        async function (token, foundUser, done) {
+        function (foundUser, done) {
+            crypto.randomBytes(20, async (err, buffer) => {
+                const token = buffer.toString('hex');
+                await setToken(foundUser, token);
+                done(err, foundUser, token);
+            });
+        },
+        async function (foundUser, token, done) {
             await toEmail(
                 foundUser.email,
                 `Yelpcamp Password Reset`,
                 `You received this email becuase your requested for a password reset for your Yelpcamp account. Please click the link below or paste it on your browser to proceed in resetting your password
 
-                http://${req.headers.host}/campgrounds/forgot-password/reset/${token}
+                http://${req.headers.host}/campgrounds/users/forgot_password/${token}
 
                 If you did not request this, please disregard this email and we will not change your password, Also, report it to us immediately so we can take further action regarding the security of your account.`
             )

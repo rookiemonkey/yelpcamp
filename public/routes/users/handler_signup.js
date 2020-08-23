@@ -48,7 +48,6 @@ const handler_signup = async (req, res, next) => {
     }
 
     catch (error) {
-        console.log('it went error')
         req.flash("error", `${error.message}`)
         res.redirect("/campgrounds/users/signup");
     }
