@@ -13,14 +13,8 @@ const commentSchema = mongoose.Schema({
         }
     },
     author: {
-        _id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        name: {
-            type: String,
-            ref: "User"
-        }
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 })
 
