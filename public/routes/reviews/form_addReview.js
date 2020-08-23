@@ -34,7 +34,7 @@ const form_addReview = async (req, res) => {
 
     catch (error) {
         req.flash("error", `${error.message}`);
-        res.redirect(`/campgrouns/camps/${req.params.id}`);
+        res.redirect(`/campgrounds/camps/${req.params.id}`);
     }
 }
 

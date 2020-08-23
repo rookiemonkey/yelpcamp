@@ -16,7 +16,20 @@
         </div>
         <% } %>
 
-        <h3 id="reviews_title">reviews for: <%= campground.campname %></h3>
+        <h3 id="reviews_title">
+            reviews for: <%= campground.campname %>
+
+            <% if(user !== undefined) { %>
+            <% if(JSON.stringify(campground.uploader.id) !== JSON.stringify(user._id)) { %>
+            <a href='/campgrounds/camps/<%= campground._id %>/reviews/new'>
+                <button id='addReview' class="ui primary basic button right floated">
+                    Leave a review
+                </button>
+            </a>
+            <% } %>
+            <% } %>
+
+        </h3>
 
         <div id="reviews_items" class="ui items">
 

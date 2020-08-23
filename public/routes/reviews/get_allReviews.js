@@ -3,7 +3,6 @@
 // ===========================
 const Campground = require("../../schemas/campgroundSchema");
 const isAdmin = require("../../middleware/isAdmin");
-const { populate } = require("../../schemas/reviewSchema");
 
 // ===========================
 // GET ALL REVIEWS ROUTE
