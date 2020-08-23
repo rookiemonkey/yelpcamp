@@ -10,7 +10,7 @@ const Campground = require("../../schemas/campgroundSchema");
 const showCampground = async (req, res) => {
     try {
         const foundCampground = await Campground.findById(req.params.id)
-            .populate('comments likes')
+            .populate('comments likes reviews')
 
         if (isAdmin(req)) {
             res.render("showCampground", {
