@@ -10,9 +10,7 @@ const handler_likeCamp = async (req, res) => {
     try {
         const foundCampground = await Campground.findById(req.params.id)
 
-        const foundUserLike = foundCampground.likes.some(like => {
-            return like.equals(req.user._id);
-        });
+        const foundUserLike = foundCampground.likes.some(like => like.equals(req.user._id));
 
         foundUserLike
             ? foundCampground.likes.pull(req.user._id) // remove if already liked
