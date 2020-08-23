@@ -11,31 +11,76 @@
     </section>
 
     <section id="profile_camplist">
-        <h5>Uploaded Camps</h5>
-        <div id="profile_listcamps" class="ui items">
+        <h3>Uploaded Camps</h3>
+        <div id="profile_listcamps" class="ui divided items">
 
             <% if(foundUserCamps.length === 0) { %>
-            <h4>No uploaded camps yet</h4>
+            <h5>No uploaded camps yet</h5>
             <% } %>
 
             <% foundUserCamps.forEach(camp => { %>
-            <div id="profile_camplistitem" class="item">
-                <div class="ui small image">
+            <div class="item">
+                <div class="image">
                     <img src="<%= camp.image %>">
                 </div>
-                <div class=" content">
-                    <div class="header">
-                        <a href="/campgrounds/camps/<%= camp._id %>"><%= camp.campname %></a>
-                    </div>
+                <div class="content">
+                    <a href="/campgrounds/camps/<%= camp._id %>"><%= camp.campname %></a>
                     <div class="meta">
                         <span class="price">$<%= camp.price %> </span>
-                        <span class="stay"> /nigth</span>
+                        <span class="stay"> /night</span>
                     </div>
                     <div class="description">
-                        <p><%= camp.description.substring(0, 70) %>...</p>
+                        <p><%= camp.location %></p>
                     </div>
+                    <div class="extra">
+                        <div class="ui labeled button" tabindex="0">
+                            <div class="ui red button">
+                                <i class="heart icon"></i> Likes
+                            </div>
+                            <a class="ui basic red left pointing label">
+                                <%= camp.likes.length %>
+                            </a>
+                        </div>
+                        <div class="ui labeled button" tabindex="0">
+                            <div class="ui orange button">
+                                <i class="star icon"></i> Rating
+                            </div>
+                            <a class="ui basic left pointing orange label">
+                                <%= camp.rating %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
 
-                    <span><i class="fas fa-thumbs-up"></i> <%= camp.likes.length %></span>
+        </div>
+
+        <h3>User Reviews</h3>
+        <div id="profile_listcamps" class="ui divided items">
+
+            <% if(foundUserReviews.length === 0) { %>
+            <h5>No reviewed camps yet</h5>
+            <% } %>
+
+            <% foundUserReviews.forEach(review => { %>
+            <div class="item">
+                <div class="image">
+                    <img src="<%= review.campground.image %>">
+                </div>
+                <div class="content">
+                    <div class="header">
+                        <a href="/campgrounds/camps/<%= review.campground._id %>">
+                            <%= review.campground.campname %>
+                        </a>
+                    </div>
+                    <div class="meta">
+                        <span class="price">Rating </span>
+                        <span class="stay"><%= review.rating %></span>
+                    </div>
+                    <div class="description">
+                        <p><%= review.text.substring(0, 70) %>...</p>
+                    </div>
                 </div>
             </div>
             <% }) %>
