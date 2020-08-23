@@ -11,12 +11,16 @@ const toAverage = require('../../middleware/toAverage')
 const handler_addReview = async (req, res) => {
 
     try {
-        const foundCampground = await Campground.findById(req.params.id, `_id reviews rating`)
-            .populate('reviews')
+        const foundCampground = await Campground
+            .findById(req.params.id, `_id reviews rating uploader`)
+            .populate('reviews uploader')
             .exec()
 
+        const isCurrentUserAddingAReview = req.user.id == foundCampground.uploader.id
+        if (isCurrentUserAddingAReview) { throw new Error("Can't leave a review on your own camp") }
+
         const validInputs = ['text', 'rating']
-        const areInputsValid = Object.keys(req.body).every(bodyInput => {
+        const areInputsValid = Object.keys(req.body.review).every(bodyInput => {
             return validInputs.includes(bodyInput)
         })
         if (!areInputsValid) { throw new Error("Invalid fields provided") }
