@@ -256,6 +256,13 @@ section#loginFormContainerParent {
 
 section#signUpFormContainerParent {
   height: max-height; }
+  section#signUpFormContainerParent #Password_label {
+    color: gray;
+    font-size: smaller; }
+
+section#forgotPasswordFormContainerParent {
+  border: 2px sold red;
+  height: 100vh; }
 
 #profile_sidebar,
 #profile_camplist {
@@ -294,6 +301,23 @@ section div#formContainer {
     section div#formContainer form button {
       margin: 2.5% 0px;
       background-color: #F6D55C; }
+
+.hide {
+  display: none; }
+
+.show {
+  display: block; }
+
+#Image-Input {
+  color: gray; }
+
+#Image-File {
+  height: 38px;
+  padding-top: 5px; }
+
+#Default-Button,
+#Update-Button {
+  float: right; }
 
 footer.ui.inverted.segment {
   background-color: #173F5F; }

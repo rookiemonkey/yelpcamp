@@ -1,4 +1,9 @@
 section#signUpFormContainerParent {
     height: $form-height;
     // to prevent white stripe at the bottom of the footer
+
+    #Password_label {
+        color: gray;
+        font-size: smaller;
+    }
 }
