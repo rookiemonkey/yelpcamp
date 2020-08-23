@@ -20,6 +20,12 @@ const handler_signup = async (req, res, next) => {
         let avatar = await toUpload(cloudinary, req);
         if (!avatar) { avatar = 'https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png' }
 
+        const validInputs = ['firstName', 'lastName', 'username', 'email', 'password', 'confirmPassword']
+        const areInputsValid = Object.keys(req.body).every(bodyInput => {
+            return validInputs.includes(bodyInput)
+        })
+        if (!areInputsValid) { throw new Error("Invalid fields provided") }
+
         const { firstName, lastName, username, email, password, confirmPassword } = req.body;
         req.body.username = req.sanitize(username)
         req.body.firstName = req.sanitize(firstName)
