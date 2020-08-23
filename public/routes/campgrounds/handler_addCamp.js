@@ -14,6 +14,13 @@ cloudinary.config(setCloudinary());
 // ===========================
 const handler_addCamp = async (req, res) => {
     try {
+
+        const validInputs = ['name', 'location', 'description', 'price', 'image']
+        const areInputsValid = Object.keys(req.body).every(bodyInput => {
+            return validInputs.includes(bodyInput)
+        })
+        if (!areInputsValid) { throw new Error("Invalid fields provided") }
+
         const uploaded = await toUpload(cloudinary, req);
         const location = req.sanitize(req.body.location);
         const loc = await toGeocode(location);
@@ -22,14 +29,14 @@ const handler_addCamp = async (req, res) => {
         const uploader = { id: req.user.id, name: req.user.username }
 
         const newCampground = {
-            campname: campname,
+            campname,
             price: req.body.price,
             image: uploaded,
             location: loc.formattedLocation,
             lat: loc.lat,
             lng: loc.lng,
-            description: description,
-            uploader: uploader
+            description,
+            uploader,
         };
 
         const addedCamp = await Campground.create(newCampground)
