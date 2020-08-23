@@ -154,27 +154,10 @@ section#campgroundParentContainer {
         section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list button#like_button {
           background-color: transparent;
           border: none; }
-        section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div#buttons-container {
-          display: flex;
-          justify-content: flex-end;
-          position: relative; }
-          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div#buttons-container div.editCommentContainer a#editButton {
-            background-color: #f2711c !important;
-            color: white !important; }
-          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div#buttons-container form.deleteCampground {
-            display: flex;
-            justify-content: flex-end; }
-            section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div#buttons-container form.deleteCampground div.inline.fields {
-              display: flex;
-              justify-content: flex-end; }
-              section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div#buttons-container form.deleteCampground div.inline.fields div#one-wide-field {
-                display: flex;
-                justify-content: flex-end; }
-                section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div#buttons-container form.deleteCampground div.inline.fields div#one-wide-field button#deleteButton {
-                  background-color: #db2828 !important;
-                  color: white !important; }
+        section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list #reviewsbutton, section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list #modalbutton {
+          margin: 0px 2px; }
         section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list form {
-          margin: 0px 14px; }
+          margin: 14px; }
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list form button {
             margin: 0px;
             background-color: #F6D55C; }

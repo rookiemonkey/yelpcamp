@@ -54,7 +54,7 @@
                 </div>
                 <div class="ui celled list">
 
-                    <!-- like -->
+                    <!-- like review more -->
                     <form action="/campgrounds/camps/<%= campground._id %>/like" method="POST">
                         <div class="btn-group">
                             <% if (user && campground.likes.some(function (like) { return like.equals(user._id) }))  { %>
@@ -84,20 +84,23 @@
                             </button>
 
                             <% } %>
+
+                            <div class="ui labeled button" tabindex="0" id="reviewsbutton">
+                                <div class="ui orange button">
+                                    <i class="star icon"></i> Rating
+                                </div>
+                                <a class="ui basic left pointing orange label">
+                                    <%= campground.rating %>
+                                </a>
+                            </div>
+
+                            <!-- more -->
+                            <button id="modalbutton" type="button" class="ui positive basic button"> More
+                            </button>
+
                         </div>
                     </form>
 
-                    <!-- review -->
-                    <div class="inline fields">
-                        <a href="/campgrounds/camps/<%= campground._id %>/reviews">
-                            <button class="ui positive basic button">
-                                Reviews
-                            </button>
-                        </a>
-
-                        <button id="modalbutton" type="button" class="ui positive basic button"> More
-                        </button>
-                    </div>
 
                     <!-- add comment section -->
                     <% if(user !== undefined) {%>
@@ -105,7 +108,7 @@
                         method="POST">
                         <div class="inline fields">
                             <input type="text" name="comment" placeholder="review details" autocomplete="off" required>
-                            <button id="reviewButton" class="positive ui button">Review</button>
+                            <button id="reviewButton" class="positive ui button">Comment</button>
                         </div>
                     </form>
                     <% }; %>
@@ -237,6 +240,10 @@
 <script>
     $('#modalbutton').on('click', () => {
         $('.ui.mini.modal').modal('show');
+    })
+
+    $('#reviewsbutton').on('click', () => {
+        window.location = "/campgrounds/camps/<%= campground._id %>/reviews"
     })
 </script>
 

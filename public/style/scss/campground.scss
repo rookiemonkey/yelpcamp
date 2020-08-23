@@ -99,44 +99,13 @@ section#campgroundParentContainer {
                         border: none;
                     }
 
-
-                    // delete/edit button
-                    div#buttons-container {
-                        display: flex;
-                        justify-content: flex-end;
-                        position: relative;
-
-                        div.editCommentContainer {
-                            a#editButton {
-                                background-color: #f2711c !important;
-                                color: white !important;
-                            }
-                        }
-
-                        form.deleteCampground {
-                            display: flex;
-                            justify-content: flex-end;
-
-                            div.inline.fields {
-                                display: flex;
-                                justify-content: flex-end;
-
-                                div#one-wide-field {
-                                    display: flex;
-                                    justify-content: flex-end;
-
-                                    button#deleteButton {
-                                        background-color: #db2828 !important;
-                                        color: white !important;
-                                    }
-                                }
-                            }
-                        }
+                    #reviewsbutton, #modalbutton {
+                        margin: 0px 2px;
                     }
 
-                    // review button
+                    // comment button
                     form {
-                        margin: 0px 14px;
+                        margin: 14px;
 
                         button {
                             margin: 0px;
