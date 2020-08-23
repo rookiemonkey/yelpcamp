@@ -14,9 +14,8 @@ const form_updateReview = async (req, res) => {
 
         if (!foundReview) { throw new Error('Review not existing') }
 
-        if (JSON.stringify(foundReview.author._id) !== JSON.stringify(req.user.id)) {
-            throw new Error('Invalid action. You are not the author of the review')
-        }
+        const isOwner = foundReview.author._id.equals(req.user.id)
+        if (!isOwner) { throw new Error('Invalid action') }
 
         if (isAdmin(req)) {
             res.render("updateReview", {

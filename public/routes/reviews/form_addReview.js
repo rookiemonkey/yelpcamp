@@ -14,6 +14,9 @@ const form_addReview = async (req, res) => {
 
         if (!foundCampground) { throw new Error('Campground not existing') }
 
+        const isCurrentUserAddingAReviewOnHisCamp = req.user.id == foundCampground.uploader.id
+        if (isCurrentUserAddingAReviewOnHisCamp) { throw new Error("Invalid action") }
+
         if (isAdmin(req)) {
             res.render("addReview", {
                 user: req.user,
