@@ -6,6 +6,7 @@ const cloudinary = require('cloudinary');
 const toUpload = require("../../middleware/toUpload");
 const toGeocode = require("../../middleware/toGeocode");
 const setCloudinary = require("../../middleware/setCloudinary");
+const areValidInputs = require('../../middleware/areValidInputs');
 const Campground = require("../../schemas/campgroundSchema");
 
 cloudinary.config(setCloudinary());
@@ -22,10 +23,8 @@ const handler_updateCamp = async (req, res) => {
     if (!isOwner || !isAdmin(req)) { throw new Error("Invalid action") }
 
     const validInputs = ['campname', 'location', 'description', 'price', 'image_default', 'image_update']
-    const areInputsValid = Object.keys(req.body).every(bodyInput => {
-      return validInputs.includes(bodyInput)
-    })
-    if (!areInputsValid) { throw new Error("Invalid fields provided") }
+    const areValid = areValidInputs(validInputs, req.body)
+    if (!areValid) { throw new Error("Invalid fields provided") }
 
     const { image_default, campname, location, description } = req.body;
     req.body.campname = req.sanitize(campname)

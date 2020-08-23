@@ -3,6 +3,7 @@
 // ===========================
 const Campground = require("../../schemas/campgroundSchema");
 const Review = require('../../schemas/reviewSchema')
+const areValidInputs = require('../../middleware/areValidInputs')
 const toAverage = require('../../middleware/toAverage')
 
 // ===========================
@@ -20,10 +21,8 @@ const handler_addReview = async (req, res) => {
         if (isCurrentUserAddingAReview) { throw new Error("Can't leave a review on your own camp") }
 
         const validInputs = ['text', 'rating']
-        const areInputsValid = Object.keys(req.body.review).every(bodyInput => {
-            return validInputs.includes(bodyInput)
-        })
-        if (!areInputsValid) { throw new Error("Invalid fields provided") }
+        const areValid = areValidInputs(validInputs, req.body.review)
+        if (!areValid) { throw new Error("Invalid fields provided") }
 
         const { text } = req.body.review
         req.body.review.text = req.sanitize(text)
