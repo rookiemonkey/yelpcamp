@@ -11,11 +11,12 @@ const Campground = require("../../schemas/campgroundSchema");
 const handler_deleteCamp = async (req, res) => {
 
     try {
-        if (req.session.passport === undefined) { throw new Error('You need to be logged in and owner of the camp to delete it') }
-
         const foundCampground = await Campground.findById(req.params.id)
 
-        if (JSON.stringify(req.user.id) === JSON.stringify(foundCampground.uploader.id) || isAdmin(req)) {
+        const isOwner = foundCampground.uploader.id.equals(req.user.id)
+        if (!isOwner) { throw new Error("Invalid action") }
+
+        if (isOwner || isAdmin(req)) {
 
             // remove the comments associate to the camp, since hooks are not working
             let comids = foundCampground.comments;
@@ -30,8 +31,6 @@ const handler_deleteCamp = async (req, res) => {
             req.flash("info", `${foundCampground.campname} is now removed from our catalogue`);
             return res.redirect("/campgrounds/camps");
         }
-
-        throw new Error('You need to be the owner of the camp to delete it')
     }
 
     catch (error) {
