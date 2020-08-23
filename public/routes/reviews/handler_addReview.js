@@ -17,8 +17,8 @@ const handler_addReview = async (req, res) => {
             .populate('reviews uploader')
             .exec()
 
-        const isCurrentUserAddingAReview = req.user.id == foundCampground.uploader.id
-        if (isCurrentUserAddingAReview) { throw new Error("Can't leave a review on your own camp") }
+        const isCurrentUserAddingAReviewOnHisCamp = req.user.id == foundCampground.uploader.id
+        if (isCurrentUserAddingAReviewOnHisCamp) { throw new Error("Invalid action") }
 
         const validInputs = ['text', 'rating']
         const areValid = areValidInputs(validInputs, req.body.review)
