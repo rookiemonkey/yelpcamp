@@ -15,7 +15,7 @@ const handler_updateComment = async (req, res) => {
         const foundComment = await Comment.findById(comid)
 
         const isOwner = foundComment.author.id.equals(req.user.id)
-        if (!isOwner && isAdmin(req) === false) { throw new Error("Invalid action") }
+        if (!isOwner) { throw new Error("Invalid action") }
 
         const newComment = req.sanitize(comment);
         await Comment.findByIdAndUpdate(comid, { comment: newComment })
