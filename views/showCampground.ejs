@@ -54,47 +54,50 @@
                 </div>
                 <div class="ui celled list">
 
-                    <!-- delete/edit campground -->
-                    <% if(user !== undefined) {%>
-                    <% if(user.id == campground.uploader.id || role != null) {%>
-                    <form class="ui form deleteCampground"
-                        action="/campgrounds/camps/<%= campground._id %>?_method=DELETE" method="POST">
-                        <div class="inline fields deleteCampground-parent">
-                            <div class="one wide field deleteCampground-inner">
-                                <a id="editButton" class="ui orange basic button"
-                                    href="/campgrounds/camps/<%= campground.id %>/edit">Edit</a>
-                                <button id="deleteButton" class="ui negative basic button">Delete</button>
-                            </div>
-                        </div>
-                    </form>
-                    <% }; %>
-
+                    <!-- like -->
                     <form action="/campgrounds/camps/<%= campground._id %>/like" method="POST">
                         <div class="btn-group">
-                            <% if (user && campground.likes.some(function (like) {
-                                        return like.equals(user._id)
-                                    })) { %>
-                            <button class="ui positive basic button">
-                                <i class="fas fa-thumbs-up"></i> Liked (<%= campground.likes.length %>)
+                            <% if (user && campground.likes.some(function (like) { return like.equals(user._id) }))  { %>
+
+                            <button type="submit" id="like_button">
+                                <div class="ui labeled button" tabindex="0">
+                                    <div class="ui red button">
+                                        <i class="heart icon"></i> Liked
+                                    </div>
+                                    <a class="ui basic red left pointing label">
+                                        <%= campground.likes.length %>
+                                    </a>
+                                </div>
                             </button>
+
                             <% } else { %>
-                            <button class="ui positive basic button">
-                                <i class="fas fa-thumbs-up"></i> Like (<%= campground.likes.length %>)
+
+                            <button type="submit" id="like_button">
+                                <div class="ui labeled button" tabindex="0">
+                                    <div class="ui red button">
+                                        <i class="heart outline icon"></i> Like
+                                    </div>
+                                    <a class="ui basic red left pointing label">
+                                        <%= campground.likes.length %>
+                                    </a>
+                                </div>
                             </button>
+
                             <% } %>
-                            <button id="modalbutton" type="button" class="ui positive basic button">See more
-                                details
-                            </button>
                         </div>
                     </form>
 
-                    <% }; %>
+                    <!-- review -->
+                    <div class="inline fields">
+                        <a href="/campgrounds/camps/<%= campground._id %>/reviews">
+                            <button class="ui positive basic button">
+                                Reviews
+                            </button>
+                        </a>
 
-                    <a href="/campgrounds/camps/<%= campground._id %>/reviews">
-                        <button class="ui positive basic button">
-                            Reviews
+                        <button id="modalbutton" type="button" class="ui positive basic button"> More
                         </button>
-                    </a>
+                    </div>
 
                     <!-- add comment section -->
                     <% if(user !== undefined) {%>
@@ -185,6 +188,23 @@
     <i class="close icon"></i>
     <div class="image content">
         <div class="description">
+
+            <!-- delete/edit campground -->
+            <% if(user !== undefined) {%>
+            <% if(user.id == campground.uploader.id || role != null) {%>
+            <form class="ui form deleteCampground" action="/campgrounds/camps/<%= campground._id %>?_method=DELETE"
+                method="POST">
+                <div class="inline fields deleteCampground-parent">
+                    <div class="one wide field deleteCampground-inner">
+                        <a id="editButton" class="ui orange basic button"
+                            href="/campgrounds/camps/<%= campground.id %>/edit">Edit</a>
+                        <button id="deleteButton" class="ui negative basic button">Delete</button>
+                    </div>
+                </div>
+            </form>
+            <% }; %>
+            <% }; %>
+
             <div class="ui header">Liked by: </div>
             <table class="table table-striped">
                 <tbody>

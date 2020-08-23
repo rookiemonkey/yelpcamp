@@ -151,6 +151,9 @@ section#campgroundParentContainer {
           text-align: justify; }
       section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list {
         width: 45vw; }
+        section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list button#like_button {
+          background-color: transparent;
+          border: none; }
         section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div#buttons-container {
           display: flex;
           justify-content: flex-end;

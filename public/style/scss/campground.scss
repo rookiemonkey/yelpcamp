@@ -94,6 +94,12 @@ section#campgroundParentContainer {
                 div.ui.celled.list {
                     width: $campground-card-width;
 
+                    button#like_button {
+                        background-color: transparent;
+                        border: none;
+                    }
+
+
                     // delete/edit button
                     div#buttons-container {
                         display: flex;
