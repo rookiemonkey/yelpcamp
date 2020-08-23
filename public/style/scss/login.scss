@@ -1,4 +1,4 @@
 section#loginFormContainerParent {
-    height: $form-height;
+    min-height: $form-height-min;
     // to prevent white stripe at the bottom of the footer
 }

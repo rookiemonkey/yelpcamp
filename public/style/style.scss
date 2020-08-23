@@ -13,7 +13,6 @@ $campground-button-font-color:  rgba(0, 0, 0, 0.50) !important;
 $campground-button-font-color-hover:  rgba(0, 0, 0, 0.90) !important;
 
 // FORM
-$form-height: max-height;
 $form-width: 500px;
 $form-height-min: 100vh;
 
@@ -34,6 +33,7 @@ html { scroll-behavior: smooth; }
 @import './scss/login.scss';
 @import './scss/signup.scss';
 @import './scss/forgotPassword.scss';
+@import './scss/resetPassword.scss';
 @import './scss/profile.scss';
 @import './scss/addReviews.scss';
 @import './scss/updateReview.scss';

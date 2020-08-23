@@ -252,17 +252,19 @@ article#campgrounds {
         background-color: #F6D55C; }
 
 section#loginFormContainerParent {
-  height: max-height; }
+  min-height: 100vh; }
 
 section#signUpFormContainerParent {
-  height: max-height; }
-  section#signUpFormContainerParent #Password_label {
+  min-height: 100vh; }
+  section#signUpFormContainerParent #Password_label, section#signUpFormContainerParent #Avatar_label {
     color: gray;
     font-size: smaller; }
 
 section#forgotPasswordFormContainerParent {
-  border: 2px sold red;
-  height: 100vh; }
+  min-height: 100vh; }
+
+section#resetPasswordFormContainerParent {
+  min-height: 100vh; }
 
 #profile_sidebar,
 #profile_camplist {
