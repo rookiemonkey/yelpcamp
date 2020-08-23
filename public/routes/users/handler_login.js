@@ -14,9 +14,9 @@ const handler_login = async (req, res) => {
         const { adminCode, username, _id } = req.user
         const { admin } = req.body
         const output = await toCheckAdmin(adminCode, admin, _id);
-        const cookie = await setCookie(_id);
 
         if (output && adminCode !== '') {
+            const cookie = await setCookie(_id);
             req.flash('success', `Succesfully logged in as ${username} with admin priviledges`);
             res.cookie('role', cookie.cookie, { maxAge: cookie.maxAge })
             return res.redirect('/campgrounds/camps');

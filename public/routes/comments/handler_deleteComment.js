@@ -15,11 +15,8 @@ const handler_deleteComment = async (req, res) => {
         const foundComment = await Comment.findById(comid)
         const foundCampgroud = await Campground.findById(id)
 
-        if (req.session.passport === undefined &&
-            req.user.id != foundComment.author.id ||
-            isAdmin(req)) {
-            throw new Error('Please log in first')
-        }
+        const isOwner = foundComment.author.id.equals(req.user.id)
+        if (!isOwner && isAdmin(req) === false) { throw new Error("Invalid action") }
 
         await foundCampgroud.comments.remove({ _id: comid })
         await Comment.findByIdAndRemove(comid)
