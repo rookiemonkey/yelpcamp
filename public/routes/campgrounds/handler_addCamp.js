@@ -20,12 +20,12 @@ const handler_addCamp = async (req, res) => {
         const areValid = areValidInputs(validInputs, req.body)
         if (!areValid) { throw new Error("Invalid fields provided") }
 
-        const uploaded = await toUpload(cloudinary, req);
         const location = req.sanitize(req.body.location);
-        const loc = await toGeocode(location);
         const campname = req.sanitize(req.body.name);
         const description = req.sanitize(req.body.description);
         const uploader = { id: req.user.id, name: req.user.username }
+        const loc = await toGeocode(location);
+        const uploaded = await toUpload(cloudinary, req);
 
         const newCampground = {
             campname,
