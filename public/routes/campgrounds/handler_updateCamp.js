@@ -18,9 +18,10 @@ const handler_updateCamp = async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id)
 
-    if (req.session.passport !== undefined &&
-      foundCampground.uploader.id.equals(req.user.id) || isAdmin(req)) {
+    const isOwner = foundCampground.uploader.id.equals(req.user.id)
+    if (!isOwner) { throw new Error("Invalid action") }
 
+    if (isOwner || isAdmin(req)) {
       const { image_default } = req.body;
       const { lat, lng, formattedLocation } = await toGeocode(req.body.location);
       const imageUrl = await toUpload(cloudinary, req)
@@ -32,7 +33,6 @@ const handler_updateCamp = async (req, res) => {
       return res.redirect(`/campgrounds/camps/${req.params.id}`);
     }
 
-    throw new Error('You need to be logged in and should be the owner of the camp to edit it')
   }
 
   catch (error) {

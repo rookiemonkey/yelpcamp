@@ -24,6 +24,6 @@ router
     .post('/:id/like', isLoggedIn, handler_likeCamp)
     .post('/new', isLoggedIn, upload.single('image'), handler_addCamp)
     .delete('/:id', handler_deleteCamp)
-    .put('/:id/edit', upload.single('image_update'), handler_updateCamp)
+    .put('/:id/edit', isLoggedIn, upload.single('image_update'), handler_updateCamp)
 
 module.exports = router
