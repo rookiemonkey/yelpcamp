@@ -4,6 +4,7 @@
 const Review = require('../../schemas/reviewSchema')
 const Campground = require('../../schemas/campgroundSchema')
 const toAverage = require('../../middleware/toAverage')
+const isAdmin = require('../../middleware/isAdmin')
 
 // ===========================
 // UPDATE REVIEW HANDLER
@@ -11,12 +12,11 @@ const toAverage = require('../../middleware/toAverage')
 const handler_deleteReview = async (req, res) => {
 
     try {
-        const foundReview = await Review.findById(req.params.reviewId)
+        const foundReview = await Review.findById(req.params.reviewId, `_id`)
         if (!foundReview) { throw new Error('Review not existing') }
 
-        if (JSON.stringify(foundReview.author._id) !== JSON.stringify(req.user.id)) {
-            throw new Error('Invalid action. You are not the author of the review')
-        }
+        const isOwner = foundReview.author._id.equals(req.user.id)
+        if (!isOwner && isAdmin(req) === false) { throw new Error("Invalid action") }
 
         await foundReview.remove()
 
