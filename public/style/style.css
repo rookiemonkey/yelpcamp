@@ -231,25 +231,31 @@ div#campgrounds-title-container {
 article#campgrounds {
   padding: 0px 60px 60px 60px;
   margin: auto;
-  min-height: 500px; }
-  article#campgrounds section.card div.image {
-    height: 155px; }
-    article#campgrounds section.card div.image img {
+  max-height: 500px; }
+  article#campgrounds section.card {
+    min-height: 300px; }
+    article#campgrounds section.card div.image {
       height: 155px; }
-  article#campgrounds section.card div.content {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between; }
-    article#campgrounds section.card div.content div.meta h2 {
-      margin: 0px;
-      padding: 0px;
-      font-size: 1.5em;
-      color: #ED553B; }
-    article#campgrounds section.card div.content div#buttonContainer {
+      article#campgrounds section.card div.image img {
+        height: 155px; }
+    article#campgrounds section.card div.content {
       display: flex;
-      justify-content: flex-end; }
-      article#campgrounds section.card div.content div#buttonContainer button {
-        background-color: #F6D55C; }
+      flex-flow: column wrap;
+      align-content: center; }
+      article#campgrounds section.card div.content div.meta h2 {
+        margin: 0px;
+        padding: 0px;
+        font-size: 1.5em;
+        color: #ED553B; }
+      article#campgrounds section.card div.content div#buttonContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px; }
+        article#campgrounds section.card div.content div#buttonContainer button {
+          transform-origin: bottom right;
+          transform: scale(0.8);
+          background-color: #F6D55C; }
 
 section#loginFormContainerParent {
   min-height: 100vh; }

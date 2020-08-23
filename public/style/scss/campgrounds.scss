@@ -10,10 +10,11 @@ div#campgrounds-title-container {
 article#campgrounds {
     padding: 0px 60px 60px 60px;
     margin: auto;
-    min-height: 500px;
+    max-height: 500px;
 
     // each campground card
     section.card {
+        min-height: 300px;
 
         // campground image
         div.image {
@@ -27,8 +28,8 @@ article#campgrounds {
         // campground contents
         div.content {
             display: flex;
-            flex-flow: column wrap;
-            justify-content: space-between;
+            flex-flow: column wrap; 
+            align-content: center;
 
             div.meta {
                 h2 {
@@ -41,9 +42,13 @@ article#campgrounds {
 
             div#buttonContainer {
                 display: flex;
-                justify-content: flex-end;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
 
                 button {
+                    transform-origin: bottom right;
+                    transform: scale(0.8);
                     background-color: $color-accent4;
                 }
             }

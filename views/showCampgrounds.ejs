@@ -32,18 +32,29 @@
                 <h2><%= camp.campname %></h2>
                 <span class="date"><%= camp.location %></span>
             </div>
-            <div class="description">
-                <span><%= camp.description.substring(0, 70) %>..</span>
-            </div>
-            </br>
             <div id="buttonContainer">
-                <a href="/campgrounds/camps/<%= camp.id %>">
-                    <button class="ui right labeled icon button">
-                        <i class="right arrow icon"></i> See More
-                    </button>
-                </a>
+                <div class="buttonContainer_meta">
+                    <div>
+                        <span class="left floated">
+                            <i class="like icon"></i> Likes:
+                            <%= camp.likes.length %>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="left floated">
+                            <i class="star icon"></i> Rating:
+                            <%= camp.rating %>
+                        </span>
+                    </div>
+                </div>
+                <div class="buttonContainer_button">
+                    <a href="/campgrounds/camps/<%= camp.id %>">
+                        <button class="ui right labeled icon button">
+                            <i class="right arrow icon"></i> See More
+                        </button>
+                    </a>
+                </div>
             </div>
-            <span><i class="fas fa-thumbs-up"></i> <%= camp.likes.length %></span>
         </div>
     </section>
     <% }) %>

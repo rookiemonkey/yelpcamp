@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node yelpcamp.js",
     "dev": "nodemon yelpcamp.js",
-    "sass": "node-sass public/style/style.scss public/style/style.css"
+    "sass": "node-sass public/style/style.scss public/style/style.css -w"
   },
   "keywords": [
     "yelpcamp",
