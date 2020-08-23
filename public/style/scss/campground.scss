@@ -113,8 +113,8 @@ section#campgroundParentContainer {
                         }
                     }
 
-                    // comment box
-                    div.item {
+                    // comment box new
+                    div.comment {
                         padding: 14px;
 
                         &:nth-of-type(odd) {
@@ -122,77 +122,8 @@ section#campgroundParentContainer {
                         }
 
                         div.content {
-                            width: $campground-card-width - 2;
-
-                            // comment header
-                            div.header {
-                                color: $color-accent1;
-
-                                span#date {
-                                    margin: 0px 5px;
-                                    font-size: 0.8em;
-                                    color: $color-accent3;
-                                }
-                            }
-
-                            // update comment container
-                            span#editComment {
-                                float: right;
-
-                                a.ui.mini.orange.basic.button {
-                                    border-radius: 3px;
-                                    padding: 5px !important;
-                                    margin-bottom: 5px;
-                                    border-top-color: purple !important;
-                                }
-                            }
-
-                            // delete comment container
-                            form.ui.form.deleteCommentBtn {
-                                margin: 0px;
-                                display: inline;
-                                float: right;
-
-                                div.inline.fields {
-                                    display: inline;
-
-                                    div.one.wide.field {
-                                        display: inline;
-
-                                        button {
-                                            border-radius: 3px;
-                                            padding: 5px !important;
-                                            margin-bottom: 5px;
-                                        }
-                                    }
-                                }
-                            }
-
-                            div.description {
-                                margin: 5px 7.5px;
-                            }
-
-
-                            // update comment form
-                            form#update-comment-form {
-                                margin: 0px;
-
-                                div.inline.fields {
-                                    margin:  0px;
-
-
-                                    div.update-comment-form-buttons {
-                                        display: flex;
-
-                                        button.ui.positive.button {
-                                            color: black !important;
-                                        }
-
-                                        button#commentUpdate, button#commentCancel {
-                                            width: 48%;
-                                        }
-                                    }
-                                }
+                            div.text {
+                                width: $campground-card-width - 5.5;
                             }
                         }
                     }

@@ -161,49 +161,12 @@ section#campgroundParentContainer {
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list form button {
             margin: 0px;
             background-color: #F6D55C; }
-        section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item {
+        section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.comment {
           padding: 14px; }
-          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item:nth-of-type(odd) {
+          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.comment:nth-of-type(odd) {
             background-color: rgba(128, 128, 128, 0.1); }
-          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content {
-            width: 43vw; }
-            section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content div.header {
-              color: #173F5F; }
-              section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content div.header span#date {
-                margin: 0px 5px;
-                font-size: 0.8em;
-                color: #3CAEA3; }
-            section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content span#editComment {
-              float: right; }
-              section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content span#editComment a.ui.mini.orange.basic.button {
-                border-radius: 3px;
-                padding: 5px !important;
-                margin-bottom: 5px;
-                border-top-color: purple !important; }
-            section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form.ui.form.deleteCommentBtn {
-              margin: 0px;
-              display: inline;
-              float: right; }
-              section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form.ui.form.deleteCommentBtn div.inline.fields {
-                display: inline; }
-                section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form.ui.form.deleteCommentBtn div.inline.fields div.one.wide.field {
-                  display: inline; }
-                  section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form.ui.form.deleteCommentBtn div.inline.fields div.one.wide.field button {
-                    border-radius: 3px;
-                    padding: 5px !important;
-                    margin-bottom: 5px; }
-            section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content div.description {
-              margin: 5px 7.5px; }
-            section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form#update-comment-form {
-              margin: 0px; }
-              section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form#update-comment-form div.inline.fields {
-                margin: 0px; }
-                section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form#update-comment-form div.inline.fields div.update-comment-form-buttons {
-                  display: flex; }
-                  section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form#update-comment-form div.inline.fields div.update-comment-form-buttons button.ui.positive.button {
-                    color: black !important; }
-                  section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form#update-comment-form div.inline.fields div.update-comment-form-buttons button#commentUpdate, section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content form#update-comment-form div.inline.fields div.update-comment-form-buttons button#commentCancel {
-                    width: 48%; }
+          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.comment div.content div.text {
+            width: 39.5vw; }
 
 div#campgrounds-title-container {
   padding: 15px 0px;
