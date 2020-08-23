@@ -7,8 +7,8 @@ const toUpdatePassword = (
     user.resetPasswordToken = null;
     user.resetPasswordExpires = null;
     user.setPassword(newPW, async () => {
-        try { user.save(); }
-        catch (err) { console.log(err); }
+        try { await user.save(); }
+        catch (err) { return err.message; }
     });
 };
 

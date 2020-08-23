@@ -42,7 +42,7 @@ const handler_signup = async (req, res, next) => {
 
         passport.authenticate('local', (error, user, info) => {
             if (error) { throw new Error(error) }
-            req.flash("success", `Successfully created an account for ${req.body.username}`)
+            req.flash("success", `Successfully created an account for ${req.body.username}. Please login.`)
             res.redirect("/campgrounds/camps")
         })(req, res, next)
     }

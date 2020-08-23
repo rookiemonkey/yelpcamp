@@ -17,15 +17,14 @@ const handler_resetPassword = (req, res) => {
                     req.flash('error', 'Password reset token is invalid or expired');
                     return res.redirect('back');
                 }
-                if (req.body.newPassword === req.body.confirmPassword) {
-                    toUpdatePassword(foundUser, req.body.newPassword);
-                    req.login(foundUser, (err) => { done(err, foundUser); });
 
-
-                } else {
+                if (req.body.newPassword !== req.body.confirmPassword) {
                     req.flash('error', 'Passwords do not match');
                     return res.redirect('back');
                 }
+
+                toUpdatePassword(foundUser, req.body.newPassword);
+                done(err, foundUser)
             })
         },
         async function (foundUser, done) {
@@ -39,7 +38,7 @@ const handler_resetPassword = (req, res) => {
 
                  Happy Camping!`
             );
-            req.flash('success', 'Success! Your password has been changed');
+            req.flash('success', 'Success! Your password has been changed. Please login using your new password');
             done();
         }
     ], () => {
