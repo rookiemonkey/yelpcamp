@@ -39,13 +39,26 @@
             </div>
             <div class="field">
                 <label for="Password">Password</label>
+                <span id="Password_label">minimum of 8 characters</span>
                 <input type="password" id="Password" name="password" placeholder="Password" autocomplete="off"
                     maxlength="50" required>
+            </div>
+            <div class="field">
+                <label for="ConfirmPassword">Confirm Password</label>
+                <input type="password" id="Password" name="confirmPassword" placeholder="Confirm Password"
+                    autocomplete="off" maxlength="50" required>
             </div>
             <button class="ui button" type="submit">Sign Up</button>
         </form>
 
     </div>
 </section>
+
+<style>
+    #Password_label {
+        color: gray;
+        font-size: smaller;
+    }
+</style>
 
 <%- include("partials/footer") %>

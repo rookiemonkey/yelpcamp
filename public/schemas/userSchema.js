@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const validator = require('validator');
+const isEmail = require('validator/lib/isEmail');
 const passportLocalMongoose = require("passport-local-mongoose")
 
 let userSchema = mongoose.Schema({
@@ -31,37 +31,25 @@ let userSchema = mongoose.Schema({
         unique: true,
         required: true,
         validate(value) {
-            if (!validator.isEmail(value)) { throw new Error('Please provide a valid email') }
+            if (!isEmail(value)) { throw new Error('Please provide a valid email') }
         }
     },
     password: String,
     isAdmin: {
         type: Boolean,
-        default: false,
-        validate(value) {
-            if (value) { throw new Error('Invalid action') }
-        }
+        default: false
     },
     adminCode: {
         type: String,
-        default: '',
-        validate(value) {
-            if (value) { throw new Error('Invalid action') }
-        }
+        default: ''
     },
     resetPasswordToken: {
         type: String,
-        default: '',
-        validate(value) {
-            if (value) { throw new Error('Invalid action') }
-        }
+        default: ''
     },
     resetPasswordExpires: {
         type: Date,
-        default: '',
-        validate(value) {
-            if (value) { throw new Error('Invalid action') }
-        }
+        default: ''
     }
 }, { timestamps: true });
 
