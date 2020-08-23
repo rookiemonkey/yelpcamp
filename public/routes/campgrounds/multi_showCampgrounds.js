@@ -15,7 +15,7 @@ const showCamgrounds = async (req, res) => {
 
             let role; if (isAdmin(req)) { role = 'ADMIN' } else { role = null }
 
-            return res.render("campgrounds", {
+            return res.render("showCampgrounds", {
                 campgrounds: toShuffle(foundCampgrounds),
                 message: null,
                 user: req.user,
@@ -28,7 +28,7 @@ const showCamgrounds = async (req, res) => {
         if (foundCampgrounds.length !== 0 ||
             isAdmin(req) &&
             foundCampgrounds.length !== 0) {
-            return res.render("campgrounds", {
+            return res.render("showCampgrounds", {
                 campgrounds: toShuffle(foundCampgrounds),
                 message: `Search results for: "${req.query.search}"`,
                 user: req.user,
@@ -36,7 +36,7 @@ const showCamgrounds = async (req, res) => {
             })
         }
 
-        return res.render("campgrounds", {
+        return res.render("showCampgrounds", {
             campgrounds: [],
             message: `No Matching Campground for: "${req.query.search}"`,
             user: req.user,
