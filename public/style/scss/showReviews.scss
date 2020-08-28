@@ -8,15 +8,10 @@
 }
 
 #reviews_item {
-    border: 1px solid grey;
+    border: 1px solid lightgray;
     padding: 10px
 }
 
-#reviews_updateButton,
-#reviews_deleteButton {
-    transform: scale(0.8);
-}
-
-#reviews_deleteForm {
-    float: right;
+#updateReviewBtn, #deleteReviewBtn {
+    width: 87px !important;
 }

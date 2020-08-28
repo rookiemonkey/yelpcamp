@@ -291,15 +291,11 @@ footer.ui.inverted.segment {
   width: 665px; }
 
 #reviews_item {
-  border: 1px solid grey;
+  border: 1px solid lightgray;
   padding: 10px; }
 
-#reviews_updateButton,
-#reviews_deleteButton {
-  transform: scale(0.8); }
-
-#reviews_deleteForm {
-  float: right; }
+#updateReviewBtn, #deleteReviewBtn {
+  width: 87px !important; }
 
 @media screen and (max-width: 630px) {
   nav.ui.borderless.main.menu div.ui.text.container div.nav.options {

@@ -49,14 +49,27 @@
 
                     <% if(user !== undefined) {%>
                     <% if(JSON.stringify(review.author._id) === JSON.stringify(user.id))  { %>
-                    <form action="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
-                        method="POST" id="reviews_deleteForm">
-                        <button id="reviews_deleteButton" class="ui red button" type='submit'>Delete</button>
-
-                        <a href="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>/edit">
-                            <button id="reviews_updateButton" class="ui blue button" type="button">Update</button>
-                        </a>
-                    </form>
+                    <div class="ui inline dropdown right floated">
+                        <i class="ellipsis horizontal icon"></i>
+                        <div class="right menu">
+                            <div class="item" data-text="Delete">
+                                <form
+                                    action="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
+                                    method="POST" id="reviews_deleteForm">
+                                    <button class="negative ui button" id="deleteReviewBtn"
+                                        type='submit'>Delete</button>
+                                </form>
+                            </div>
+                            <div class="item" data-text="Update">
+                                <button class="positive ui button" id="updateReviewBtn">
+                                    <a href="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>/edit"
+                                        style="text-decoration: none; color: whitesmoke">
+                                        Update
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     <% } %>
                     <% } %>
 
@@ -72,5 +85,10 @@
         </div>
     </div>
 </section>
+
+<script>
+    $('.ui.dropdown')
+        .dropdown();
+</script>
 
 <%- include("partials/footer") %>

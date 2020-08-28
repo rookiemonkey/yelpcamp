@@ -12,7 +12,7 @@ const isAdmin = require('../../middleware/isAdmin')
 const handler_deleteReview = async (req, res) => {
 
     try {
-        const foundReview = await Review.findById(req.params.reviewId, `_id`)
+        const foundReview = await Review.findById(req.params.reviewId, `_id author`)
         if (!foundReview) { throw new Error('Review not existing') }
 
         const isOwner = foundReview.author._id.equals(req.user.id)
