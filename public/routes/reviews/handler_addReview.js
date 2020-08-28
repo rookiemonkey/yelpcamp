@@ -12,7 +12,6 @@ const toAverage = require('../../middleware/toAverage')
 const handler_addReview = async (req, res) => {
 
     try {
-        console.log(req.body)
         const foundCampground = await Campground
             .findById(req.params.id, `_id reviews rating uploader`)
             .populate('reviews uploader')
