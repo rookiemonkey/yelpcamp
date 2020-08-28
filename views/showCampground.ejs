@@ -97,9 +97,12 @@
                                 </a>
                             </div>
 
-                            <!-- more -->
-                            <button id="modalbutton" type="button" class="ui positive basic button"> More
+                            <button id="moreOptionsCampgroundButton" type="button" class="ui positive basic button">
+                                More
                             </button>
+
+                            <!-- MODAL: mode campground options -->
+                            <%- include('./partials/modal_more', { campground }) %>
 
                         </div>
                     </form>
@@ -214,65 +217,7 @@
     </div>
 </section>
 
-<div class="ui mini modal more">
-    <i class="close icon"></i>
-    <div class="image content">
-        <div class="description">
-
-            <!-- delete/edit campground -->
-            <% if(user !== undefined) {%>
-            <% if(user.id == campground.uploader.id || role != null) {%>
-            <!-- <form class="ui form deleteCampground" action="/campgrounds/camps/<%= campground._id %>?_method=DELETE"
-                method="POST">
-                <div class="inline fields deleteCampground-parent">
-                    <div class="one wide field deleteCampground-inner"> -->
-            <a id="editButton" class="ui orange basic button"
-                href="/campgrounds/camps/<%= campground._id %>/edit">Edit</a>
-            <button id="deleteCampgroundButton" class="ui negative basic button">Delete</button>
-            <%- include('./partials/modal_deleteCampground', { campgroundId: campground._id }) %>
-            <!-- </div>
-                </div>
-            </form> -->
-            <% }; %>
-            <% }; %>
-
-            <div class="ui header">Liked by: </div>
-            <div class="scrolling content">
-                <table class="table table-striped">
-                    <tbody>
-
-                        <% campground.likes.forEach(like => { %>
-                        <tr>
-                            <td>
-                                <span class="badge">
-                                    <img class='ui avatar mini image' src="<%= like.avatar %>">
-                                </span>
-                                <a href="/campgrounds/users/<%= like._id %>">
-                                    <%= like.username %>
-                                </a>
-                            </td>
-                        </tr>
-                        <% }); %>
-
-                        <% if (campground.likes.length === 0) { %>
-                        <tr>
-                            <td><em>No likes yet.</em></td>
-                        </tr>
-                        <% } %>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <script>
-    $('#modalbutton').on('click', () => {
-        $('.ui.mini.modal.more').modal('show');
-    })
-
     $('#reviewsbutton').on('click', () => {
         window.location = "/campgrounds/camps/<%= campground._id %>/reviews"
     })

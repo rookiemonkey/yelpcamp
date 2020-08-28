@@ -1,0 +1,50 @@
+<div class="ui mini modal more">
+    <div class="ui header">Liked by: </div>
+    <div class="scrolling content">
+        <table class="table table-striped">
+            <tbody>
+
+                <% campground.likes.forEach(like => { %>
+                <tr>
+                    <td>
+                        <span class="badge">
+                            <img class='ui avatar mini image' src="<%= like.avatar %>">
+                        </span>
+                        <a href="/campgrounds/users/<%= like._id %>">
+                            <%= like.username %>
+                        </a>
+                    </td>
+                </tr>
+                <% }); %>
+
+                <% if (campground.likes.length === 0) { %>
+                <tr>
+                    <td><em>No likes yet.</em></td>
+                </tr>
+                <% } %>
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- delete/edit campground -->
+    <% if(user !== undefined) {%>
+    <% if(user.id == campground.uploader.id || role != null) {%>
+    <div class="actions">
+        <a id="editButton" class="ui orange basic button" href="/campgrounds/camps/<%= campground._id %>/edit">Edit</a>
+        <button id="deleteCampgroundButton" class="ui negative basic button">Delete</button>
+    </div>
+
+    <!-- MODAL: delete campground confirmation -->
+    <%- include('./modal_deleteCampground', { campgroundId: campground._id }) %>
+    <% }; %>
+    <% }; %>
+
+</div>
+
+<script>
+    // add an event listener for the button to show the modal above
+    $('#moreOptionsCampgroundButton').on('click', () => {
+        $('.ui.mini.modal.more').modal('show');
+    })
+</script>
