@@ -7,44 +7,11 @@
 
         <form action="/campgrounds/camps/<%= campgroundId %>/reviews/<%= review._id %>/edit?_method=PUT" method="POST">
             <div class="ui form">
-                <label for="rating">Update rating:
-                    <span>Current rating: <%= review.rating %>
-                        <i class="star icon"></i>
-                    </span>
-                </label>
+                <label for="rating">Update rating:</label>
                 <div class="field">
-                    <fieldset id="rating">
-                        <div class="ui radio checkbox">
-                            <input type="radio" id="first-rate5" name="review[rating]" value="5" checked />
-                            <label for="first-rate5" title="5 stars - Amazing">
-                                <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
-                            </label>
-                        </div>
-                        <div class="ui radio checkbox">
-                            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
-                            <label for="first-rate4" title="4 stars - Very good">
-                                <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
-                            </label>
-                        </div>
-                        <div class="ui radio checkbox">
-                            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
-                            <label for="first-rate3" title="3 stars - Average">
-                                <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
-                            </label>
-                        </div>
-                        <div class="ui radio checkbox">
-                            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
-                            <label for="first-rate2" title="2 stars - Not good">
-                                <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
-                            </label>
-                        </div>
-                        <div class="ui radio checkbox">
-                            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
-                            <label for="first-rate1" title="1 star - Terrible">
-                                <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
-                            </label>
-                        </div>
-                    </fieldset>
+                    <input id="rating" name="review[rating]" value="<%= review.rating %>" style="display: none;">
+                    <div class="ui massive star rating" data-rating="<%= review.rating %>" data-max-rating="5">
+                    </div>
                 </div>
 
                 <div class="field">
@@ -66,5 +33,14 @@
         </form>
     </div>
 </section>
+
+<script>
+    $('.ui.rating')
+        .rating({
+            onRate: function (value) {
+                $('#rating').val(value);
+            }
+        })
+</script>
 
 <%- include("partials/footer") %>
