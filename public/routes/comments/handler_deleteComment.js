@@ -15,7 +15,7 @@ const handler_deleteComment = async (req, res) => {
         const foundComment = await Comment.findById(comid)
         const foundCampgroud = await Campground.findById(id)
 
-        const isOwner = foundComment.author.id.equals(req.user.id)
+        const isOwner = foundComment.author._id.equals(req.user._id)
         if (!isOwner && isAdmin(req) === false) { throw new Error("Invalid action") }
 
         await foundCampgroud.comments.remove({ _id: comid })

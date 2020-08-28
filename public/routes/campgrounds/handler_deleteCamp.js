@@ -13,7 +13,7 @@ const handler_deleteCamp = async (req, res) => {
     try {
         const foundCampground = await Campground.findById(req.params.id)
 
-        const isOwner = foundCampground.uploader.id.equals(req.user.id)
+        const isOwner = foundCampground.uploader.id.equals(req.user._id)
         if (!isOwner && isAdmin(req) === false) { throw new Error("Invalid action") }
 
         // remove the comments associate to the camp, since hooks are not working

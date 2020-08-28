@@ -19,7 +19,7 @@ const handler_updateCamp = async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id)
 
-    const isOwner = foundCampground.uploader.id.equals(req.user.id)
+    const isOwner = foundCampground.uploader.id.equals(req.user._id)
     if (!isOwner && isAdmin(req) === false) { throw new Error("Invalid action") }
 
     const validInputs = ['campname', 'location', 'description', 'price', 'image_default', 'image_update']

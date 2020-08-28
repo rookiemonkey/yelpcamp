@@ -14,7 +14,7 @@ const handler_updateReview = async (req, res) => {
         const foundReview = await Review.findById(req.params.reviewId)
         if (!foundReview) { throw new Error('Review not existing') }
 
-        const isOwner = foundReview.author._id.equals(req.user.id)
+        const isOwner = foundReview.author._id.equals(req.user._id)
         if (!isOwner) { throw new Error("Invalid action") }
 
         await foundReview.update(req.body.review)

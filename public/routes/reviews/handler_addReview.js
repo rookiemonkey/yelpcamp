@@ -17,7 +17,7 @@ const handler_addReview = async (req, res) => {
             .populate('reviews uploader')
             .exec()
 
-        const isCurrentUserAddingAReviewOnHisCamp = req.user.id == foundCampground.uploader.id
+        const isCurrentUserAddingAReviewOnHisCamp = req.user._id == foundCampground.uploader.id
         if (isCurrentUserAddingAReviewOnHisCamp) { throw new Error("Invalid action") }
 
         const validInputs = ['text', 'rating']
@@ -28,7 +28,7 @@ const handler_addReview = async (req, res) => {
         req.body.review.text = req.sanitize(text)
         const newReview = await Review.create(req.body.review)
 
-        newReview.author._id = req.user.id;
+        newReview.author._id = req.user._id;
         newReview.author.username = req.user.username;
         newReview.author.avatar = req.user.avatar;
         newReview.campground = foundCampground._id;

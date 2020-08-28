@@ -15,7 +15,7 @@ const handler_deleteReview = async (req, res) => {
         const foundReview = await Review.findById(req.params.reviewId, `_id author`)
         if (!foundReview) { throw new Error('Review not existing') }
 
-        const isOwner = foundReview.author._id.equals(req.user.id)
+        const isOwner = foundReview.author._id.equals(req.user._id)
         if (!isOwner && isAdmin(req) === false) { throw new Error("Invalid action") }
 
         await foundReview.remove()
