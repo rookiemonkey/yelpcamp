@@ -74,7 +74,15 @@
                     <% } %>
 
                     <div class="meta">
-                        <span>Rating: <%= review.rating %> <i class="star icon"></i> </span>
+                        <div class="ui star rating <%=review._id%>" data-rating="<%= parseInt(review.rating) %>"
+                            data-max-rating="5">
+                        </div>
+
+                        <script>
+                            $('.ui.rating.<%=review._id%>')
+                                .rating('disable');
+                        </script>
+
                     </div>
                     <div class="description">
                         <p><%= review.text %></p>
