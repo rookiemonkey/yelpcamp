@@ -19,9 +19,12 @@
         <!-- sticky sidebar -->
         <article id="sidebar" class="six wide column>">
             <div id="sidebarNavigation" class="ui vertical pointing menu">
-                <a class="item">Home</a>
-                <a class="item">Messages</a>
-                <a class="item">Friends</a>
+                <a class="item" href="/campgrounds/users/<%= campground.uploader.id %>">
+                    Owner's Profile
+                </a>
+                <a class="item" id="reviewsbutton2">
+                    Reviews
+                </a>
                 <div id="map"></div>
             </div>
         </article>
@@ -39,7 +42,7 @@
                         <span id="pricetag" class="ui green label">$ <%= campground.price %> / night</span>
                     </div>
                     <div class="meta">
-                        <div class="date"><em>Submitted by: &nbsp<strong>
+                        <div class="date"><em>Owner: &nbsp<strong>
                                     <a href="/campgrounds/users/<%= campground.uploader.id %>">
                                         <%= campground.uploader.name %>
                                     </a>
@@ -267,6 +270,10 @@
     })
 
     $('#reviewsbutton').on('click', () => {
+        window.location = "/campgrounds/camps/<%= campground._id %>/reviews"
+    })
+
+    $('#reviewsbutton2').on('click', () => {
         window.location = "/campgrounds/camps/<%= campground._id %>/reviews"
     })
 </script>
