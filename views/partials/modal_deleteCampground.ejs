@@ -1,0 +1,20 @@
+<div class="ui mini modal deleteCampground <%= campgroundId %>">
+    <div class="header">Confirm: Delete Campground </div>
+    <div class="content">
+        <p>Are you sure you want to delete your campground?</p>
+    </div>
+    <div class="actions">
+        <form class="ui form deleteCampground" action="/campgrounds/camps/<%=campgroundId%>?_method=DELETE"
+            style="display: inline;" method="POST">
+            <button class="positive ui button" type="submit">Yes Please</button>
+        </form>
+        <button class="negative ui button" type="button">Please don't<table></table>
+    </div>
+</div>
+
+<script>
+    // add an event listener for the button to show the modal above
+    $('#deleteCampgroundButton').on('click', function () {
+        $('.mini.modal.deleteCampground.<%= campgroundId %>').modal('show');
+    })
+</script>
