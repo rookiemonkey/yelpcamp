@@ -60,12 +60,9 @@
                         <i class="ellipsis horizontal icon"></i>
                         <div class="right menu">
                             <div class="item" data-text="Delete">
-                                <form
-                                    action="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
-                                    method="POST" id="reviews_deleteForm">
-                                    <button class="negative ui button" id="deleteReviewBtn"
-                                        type='submit'>Delete</button>
-                                </form>
+                                <button class="negative ui button" id="deleteButton" type='button'>
+                                    Delete
+                                </button>
                             </div>
                             <div class="item" data-text="Update">
                                 <button class="positive ui button" id="updateReviewBtn">
@@ -77,6 +74,27 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- modal to confirm the deletion of review -->
+                    <div class="ui mini modal">
+                        <div class="header">Confirm: Delete Review</div>
+                        <div class="content">
+                            <p>Are you sure you want to delete you review on this campground?</p>
+                        </div>
+                        <div class="actions">
+                            <form action="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
+                                method="POST" id="reviews_deleteForm" style="display: inline;">
+                                <button class="positive ui button" type="submit">Yes Please</button>
+                            </form>
+                            <button class="negative ui button" type="button">Please don't<table></table></button>
+                        </div>
+                    </div>
+
+                    <script>
+                        $('#deleteButton').on('click', () => {
+                            $('.ui.mini.modal').modal('show');
+                        })
+                    </script>
                     <% } %>
                     <% } %>
 
@@ -100,6 +118,7 @@
         </div>
     </div>
 </section>
+
 
 <script>
     $('.ui.dropdown')
