@@ -214,6 +214,10 @@ section#signUpFormContainerParent {
   section#signUpFormContainerParent #Password_label, section#signUpFormContainerParent #Avatar_label {
     color: gray;
     font-size: smaller; }
+  section#signUpFormContainerParent span#modalbutton {
+    font-weight: bolder;
+    text-decoration: underline;
+    cursor: pointer; }
 
 section#forgotPasswordFormContainerParent {
   min-height: 100vh; }

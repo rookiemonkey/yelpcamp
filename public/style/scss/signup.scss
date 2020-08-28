@@ -6,4 +6,10 @@ section#signUpFormContainerParent {
         color: gray;
         font-size: smaller;
     }
+
+    span#modalbutton {
+        font-weight: bolder;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
