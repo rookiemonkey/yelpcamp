@@ -191,11 +191,13 @@ article#campgrounds {
       display: flex;
       flex-flow: column wrap;
       align-content: center; }
-      article#campgrounds section.card div.content div.meta h2 {
-        margin: 0px;
-        padding: 0px;
-        font-size: 1.5em;
-        color: #ED553B; }
+      article#campgrounds section.card div.content div.meta {
+        margin-top: 0px !important; }
+        article#campgrounds section.card div.content div.meta h2 {
+          margin: 0px;
+          padding: 0px;
+          font-size: 1.5em;
+          color: #ED553B; }
       article#campgrounds section.card div.content div#buttonContainer {
         display: flex;
         justify-content: space-between;

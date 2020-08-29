@@ -24,10 +24,12 @@
 
     <% campgrounds.forEach(camp => { %>
     <section class="card">
+
         <div class="image">
             <img src="<%= camp.image %>" alt="<%= camp.campname %>" onerror="this.src='/camp.png';">
         </div>
         <div class="content">
+            <div class="ui top right attached green label">$<%= camp.price %> /night</div>
             <div class="meta">
                 <h2><%= camp.campname %></h2>
                 <span class="date"><%= camp.location %></span>
