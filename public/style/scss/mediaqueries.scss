@@ -201,9 +201,6 @@
                                         button#commentUpdate, button#commentCancel, input[type='text'] {
                                             margin-top: 7.5px !important;
                                         }
-
-                                        button#commentCancel {margin-left: 7.5px !important;}
-
                                     }
                                 }
                             }
@@ -268,9 +265,7 @@
 
                                     div.update-comment-form-buttons {
 
-                                        button#commentCancel {margin-left: 14px}
-
-                                        button#commentUpdate, button#commentCancel {
+                                        button#commentUpdate {
                                                 width: 45% !important;
                                         }
 

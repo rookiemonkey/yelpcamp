@@ -367,9 +367,7 @@ footer.ui.inverted.segment {
     width: 100%;
     justify-content: center; }
     section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons button#commentUpdate, section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons button#commentCancel, section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons input[type='text'] {
-      margin-top: 7.5px !important; }
-    section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons button#commentCancel {
-      margin-left: 7.5px !important; } }
+      margin-top: 7.5px !important; } }
 
 @media screen and (max-width: 1000px) {
   section#campgroundParentContainer div#campgroundContainer {
@@ -397,7 +395,5 @@ footer.ui.inverted.segment {
             width: 20%; }
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content {
             width: 100%; }
-          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons button#commentCancel {
-            margin-left: 14px; }
-          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons button#commentUpdate, section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons button#commentCancel {
+          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons button#commentUpdate {
             width: 45% !important; } }

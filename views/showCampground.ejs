@@ -102,7 +102,7 @@
                             </button>
 
                             <!-- MODAL: mode campground options -->
-                            <%- include('./partials/modal_more', { campground }) %>
+                            <%- include('./partials/modal_campgroundOptions', { campground }) %>
 
                         </div>
                     </form>
@@ -138,7 +138,7 @@
 
                                     <% if(user !== undefined && user.username == com.author.name || role != null) {%>
                                     <i class="edit icon" style='cursor: pointer;'
-                                        id="modalCommentbutton<%= com._id %>"></i>
+                                        id="moreOptionsCommentButton<%= com._id %>"></i>
                                     <% }; %>
 
 
@@ -150,64 +150,8 @@
                         </div>
                     </div>
 
-                    <!-- comments section -->
-                    <div class="ui mini modal comment modalHide <%= com._id %>">
-                        <i class="close icon"></i>
-                        <div class="image content" id="commentModal" style="flex-direction: column;">
-                            <div class="header">Comment Options</div>
-                            <div class="description">
-
-                                <!-- delete comment -->
-                                <% if(user !== undefined) {%>
-                                <% if(user.username == com.author.name || role != null) {%>
-                                <button id="deleteCommentButton<%= com._id %>">
-                                    Delete
-                                </button>
-                                <% }; %>
-
-                                <!-- MODAL: delete comment confirmation -->
-                                <%- include('./partials/modal_confirmDeleteComment', {
-                                    commentId: com._id, campgroundId: campground._id
-                                }) %>
-
-                                <script>
-                                    $('#modalCommentbutton<%= com._id %>').on('click', () => {
-                                        $('.ui.mini.modal.comment.<%= com._id %>').modal('show');
-                                    })
-                                </script>
-
-                                <% if(user.username == com.author.name) {%>
-                                <span id="editComment">
-                                    <a id="edit" class="ui mini orange basic button">Edit</a>
-                                </span>
-                                <% }; %>
-                                <% }; %>
-
-                                <p style="margin: 5px 0px;">
-                                    "<%= com.comment %>"
-                                </p>
-
-                                <!-- update comment box visible upon click of edit -->
-                                <% if(user !== undefined) {%>
-                                <% if(user.username == com.author.name) {%>
-                                <form id="update-comment-form" class="ui form hidden update-comment-form"
-                                    action="/campgrounds/camps/<%= campground._id %>/comment/<%= com._id %>?_method=PUT"
-                                    method="POST">
-                                    <div class="inline fields">
-                                        <div class="fifteen wide field" id="update-comment-form-input">
-                                            <input type="text" name="comment" placeholder="Comment" autocomplete="off"
-                                                value="<%= com.comment %>" required>
-                                        </div>
-                                        <button class="positive ui button" id="commentUpdate" type='submit'>
-                                            Update
-                                        </button>
-                                    </div>
-                                </form>
-                                <% }; %>
-                                <% }; %>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- MODAL: more comment options -->
+                    <%- include('./partials/modal_commentOptions', { campground, com }) %>
 
                     <%  }); %>
                     <% }; %>
