@@ -1,10 +1,18 @@
 #reviews_parentContainer {
+    margin: 2.5% auto;
     min-height: $form-height-min;
 }
 
 #reviews_parentInnerContainer {
     margin: 10px auto;
     width: 665px;
+    
+    #reviews_headerContainer {
+        #reviews_headerButtons {
+            height: 40px;
+            margin: 5px auto;
+        }
+    }
 }
 
 #reviews_item {

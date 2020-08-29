@@ -4,7 +4,19 @@
 
     <div id="reviews_parentInnerContainer">
 
-        <div>
+        <% if (error.length > 0) { %>
+        <div class="ui negative message">
+            <div class="header"><%= error %></div>
+        </div>
+        <% } %>
+
+        <% if (success.length > 0) { %>
+        <div class="ui positive message">
+            <div class="header"><%= success %></div>
+        </div>
+        <% } %>
+
+        <div id="reviews_headerContainer">
             <h1 class="ui header">
                 <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24">
                     <path
@@ -16,35 +28,24 @@
                 </div>
             </h1>
 
+            <div id="reviews_headerButtons">
+                <% if(user !== undefined) { %>
+                <% if(JSON.stringify(campground.uploader.id) !== JSON.stringify(user._id)) { %>
+                <a href='/campgrounds/camps/<%= campground._id %>/reviews/new'>
+                    <button id='addReview' class="ui primary basic button right floated">
+                        Leave a review
+                    </button>
+                </a>
+                <% } %>
+                <% } %>
 
-            <% if(user !== undefined) { %>
-            <% if(JSON.stringify(campground.uploader.id) !== JSON.stringify(user._id)) { %>
-            <a href='/campgrounds/camps/<%= campground._id %>/reviews/new'>
-                <button id='addReview' class="ui primary basic button right floated">
-                    Leave a review
-                </button>
-            </a>
-            <% } %>
-            <% } %>
-
-            <a href="/campgrounds/camps/<%= campground._id %>">
-                <button id='addReview' class="ui secondary basic button right floated" type='button'>
-                    <i class="left arrow icon"></i>
-                    Go Back
-                </button>
-            </a>
-
-            <% if (error.length > 0) { %>
-            <div class="ui negative message">
-                <div class="header"><%= error %></div>
+                <a href="/campgrounds/camps/<%= campground._id %>">
+                    <button id='addReview' class="ui secondary basic button right floated" type='button'>
+                        <i class="left arrow icon"></i>
+                        Go Back
+                    </button>
+                </a>
             </div>
-            <% } %>
-
-            <% if (success.length > 0) { %>
-            <div class="ui positive message">
-                <div class="header"><%= success %></div>
-            </div>
-            <% } %>
 
         </div>
 
@@ -70,17 +71,17 @@
                         <i class="ellipsis horizontal icon"></i>
                         <div class="right menu">
                             <div class="item" data-text="Delete">
-                                <button class="negative ui button" id="deleteButton" type='button'>
+                                <button class="negative ui button" id="deleteReviewBtn" type='button'>
                                     Delete
                                 </button>
                             </div>
                             <div class="item" data-text="Update">
-                                <button class="positive ui button" id="updateReviewBtn">
-                                    <a href="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>/edit"
-                                        style="text-decoration: none; color: whitesmoke">
+                                <a href="/campgrounds/camps/<%=campground._id%>/reviews/<%=review._id%>/edit"
+                                    style="text-decoration: none; color: whitesmoke">
+                                    <button class="positive ui button" id="updateReviewBtn">
                                         Update
-                                    </a>
-                                </button>
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +102,7 @@
                     </div>
 
                     <script>
-                        $('#deleteButton').on('click', () => {
+                        $('#deleteReviewBtn').on('click', () => {
                             $('.ui.mini.modal').modal('show');
                         })
                     </script>

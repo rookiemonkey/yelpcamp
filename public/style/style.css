@@ -286,11 +286,15 @@ footer.ui.inverted.segment {
   background-color: #173F5F; }
 
 #reviews_parentContainer {
+  margin: 2.5% auto;
   min-height: 100vh; }
 
 #reviews_parentInnerContainer {
   margin: 10px auto;
   width: 665px; }
+  #reviews_parentInnerContainer #reviews_headerContainer #reviews_headerButtons {
+    height: 40px;
+    margin: 5px auto; }
 
 #reviews_item {
   border: 1px solid lightgray;
