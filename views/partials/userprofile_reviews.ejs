@@ -3,17 +3,21 @@
         <img src="<%= review.campground.image %>">
     </div>
     <div class="content">
-        <div class="header">
+        <div class="header" style="display: flex; align-items: center; justify-content: space-between;">
             <a href="/campgrounds/camps/<%= review.campground._id %>">
                 <%= review.campground.campname %>
             </a>
-        </div>
-        <div class="meta">
-            <span class="price">Rating </span>
-            <span class="stay"><%= review.rating %></span>
+            <div class="ui star rating <%=review._id%> inline" data-rating="<%= parseInt(review.rating) %>"
+                data-max-rating="5">
+            </div>
         </div>
         <div class="description">
             <p><%= review.text.substring(0, 70) %>...</p>
         </div>
     </div>
 </div>
+
+<script>
+    $('.ui.rating.<%=review._id%>')
+        .rating('disable');
+</script>

@@ -1,27 +1,23 @@
 <div class="item">
-    <div class="image">
+    <div class=" image">
         <img src="<%= camp.image %>">
     </div>
-    <div class="content">
+    <div class="content" style="margin: 5px 0px;">
         <a href="/campgrounds/camps/<%= camp._id %>"><%= camp.campname %></a>
-        <div class="meta">
-            <span class="price">$<%= camp.price %> </span>
-            <span class="stay"> /night</span>
-        </div>
         <div class="description">
             <p><%= camp.location %></p>
         </div>
         <div class="extra">
-            <div class="ui labeled button" tabindex="0">
-                <div class="ui red button">
+            <div class="mini ui labeled button" tabindex="0">
+                <div class="mini ui red button">
                     <i class="heart icon"></i> Likes
                 </div>
                 <a class="ui basic red left pointing label">
                     <%= camp.likes.length %>
                 </a>
             </div>
-            <div class="ui labeled button" tabindex="0">
-                <div class="ui orange button">
+            <div class="mini ui labeled button" tabindex="0">
+                <div class="mini ui orange button">
                     <i class="star icon"></i> Rating
                 </div>
                 <a class="ui basic left pointing orange label">
@@ -29,5 +25,7 @@
                 </a>
             </div>
         </div>
+
     </div>
+
 </div>
