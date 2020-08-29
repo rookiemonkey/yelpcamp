@@ -11,30 +11,55 @@
     </section>
 
     <section id="profile_camplist">
-        <h3>Uploaded Camps</h3>
-        <div id="profile_listcamps" class="ui divided items">
+        <div style="margin: 25px 0px;">
+            <h2 class="ui header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24">
+                    <path
+                        d="M19 24h-14v-2h14v2zm-10-24c.542 6.292-5 8.458-5 14 0 3.764 3.084 6.42 6.594 7.005-1.094-1.755-.073-4.286 1.406-5.693 1.531 1.469 2.344 4.156 1.281 5.688 3.868-.75 6.719-3.858 6.719-7.833 0-3.625-1.833-7.042-5.291-9.167.822 2.281-.271 4.365-1.334 5.083.063-2.921-1-7.255-4.375-9.083z" />
+                </svg>
+                <div class="content" style="margin: 0px 15px;">
+                    Campgrounds
+                    <div class="sub header">Check out <%= foundUser.firstName %>'s campsites!</div>
+                </div>
+            </h2>
+            <hr>
+            <div id="profile_listcamps" class="ui divided items">
 
-            <% if(foundUserCamps.length === 0) { %>
-            <h5>No uploaded camps yet</h5>
-            <% } %>
+                <% if(foundUserCamps.length === 0) { %>
+                <h5>No uploaded camps yet</h5>
+                <% } %>
 
-            <% foundUserCamps.forEach(camp => { %>
-            <%- include('./partials/userprofile_campgrounds', { camp }) %>
-            <% }) %>
+                <% foundUserCamps.forEach(camp => { %>
+                <%- include('./partials/userprofile_campgrounds', { camp }) %>
+                <% }) %>
 
+            </div>
         </div>
 
-        <h3>User Reviews</h3>
-        <div id="profile_listcamps" class="ui divided items">
 
-            <% if(foundUserReviews.length === 0) { %>
-            <h5>No reviewed camps yet</h5>
-            <% } %>
+        <div style="margin: 25px 0px;">
+            <h2 class="ui header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
+                    <path
+                        d="M20.465 14.646c1.398 1.516-.156 3.949-2.146 3.227 1.462-.311 2.47-1.49 2.146-3.227zm-16.148 3.227c1.99.722 3.545-1.71 2.146-3.227.325 1.737-.683 2.916-2.146 3.227zm12.554-13.561c-.282-.764-1.01-1.312-1.871-1.312-1.298 0-2.313 1.244-1.904 2.582 1.111-.395 2.346-1.103 3.775-1.27zm7.129 11.688c0 2.761-2.238 5-5 5-4.039 0-4.156-4.123-7-4.123s-2.961 4.123-7 4.123c-2.762 0-5-2.239-5-5 0-2.135 1.535-4.567 3.941-8.821 1.908-3.372 4.754-1.26 6.815-.585.781.256 1.654.272 2.486 0 2.062-.674 4.908-2.787 6.815.585 2.408 4.254 3.943 6.686 3.943 8.821zm-16 0c0-1.654-1.346-3-3-3s-3 1.346-3 3 1.346 3 3 3 3-1.346 3-3zm5-2c0-.552-.447-1-1-1s-1 .448-1 1 .447 1 1 1 1-.448 1-1zm9 2c0-1.654-1.346-3-3-3s-3 1.346-3 3 1.346 3 3 3 3-1.346 3-3zm-13-13c-.861 0-1.589.548-1.871 1.312 1.429.168 2.664.875 3.775 1.27.409-1.338-.606-2.582-1.904-2.582z" />
+                </svg>
+                <div class="content" style="margin: 0px 15px;">
+                    Reviews
+                    <div class="sub header">Check out <%= foundUser.firstName %>'s reviews of other campsites!</div>
+                </div>
+            </h2>
+            <hr>
+            <div id="profile_listcamps" class="ui divided items">
 
-            <% foundUserReviews.forEach(review => { %>
-            <%- include('./partials/userprofile_reviews', { review }) %>
-            <% }) %>
+                <% if(foundUserReviews.length === 0) { %>
+                <h5>No reviewed camps yet</h5>
+                <% } %>
 
+                <% foundUserReviews.forEach(review => { %>
+                <%- include('./partials/userprofile_reviews', { review }) %>
+                <% }) %>
+
+            </div>
         </div>
     </section>
 </article>
