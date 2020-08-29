@@ -195,6 +195,18 @@
         accessToken: 'pk.eyJ1Ijoicm9va2llbW9ua2V5IiwiYSI6ImNrYm9saXRhbzIycGIyd215bWw4cDJtdmEifQ.CEstCFxd-sVsSA6ef_fgMA'
     }).addTo(mymap);
 
+    // to toggle the edit comment input
+    let editCommentBtns = document.querySelectorAll("#editComment");
+    let updateCommentBox = document.querySelectorAll("form.update-comment-form");
+
+    for (let i = 0; i <= editCommentBtns.length - 1; i++) {
+        for (let j = 0; j <= updateCommentBox.length - 1; j++) {
+            editCommentBtns[i].addEventListener("click", () => {
+                updateCommentBox[i].classList.remove("hidden");
+            });
+        };
+    };
+
 </script>
 
 <%- include("partials/footer") %>
