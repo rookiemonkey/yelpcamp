@@ -1,0 +1,19 @@
+<div class="item">
+    <div class="image">
+        <img src="<%= review.campground.image %>">
+    </div>
+    <div class="content">
+        <div class="header">
+            <a href="/campgrounds/camps/<%= review.campground._id %>">
+                <%= review.campground.campname %>
+            </a>
+        </div>
+        <div class="meta">
+            <span class="price">Rating </span>
+            <span class="stay"><%= review.rating %></span>
+        </div>
+        <div class="description">
+            <p><%= review.text.substring(0, 70) %>...</p>
+        </div>
+    </div>
+</div>

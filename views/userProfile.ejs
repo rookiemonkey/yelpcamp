@@ -19,39 +19,7 @@
             <% } %>
 
             <% foundUserCamps.forEach(camp => { %>
-            <div class="item">
-                <div class="image">
-                    <img src="<%= camp.image %>">
-                </div>
-                <div class="content">
-                    <a href="/campgrounds/camps/<%= camp._id %>"><%= camp.campname %></a>
-                    <div class="meta">
-                        <span class="price">$<%= camp.price %> </span>
-                        <span class="stay"> /night</span>
-                    </div>
-                    <div class="description">
-                        <p><%= camp.location %></p>
-                    </div>
-                    <div class="extra">
-                        <div class="ui labeled button" tabindex="0">
-                            <div class="ui red button">
-                                <i class="heart icon"></i> Likes
-                            </div>
-                            <a class="ui basic red left pointing label">
-                                <%= camp.likes.length %>
-                            </a>
-                        </div>
-                        <div class="ui labeled button" tabindex="0">
-                            <div class="ui orange button">
-                                <i class="star icon"></i> Rating
-                            </div>
-                            <a class="ui basic left pointing orange label">
-                                <%= camp.rating %>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <%- include('./partials/userprofile_campgrounds', { camp }) %>
             <% }) %>
 
         </div>
@@ -64,25 +32,7 @@
             <% } %>
 
             <% foundUserReviews.forEach(review => { %>
-            <div class="item">
-                <div class="image">
-                    <img src="<%= review.campground.image %>">
-                </div>
-                <div class="content">
-                    <div class="header">
-                        <a href="/campgrounds/camps/<%= review.campground._id %>">
-                            <%= review.campground.campname %>
-                        </a>
-                    </div>
-                    <div class="meta">
-                        <span class="price">Rating </span>
-                        <span class="stay"><%= review.rating %></span>
-                    </div>
-                    <div class="description">
-                        <p><%= review.text.substring(0, 70) %>...</p>
-                    </div>
-                </div>
-            </div>
+            <%- include('./partials/userprofile_reviews', { review }) %>
             <% }) %>
 
         </div>
