@@ -3,20 +3,29 @@
 <section id="addReview_parentContainer">
     <div id="formContainer">
 
-        <h1>Adding a review for "<strong><%= campground.campname %></strong>"</h1>
+        <h1 class="ui header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24">
+                <path
+                    d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z" />
+            </svg>
+            <div class="content" style="margin: 0px 15px;">
+                Add Review
+                <div class="sub header">Review for '<%= campground.campname %>'</div>
+            </div>
+        </h1>
 
         <form action="/campgrounds/camps/<%= campground._id %>/reviews/new" method="POST">
             <div class="ui form">
                 <div class="field">
-                    <label for="rating">Leave a rating:</label>
+                    <label for="rating">Review rating:</label>
                     <input id="rating" name="review[rating]" style="display: none;">
                     <div class="ui massive star rating" data-max-rating="5">
                     </div>
                 </div>
 
                 <div class="field">
-                    <label>Review Details: </label>
-                    <textarea rows="2" name="review[text]"></textarea>
+                    <label>Review details: </label>
+                    <textarea rows="12" name="review[text]"></textarea>
                 </div>
 
                 <div class="field">

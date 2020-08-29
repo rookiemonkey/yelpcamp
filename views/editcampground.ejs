@@ -3,7 +3,17 @@
 <section>
     <div id="formContainer">
 
-        <h1>Editing Campground "<strong><%= campground.campname %></strong>"</h1>
+        <h1 class="ui header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24">
+                <path
+                    d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z" />
+            </svg>
+            <div class="content" style="margin: 0px 15px;">
+                Edit Campground
+                <div class="sub header">Editing '<%= campground.campname %>'</div>
+            </div>
+        </h1>
+
         <form class="ui form" action="/campgrounds/camps/<%= campground._id %>/edit?_method=PUT" method="POST"
             enctype="multipart/form-data">
             <div class="field">
