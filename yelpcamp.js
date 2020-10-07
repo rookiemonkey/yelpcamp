@@ -12,7 +12,7 @@ const passportLocal = require("passport-local");
 const session = require("express-session");
 const flash = require("express-flash");
 const mongoose = require("mongoose");
-const User = require("./public/schemas/userSchema");
+const User = require("./schemas/userSchema");
 const PORT = process.env.PORT || 8000;
 
 app.set("view engine", "ejs");
@@ -46,10 +46,16 @@ app.use(function (req, res, next) {
 // =========================================
 // CONNECT/CHECK DATABASE
 // =========================================
-mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DBURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+});
+
 mongoose.connection.on("error", () => {
     console.error("Something went wrong upon connecting to the database. TIMESTAMP:", Date());
 });
+
 mongoose.connection.on("open", () => {
     if (process.env.DBURL == "mongodb://localhost/yelpcamp") {
         console.log("Established connection to Mongo Local database. TIMESTAMP:", Date())
@@ -61,11 +67,11 @@ mongoose.connection.on("open", () => {
 // =========================================
 // ROUTES
 // =========================================
-const campRoutes = require('./public/routes/campgrounds/_routes')
-const commentRoutes = require('./public/routes/comments/_routes')
-const userRoutes = require('./public/routes/users/_routes')
-const reviewRoutes = require('./public/routes/reviews/_routes')
-const notFoundRoute = require('./public/routes/error404')
+const campRoutes = require('./routes/campgrounds/_routes')
+const commentRoutes = require('./routes/comments/_routes')
+const userRoutes = require('./routes/users/_routes')
+const reviewRoutes = require('./routes/reviews/_routes')
+const notFoundRoute = require('./routes/error404')
 
 app.get('/', (req, res) => res.redirect('/campgrounds/camps'))
 app.use('/campgrounds/users', userRoutes);
