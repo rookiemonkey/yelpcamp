@@ -24,7 +24,7 @@ app.locals.moment = require('moment');
 
 // passport configuration
 app.use(session({
-    secret: process.env.SECRET,
+    secret: process.env.PASSPORT_SECRET,
     resave: false,
     saveUninitialized: false
 }))
