@@ -3,4 +3,5 @@ node_modules
 package-lock.json
 .env
 .sass-cache
+env.import.sh
 style.css.map
