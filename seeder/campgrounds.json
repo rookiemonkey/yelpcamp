@@ -11,7 +11,53 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be042",
 			"name": "user"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c01",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.258Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c02",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.259Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c05",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.265Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c03",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.260Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe01",
@@ -25,7 +71,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be044",
 			"name": "rookiemonkey"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c06",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.267Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c07",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.268Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c04",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.261Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c09",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.269Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c08",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.269Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe02",
@@ -39,7 +142,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be045",
 			"name": "petercowell"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c10",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.270Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c11",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.271Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c12",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.271Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c13",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.272Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c15",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.274Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe03",
@@ -53,7 +213,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be046",
 			"name": "michaeljackson"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c14",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.273Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c16",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.274Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c17",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.275Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c18",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.275Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c19",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.276Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe13",
@@ -67,7 +284,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be046",
 			"name": "michaeljackson"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c20",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.276Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c21",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.276Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c22",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.277Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c23",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.277Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c25",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.278Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe04",
@@ -81,7 +355,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be047",
 			"name": "jordanclarkson"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c24",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.278Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c26",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.278Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c27",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.279Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c28",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.279Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c29",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.280Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe05",
@@ -95,7 +426,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be048",
 			"name": "kopikobrown"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c30",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.280Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c31",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.280Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c32",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.281Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c33",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.281Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c34",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.282Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe06",
@@ -109,7 +497,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be049",
 			"name": "mainemendoza"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c35",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.282Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c36",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.282Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c37",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.283Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c38",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.283Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c39",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.284Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe07",
@@ -123,7 +568,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be050",
 			"name": "bethBasina"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c40",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.285Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c42",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.286Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c43",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.286Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c41",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.285Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c46",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.287Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe08",
@@ -137,7 +639,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be051",
 			"name": "kennedyBasina"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c45",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.287Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c44",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.286Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c47",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.288Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c48",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.288Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c50",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.289Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe09",
@@ -151,7 +710,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be044",
 			"name": "rookiemonkey"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c49",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.288Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c51",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.289Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c52",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.289Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c53",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.290Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c54",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.290Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe10",
@@ -165,7 +781,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be045",
 			"name": "petercowell"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c55",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.290Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c56",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.291Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c57",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.291Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c58",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.291Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c60",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.292Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe11",
@@ -179,7 +852,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be046",
 			"name": "michaeljackson"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c59",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.292Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c62",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.293Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c61",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.292Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c63",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.293Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c64",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.294Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe12",
@@ -193,7 +923,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be047",
 			"name": "jordanclarkson"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c65",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.294Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c66",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.294Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be045",
+					"name": "petercowell",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c67",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.295Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be046",
+					"name": "michaeljackson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c68",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.295Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be047",
+					"name": "jordanclarkson",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c69",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.295Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe14",
@@ -207,7 +994,64 @@
 		"uploader": {
 			"id": "5d7a514b5d2c12c7449be048",
 			"name": "kopikobrown"
-		}
+		},
+		"comments": [
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be048",
+					"name": "kopikobrown",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c70",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.296Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be049",
+					"name": "mainemendoza",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c71",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.296Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be050",
+					"name": "bethBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c72",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.296Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be051",
+					"name": "kennedyBasina",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c73",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.297Z",
+				"__v": 0
+			},
+			{
+				"author": {
+					"_id": "5d7a514b5d2c12c7449be044",
+					"name": "rookiemonkey",
+					"avatar": "https://res.cloudinary.com/promises/image/upload/v1596613153/global_default_image.png"
+				},
+				"_id": "5d7a514b5dc7449be0422c74",
+				"comment": "This is the comment body",
+				"createdAt": "2020-10-08T02:44:29.297Z",
+				"__v": 0
+			}
+		]
 	},
 	{
 		"_id": "5f4991efca049f11a06cbe15",
