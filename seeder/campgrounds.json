@@ -1,0 +1,254 @@
+[
+	{
+		"_id": "5f4991efca049f11a06cbe00",
+		"campname": "Baker Shakers",
+		"location": "Makati City, Philippines",
+		"lat": "14.5547",
+		"lng": "121.0244",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "25",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be042",
+			"name": "user"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe01",
+		"campname": "B-Fit Boot Camp",
+		"location": "Camarin, Caloocan",
+		"lat": "14.7562",
+		"lng": "121.0418",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "45",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be044",
+			"name": "rookiemonkey"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe02",
+		"campname": "Body Up",
+		"location": "Baguio, Philippines",
+		"lat": "16.4023",
+		"lng": "120.5960",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "150",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be045",
+			"name": "petercowell"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe03",
+		"campname": "Burn Bootcamp",
+		"location": "Batanes, Philippines",
+		"lat": "20.4485",
+		"lng": "121.9708",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "500",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be046",
+			"name": "michaeljackson"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe13",
+		"campname": "Burn Bootcamp",
+		"location": "Batanes, Philippines",
+		"lat": "20.4485",
+		"lng": "121.9708",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "500",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be046",
+			"name": "michaeljackson"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe04",
+		"campname": "Dangerous Curves",
+		"location": "Siargao Islands, Philippines",
+		"lat": "9.8482",
+		"lng": "126.0458",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "250",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be047",
+			"name": "jordanclarkson"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe05",
+		"campname": "Excess Baggage",
+		"location": "Boracay, Philippines",
+		"lat": "11.9674",
+		"lng": "121.9248",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "750",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be048",
+			"name": "kopikobrown"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe06",
+		"campname": "Fat 2 Fit",
+		"location": "Bora Bora, Philippines",
+		"lat": "16.5004",
+		"lng": "151.7415",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "200",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be049",
+			"name": "mainemendoza"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe07",
+		"campname": "Fit to the Core",
+		"location": "Bora Bora, Philippines",
+		"lat": "10.2990",
+		"lng": "123.9639",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "350",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be050",
+			"name": "bethBasina"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe08",
+		"campname": "Fitness Infusion",
+		"location": "Coron Island, Philippines",
+		"lat": "11.9283",
+		"lng": "120.2397",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "75",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be051",
+			"name": "kennedyBasina"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe09",
+		"campname": "Foxy & Fierce",
+		"location": "Panglao Island, Philippines",
+		"lat": "9.5874",
+		"lng": "123.8076",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "10",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be044",
+			"name": "rookiemonkey"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe10",
+		"campname": "Lost Cause",
+		"location": "Chocolate Hills, Philippines",
+		"lat": "9.8297",
+		"lng": "124.1397",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "85",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be045",
+			"name": "petercowell"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe11",
+		"campname": "Lean Wolves",
+		"location": "Malapascua, Philippines",
+		"lat": "11.3358",
+		"lng": "124.1156",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "95",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be046",
+			"name": "michaeljackson"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe12",
+		"campname": "Picture Imperfect",
+		"location": "Phi Phi Islands, Philippines",
+		"lat": "7.7407",
+		"lng": "98.7784",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "110",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be047",
+			"name": "jordanclarkson"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe14",
+		"campname": "Rapid Fit",
+		"location": "Manila Bay, Philippines",
+		"lat": "14.5188",
+		"lng": "120.7580",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "115",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be048",
+			"name": "kopikobrown"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe15",
+		"campname": "X Gladiator",
+		"location": "Banaue Rice Terraces, Philippines",
+		"lat": "16.9347",
+		"lng": "121.1354",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "120",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be049",
+			"name": "mainemendoza"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe16",
+		"campname": "Body Awake",
+		"location": "Bakhawan, Philippines",
+		"lat": "11.7180",
+		"lng": "122.3857",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "130",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be050",
+			"name": "bethBasina"
+		}
+	},
+	{
+		"_id": "5f4991efca049f11a06cbe17",
+		"campname": "Burn Troop",
+		"location": "Kalibo Aklan, Philippines",
+		"lat": "11.6892",
+		"lng": "122.3674",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod interdum magna, eget interdum nulla eleifend non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vehicula vel est vitae lacinia. Nunc aliquet neque eget purus vehicula tempor. Maecenas ornare volutpat efficitur. Sed sit amet elit eget mauris volutpat vehicula et sed elit. Vivamus varius dui et tempus blandit. Nullam mauris quam, ullamcorper quis justo eget, finibus sagittis justo.",
+		"price": "130",
+		"image": "https://via.placeholder.com/500x500?text=BOOTCAMP",
+		"uploader": {
+			"id": "5d7a514b5d2c12c7449be051",
+			"name": "kennedyBasina"
+		}
+	}
+]

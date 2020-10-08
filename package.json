@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node yelpcamp.js",
     "dev": "nodemon yelpcamp.js",
-    "sass": "node-sass public/style/style.scss public/style/style.css -w"
+    "sass": "node-sass public/style/style.scss public/style/style.css -w",
+    "seed": "node ./seeder/_seeder.js -d && node ./seeder/_seeder.js -i"
   },
   "keywords": [
     "yelpcamp",
@@ -38,6 +39,8 @@
     "validator": "^13.1.1"
   },
   "devDependencies": {
+    "chalk": "^4.1.0",
+    "cli-spinner": "^0.2.10",
     "locus": "^2.0.4",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4"
