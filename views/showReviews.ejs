@@ -49,7 +49,7 @@
 
         </div>
 
-        <div id="reviews_items" class="ui items">
+        <div class="ui items reviews_item_container">
 
             <%if(campground.reviews.length === 0) { %>
             <h3>There are no reviews for this post yet.</h3>
@@ -57,10 +57,10 @@
 
             <% campground.reviews.forEach(review => { %>
             <div id="reviews_item" class="item">
-                <a class="ui tiny image">
-                    <img src="<%= review.author.avatar %>">
+                <a class="ui tiny image review_avatar_container">
+                    <img class="review_avatar" src="<%= review.author.avatar %>">
                 </a>
-                <div class="content">
+                <div class="content review_content">
                     <a class="header" href="/campgrounds/users/<%= review.author._id %>">
                         @<%= review.author.username %>
                     </a>
@@ -121,7 +121,7 @@
 
                     </div>
                     <div class="description">
-                        <p><%= review.text %></p>
+                        <p class="description_text"><%= review.text %></p>
                     </div>
                 </div>
             </div>

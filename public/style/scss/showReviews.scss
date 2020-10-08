@@ -5,7 +5,7 @@
 
 #reviews_parentInnerContainer {
     margin: 10px auto;
-    width: 665px;
+    max-width: 665px;
     
     #reviews_headerContainer {
         #reviews_headerButtons {
@@ -20,6 +20,40 @@
     padding: 10px
 }
 
+.description_text {
+    text-align: justify !important;
+}
+
 #updateReviewBtn, #deleteReviewBtn {
     width: 87px !important;
+}
+
+@media screen and (max-width: 767px) {
+    .review_content {
+        padding-top: 0.75rem !important;
+    }
+
+   .review_avatar_container,
+   .review_avatar { 
+        display: inline !important; 
+        margin: 0px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .review_avatar_container {
+        position: absolute !important;
+        float: right !important;
+        left: 85% !important;
+    }
+
+    #reviews_headerContainer {
+        padding: 10px;
+    }
+
+    #reviews_item,
+    .reviews_item_container {
+        margin-top: 0px !important;
+    }
+
 }

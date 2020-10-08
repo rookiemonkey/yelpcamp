@@ -100,11 +100,6 @@
 
     // campgrounds card description ============================================================
     @media screen and (max-width: 860px) {
-        // hides the description when its to tight
-        div.description {
-            display: none;
-        }
-
         // lessen the font size of the "see more" button
         div#buttonContainer {
             a {
@@ -220,7 +215,9 @@
     }
 
     // over-all single campground =========================================================
-    $camp-card-width-1000px: 100%; // originally 60vw
+
+    $camp-card-width-1000px: 75vw; // originally 60vw
+    $camp-card-width-400px: 100vw;
     @media screen and (max-width: 1000px) {
         section#campgroundParentContainer {
             div#campgroundContainer {
@@ -280,9 +277,65 @@
                                     }
                                 }
                             }
+
+                            div.ui.comments{
+                                max-width: 100% !important;
+
+                                div.comment {
+                                    max-width: 100% !important;
+                                
+                                div.content {
+                                    max-width: 100% !important;
+
+                                    div.text {
+                                        max-width:  100% !important;
+                                    }
+                                }
+                            }
+                            }
                         }
                     }
                 }
             }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+       section#campgroundParentContainer {
+            div#campgroundContainer {
+                article#campgroundCard {
+                    width: $camp-card-width-400px;
+                    div.ui.card {
+                        width: $camp-card-width-400px;
+                        div.image {
+                            width: $camp-card-width-400px;
+                            img {
+                                width: $camp-card-width-400px;
+                            }
+                        }
+                        div.content {
+                            width: $camp-card-width-400px;
+                        }
+                        div.ui.celled.list {
+                            width: $camp-card-width-400px;
+                            div.item {
+                                div.content {
+                                    width: $camp-card-width-400px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        #moreOptionsCampgroundButton {
+            margin-top: 10px !important;
+        }
+
+        #pricetag {
+            transform: scale(0.75) !important;
         }
     }

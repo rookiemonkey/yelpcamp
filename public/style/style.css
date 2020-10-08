@@ -177,7 +177,7 @@ section#campgroundParentContainer {
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.comment:nth-of-type(odd) {
             background-color: rgba(128, 128, 128, 0.1); }
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.comment div.content div.text {
-            width: 39.5vw; }
+            width: 85% !important; }
 
 div#campgrounds-title-container {
   padding: 15px 0px;
@@ -319,7 +319,7 @@ footer.ui.inverted.segment {
 
 #reviews_parentInnerContainer {
   margin: 10px auto;
-  width: 665px; }
+  max-width: 665px; }
   #reviews_parentInnerContainer #reviews_headerContainer #reviews_headerButtons {
     height: 40px;
     margin: 5px auto; }
@@ -328,8 +328,30 @@ footer.ui.inverted.segment {
   border: 1px solid lightgray;
   padding: 10px; }
 
+.description_text {
+  text-align: justify !important; }
+
 #updateReviewBtn, #deleteReviewBtn {
   width: 87px !important; }
+
+@media screen and (max-width: 767px) {
+  .review_content {
+    padding-top: 0.75rem !important; }
+  .review_avatar_container,
+  .review_avatar {
+    display: inline !important;
+    margin: 0px !important;
+    width: 50px !important;
+    height: 50px !important; }
+  .review_avatar_container {
+    position: absolute !important;
+    float: right !important;
+    left: 85% !important; }
+  #reviews_headerContainer {
+    padding: 10px; }
+  #reviews_item,
+  .reviews_item_container {
+    margin-top: 0px !important; } }
 
 @media screen and (max-width: 630px) {
   nav.ui.borderless.main.menu div.ui.text.container div.nav.options {
@@ -368,8 +390,6 @@ footer.ui.inverted.segment {
     font-size: initial; } }
 
 @media screen and (max-width: 860px) {
-  div.description {
-    display: none; }
   div#buttonContainer a button {
     font-size: 0.8rem; } }
 
@@ -416,24 +436,54 @@ footer.ui.inverted.segment {
     section#campgroundParentContainer div#campgroundContainer article#sidebar {
       display: none; }
     section#campgroundParentContainer div#campgroundContainer article#campgroundCard {
-      width: 100%;
+      width: 75vw;
       padding: 0px; }
       section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card {
         border-radius: 0px;
-        width: 100%; }
+        width: 75vw; }
         section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.image {
           border-radius: 0px;
-          width: 100%; }
+          width: 75vw; }
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.image img {
             border-radius: 0px;
-            width: 100%; }
+            width: 75vw; }
         section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.content {
-          width: 100%; }
+          width: 75vw; }
         section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list {
-          width: 100%; }
+          width: 75vw; }
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list form.review-form button#reviewButton {
             width: 20%; }
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content {
-            width: 100%; }
+            width: 75vw; }
           section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item form#update-comment-form div.update-comment-form-buttons button#commentUpdate {
-            width: 45% !important; } }
+            width: 45% !important; }
+          section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.ui.comments {
+            max-width: 100% !important; }
+            section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.ui.comments div.comment {
+              max-width: 100% !important; }
+              section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.ui.comments div.comment div.content {
+                max-width: 100% !important; }
+                section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.ui.comments div.comment div.content div.text {
+                  max-width: 100% !important; } }
+
+@media screen and (max-width: 500px) {
+  section#campgroundParentContainer div#campgroundContainer article#campgroundCard {
+    width: 100vw; }
+    section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card {
+      width: 100vw; }
+      section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.image {
+        width: 100vw; }
+        section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.image img {
+          width: 100vw; }
+      section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.content {
+        width: 100vw; }
+      section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list {
+        width: 100vw; }
+        section#campgroundParentContainer div#campgroundContainer article#campgroundCard div.ui.card div.ui.celled.list div.item div.content {
+          width: 100vw; } }
+
+@media screen and (max-width: 400px) {
+  #moreOptionsCampgroundButton {
+    margin-top: 10px !important; }
+  #pricetag {
+    transform: scale(0.75) !important; } }
