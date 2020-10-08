@@ -10,7 +10,6 @@ const User = require('../schemas/userSchema');
 const Campground = require('../schemas/campgroundSchema');
 const Comment = require('../schemas/commentSchema');
 const Review = require('../schemas/reviewSchema');
-const { json } = require('body-parser');
 
 // check user options: alternatively create an npm script
 if (!process.argv[2]) {
@@ -34,6 +33,7 @@ mongoose.connect(process.env.DBURL, {
 const Users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
 const Campgrounds = JSON.parse(fs.readFileSync(`${__dirname}/campgrounds.json`, 'utf-8'));
 const Comments = JSON.parse(fs.readFileSync(`${__dirname}/comments.json`, 'utf-8'));
+const Reviews = JSON.parse(fs.readFileSync(`${__dirname}/reviews.json`, 'utf-8'));
 
 
 // function to import/delete to database
@@ -52,40 +52,53 @@ const importData = async () => {
         await Comment.create(Comments);
         console.log(chalk.green('   ✓ Dummy Comments imported'));
 
-        const foundCampgrounds = await Campground.find({});
-        const foundComments = await Comment.find({});
+        await Review.create(Reviews);
+        console.log(chalk.green('   ✓ Dummy Reviews imported'));
 
         spinner.stop(true);
-        console.log(chalk.green('✓ Data Imported to the database'));
+        console.log(chalk.green('✓ Data imported'));
         process.exit();
     }
     catch (error) {
-        console.log(chalk.bgRed('Failed Importing'), error)
+        process.stdout.write('\n');
+        console.log(
+            chalk.bgRed('Failed Importing'),
+            chalk.bgRed(error.message),
+            error
+        )
         process.exit();
     }
 }
 
 const destroyData = async () => {
     try {
-        const spinner = new Spinner('Destroying data ... %s');
+        const spinner = new Spinner('Purging data ... %s');
         spinner.setSpinnerString("⣾⣽⣻⢿⡿⣟⣯⣷");
         spinner.start();
 
         await User.deleteMany();
-        console.log(chalk.green('   ✓ Dummy Users purged'));
+        console.log(chalk.yellowBright('   ✓ Dummy Users purged'));
 
         await Campground.deleteMany();
-        console.log(chalk.green('   ✓ Dummy Campground purged'));
+        console.log(chalk.yellowBright('   ✓ Dummy Campground purged'));
 
         await Comment.deleteMany();
-        console.log(chalk.green('   ✓ Dummy Comments purged'));
+        console.log(chalk.yellowBright('   ✓ Dummy Comments purged'));
+
+        await Review.deleteMany();
+        console.log(chalk.yellowBright('   ✓ Dummy Reviews purged'));
 
         spinner.stop(true);
-        console.log(chalk.green('✓ Data Destroyed'));
+        console.log(chalk.yellowBright('✓ Data purged'));
         process.exit();
     }
     catch (error) {
-        console.log(chalk.bgRed('Failed Destroying'), error);
+        process.stdout.write('\n');
+        console.log(
+            chalk.bgRed('Failed Importing'),
+            chalk.bgRed(error.meessage),
+            error
+        )
         process.exit();
     }
 }

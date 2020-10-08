@@ -7,7 +7,7 @@
     "start": "node yelpcamp.js",
     "dev": "nodemon yelpcamp.js",
     "sass": "node-sass public/style/style.scss public/style/style.css -w",
-    "seed": "node ./seeder/_seeder.js -d && node ./seeder/_seeder.js -i"
+    "seeder": "node ./seeder/_seeder.js -d && node ./seeder/_seeder.js -i"
   },
   "keywords": [
     "yelpcamp",
