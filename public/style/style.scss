@@ -24,6 +24,16 @@ $identifier3: 1px solid green;
 // togglers
 .hidden{ display:none }
 
+.icon_custom { 
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 600px) {
+   .icon_custom { 
+        display: none;
+    }
+}
+
 * { margin: 0px; padding: 0px; }
 html { scroll-behavior: smooth; }
 @import './scss/nav.scss';

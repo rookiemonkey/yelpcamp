@@ -10,7 +10,7 @@ div#campgrounds-title-container {
 article#campgrounds {
     padding: 0px 60px 60px 60px;
     margin: auto;
-    max-height: 500px;
+    min-height: 500px;
 
     // each campground card
     section.card {
