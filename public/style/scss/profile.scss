@@ -8,7 +8,7 @@
 }
 
 #profile_camplist {
-    width: 500px;
+    width: 100%;
 }
 
 #profile_camplist_container {
@@ -43,5 +43,9 @@
     #profile_listmetas > li,
     #profile_sidebar > h1 {
         text-align: center;
+    }
+
+    #profile_camplist {
+        padding: 0px 25px;
     }
 }

@@ -24,18 +24,18 @@
         <div class="header item">
           <span><i class="bandcamp icon"></i>Yelp Camp</span>
           <% if (user !== undefined) { %>
-          <a href="/campgrounds/camps" class="item">Home</a>
-          <a href="/campgrounds/camps/new" class="item">Add</a>
-          <a href="/campgrounds/users/me" class="item">Profile</a>
-          <a href="/campgrounds/users/logout" class="item">Logout</a>
+          <a href="/campgrounds/camps" class="item item_custom">Home</a>
+          <a href="/campgrounds/camps/new" class="item item_custom">Add</a>
+          <a href="/campgrounds/users/me" class="item item_custom">Profile</a>
+          <a href="/campgrounds/users/logout" class="item item_custom">Logout</a>
           <% } %>
         </div>
 
         <div class="nav options">
           <% if (user === undefined) { %>
           <a href="/campgrounds/camps" class="item">Home</a>
-          <a href="/campgrounds/users/login" class="item">Login</a>
-          <a href="/campgrounds/users/signup" class="item">Sign Up</a>
+          <a href="/campgrounds/users/login" class="item item_custom">Login</a>
+          <a href="/campgrounds/users/signup" class="item item_custom">Sign Up</a>
           <% } else { %>
           <span class="item">Good day, &nbsp <strong><%= user.username %></strong></span>
           <% if(role != null) { %>

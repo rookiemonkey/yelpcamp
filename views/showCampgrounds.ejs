@@ -20,7 +20,7 @@
 </div>
 
 <!-- campground cards -->
-<article id="campgrounds" class="ui four stackable cards">
+<article id="campgrounds" class="ui stackable cards">
 
     <% campgrounds.forEach(camp => { %>
     <section class="card">
@@ -62,5 +62,38 @@
     <% }) %>
 
 </article>
+
+<script>
+
+    $(document).ready(function () {
+        const width = $(window).width();
+
+        if (width < 1000) {
+            $("#campgrounds").addClass("two");
+        }
+
+        else {
+            $("#campgrounds").addClass("four");
+        }
+    });
+
+    // changes the class
+    $(window).resize(function () {
+        const width = $(window).width();
+
+        if (width < 1000) {
+            $("#campgrounds")
+                .removeClass("four")
+                .addClass("two");
+        }
+
+        else {
+            $("#campgrounds")
+                .removeClass("two")
+                .addClass("four");
+        }
+    });
+
+</script>
 
 <%- include("partials/footer") %>

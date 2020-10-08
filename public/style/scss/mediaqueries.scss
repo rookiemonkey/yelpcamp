@@ -7,6 +7,12 @@
         nav.ui.borderless.main.menu {
             div.ui.text.container {
 
+                div.header.item {
+                    a.item_custom {
+                        display: none !important;
+                    }
+                }
+
                 // selects all the nav options of logged in/not and hides it
                 div.nav.options {
                     display: none;

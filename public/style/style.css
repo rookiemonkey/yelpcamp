@@ -250,7 +250,7 @@ section#resetPasswordFormContainerParent {
   width: 300px; }
 
 #profile_camplist {
-  width: 500px; }
+  width: 100%; }
 
 #profile_camplist_container {
   width: 100% !important;
@@ -276,7 +276,9 @@ section#resetPasswordFormContainerParent {
     align-items: center; }
   #profile_listmetas > li,
   #profile_sidebar > h1 {
-    text-align: center; } }
+    text-align: center; }
+  #profile_camplist {
+    padding: 0px 25px; } }
 
 #addReview_parentContainer {
   min-height: 100vh; }
@@ -354,6 +356,8 @@ footer.ui.inverted.segment {
     margin-top: 0px !important; } }
 
 @media screen and (max-width: 630px) {
+  nav.ui.borderless.main.menu div.ui.text.container div.header.item a.item_custom {
+    display: none !important; }
   nav.ui.borderless.main.menu div.ui.text.container div.nav.options {
     display: none; }
   nav.ui.borderless.main.menu div.ui.text.container div.nav.options_hamburger {
