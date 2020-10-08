@@ -6,6 +6,12 @@ div#campgrounds-title-container {
     h1, h4 { margin: 5px; }
 }
 
+@media screen and (max-width: 500px) {
+   div#campgrounds-title-container {
+       h1 { font-size: 2.5rem; }
+   }
+}
+
 // campground card
 article#campgrounds {
     padding: 0px 60px 60px 60px;

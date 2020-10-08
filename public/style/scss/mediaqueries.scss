@@ -11,6 +11,14 @@
                 div.nav.options {
                     display: none;
                 }
+
+                div.nav.options_hamburger{
+                    width: 100% !important;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin: 0 20px;
+                }
             }
         }
 

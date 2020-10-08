@@ -45,6 +45,10 @@ nav.ui.borderless.main.menu {
       padding: 5px; }
       nav.ui.borderless.main.menu div.ui.text.container div.nav.options a.item:hover, nav.ui.borderless.main.menu div.ui.text.container div.nav.options a.item:active {
         background-color: #20639B; }
+    nav.ui.borderless.main.menu div.ui.text.container div.nav.options_hamburger {
+      display: none;
+      color: whitesmoke;
+      z-index: 99999; }
 
 header#headline {
   display: flex;
@@ -183,6 +187,10 @@ div#campgrounds-title-container {
     font-size: 3.5rem; }
   div#campgrounds-title-container h1, div#campgrounds-title-container h4 {
     margin: 5px; }
+
+@media screen and (max-width: 500px) {
+  div#campgrounds-title-container h1 {
+    font-size: 2.5rem; } }
 
 article#campgrounds {
   padding: 0px 60px 60px 60px;
@@ -326,6 +334,12 @@ footer.ui.inverted.segment {
 @media screen and (max-width: 630px) {
   nav.ui.borderless.main.menu div.ui.text.container div.nav.options {
     display: none; }
+  nav.ui.borderless.main.menu div.ui.text.container div.nav.options_hamburger {
+    width: 100% !important;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 20px; }
   header#headline div#headlineContainer {
     transform: scale(1.3); }
     header#headline div#headlineContainer h1 {

@@ -46,5 +46,11 @@ nav.ui.borderless.main.menu {
                 background-color: $color-accent2;
             }
         }
+
+        div.nav.options_hamburger{
+            display: none;
+            color: whitesmoke;
+            z-index: 99999;
+        }
     }
 }
